@@ -4,21 +4,36 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | Hexo</title>
+  <title>抽奖活动业务逻辑的处理 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="数据表结构如下：
+
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT &apos;微信卡券ID&apos;,
+  `appid` char(32) NOT NULL COMMENT &apos;公众号的appid&apos;,
+  `statu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/26/hello-world/index.html">
+<meta property="og:title" content="抽奖活动业务逻辑的处理">
+<meta property="og:url" content="http://yoursite.com/2015/03/27/e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-04-26T01:50:54.000Z">
+<meta property="og:description" content="数据表结构如下：
+
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT &apos;微信卡券ID&apos;,
+  `appid` char(32) NOT NULL COMMENT &apos;公众号的appid&apos;,
+  `statu">
+<meta property="og:updated_time" content="2016-04-26T11:03:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="抽奖活动业务逻辑的处理">
+<meta name="twitter:description" content="数据表结构如下：
+
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT &apos;微信卡券ID&apos;,
+  `appid` char(32) NOT NULL COMMENT &apos;公众号的appid&apos;,
+  `statu">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -200,11 +215,11 @@ Quick">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/26/hello-world/" class="article-date">
-  	<time datetime="2016-04-26T01:50:54.000Z" itemprop="datePublished">2016-04-26</time>
+      <a href="/2015/03/27/e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86/" class="article-date">
+  	<time datetime="2015-03-27T04:17:59.000Z" itemprop="datePublished">2015-03-27</time>
 </a>
     </div>
   
@@ -217,7 +232,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      抽奖活动业务逻辑的处理
     </h1>
   
 
@@ -225,7 +240,15 @@ Quick">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽奖算法/">抽奖算法</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/php/">php</a><a class="article-category-link" href="/categories/php/web/">web</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -233,16 +256,107 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>数据表结构如下：</p>
+<pre>
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT '微信卡券ID',
+  `appid` char(32) NOT NULL COMMENT '公众号的appid',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '卡券是否用来摇奖，0代表否，1代表是',
+  `prob` int(10) unsigned NOT NULL COMMENT '奖品概率（概率=当前数/总和)',
+  `activity_id` varchar(100) DEFAULT '',
+  `shakecard_id` varchar(100) NOT NULL,
+  `title` varchar(100) DEFAULT NULL COMMENT '卡券标题',
+  PRIMARY KEY (`id`),
+  KEY `appid` (`appid`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='卡券表，这里就是指奖品表';
 
+CREATE TABLE `shakecard_rid_cookie` (
+  `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rid` char(32) NOT NULL COMMENT '一个随机不重复的数',
+  `mp_user_id` int(10) unsigned DEFAULT NULL COMMENT '公众号用户中间表id',
+  `activity_id` varchar(100) NOT NULL DEFAULT '' COMMENT '活动id',
+  `today_shake_count` int(10) unsigned NOT NULL COMMENT '今天的摇奖次数',
+  `total_shake_count` int(10) unsigned NOT NULL COMMENT '总共的摇奖次数',
+  PRIMARY KEY (`id`),
+  KEY `mp_user_id` (`mp_user_id`),
+  KEY `today_shake_count` (`today_shake_count`),
+  KEY `rid` (`rid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='cookie和openid对应表';
+
+CREATE TABLE `shakecard_record` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `mp_user_id` int(10) unsigned NOT NULL COMMENT '公众号用户中间表id',
+  `status` tinyint(3) unsigned NOT NULL COMMENT '是否中奖,0代表未中,1代表中',
+  `card_id` int(11) NOT NULL COMMENT '获得奖券的id',
+  `action_time` datetime NOT NULL COMMENT '摇一摇的时间',
+  PRIMARY KEY (`id`),
+  KEY `action_time` (`action_time`),
+  KEY `mp_user_id` (`mp_user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='记录表';
+</pre>
+
+<p>主要代码如下,在本例子中微信卡券就是一种奖品。。</p>
+<pre class="brush: php; gutter: true">
+&lt;?php
+/****************************抽奖的概率算法*****************************/
+function get_rand($proArr) {
+    $result = '';
+    //概率数组的总概率精度
+    $proSum = array_sum($proArr);
+    //概率数组循环
+    foreach ($proArr as $key => $proCur) {//$proCur的值为100,200,300,400
+        $randNum = mt_rand(1, $proSum); //$randNum位1~1000的一个随机数
+        if ($randNum <= intval($procur))="" {="" 如果这个随机数小于等于100="" $result="$key;" break;="" }="" else="" $prosum="" -="intval($proCur);" unset="" ($proarr);="" return="" $result;="" define('__prefix__','shakecard_');="" 首先查看该用户摇的次数是否已满，如果满了直接返回前端已满的状态，这就不举例了="" 为了防止用户中奖的数量大于库存需要做些安全上的处理，我这里用的锁表，也可以用事务。。="" *********************="" 从下面开始="" 到执行="" unlock="" tables="" 之间操作的所有表都需要在下面一行加上="" ",="" `表名`="" write"="" $dsn="mysql:dbname=testdb;host=127.0.0.1" ;="" $user="dbuser" $password="dbpass" $db="new" pdo($dsn,="" $user,="" $password);="" $db-="">exec("LOCK TABLES `__PREFIX__card` WRITE,`__PREFIX__record` WRITE,`__PREFIX__rid_cookie` WRITE");
+
+//查询出奖品的数据
+$card_data = array(array(),array());//得到一个二维数组
+
+$arr = array();
+$win_prob = 0;
+foreach ($card_data as $key => $val) {
+    $arr[$key] = intval($val['prob']);
+    $win_prob += intval($val['prob']);
+}
+//增加一个未中奖
+$arr[] = 100 - $win_prob;
+
+$rid = get_rand($arr); //根据概率获取奖项id
+
+if($rid === count($arr) - 1){//未中奖            
+    $status = 0;
+    $card_id = '';
+    $json_data = array(
+        'status' => $status,
+        'card_id' => $card_id,
+    );
+}else{
+    $result = $card_data[$rid]; //中奖项array
+    $status = 1;
+    $card_id= $result['card_id'];
+
+    //返回数据
+    $json_data = array(
+        'status' => $status,
+        'card_id' => $card_id,
+    );
+}
+
+//存取数据到rid_cookie表,摇的数量增加
+$sql = "UPDATE `__PREFIX__rid_cookie` SET `today_shake_count`=`today_shake_count`+1,`total_shake_count`=`total_shake_count`+1 WHERE `mp_user_id`='$mp_user_id'";
+$res = $db->exec($sql);
+
+/******************存取抽奖记录*********************/
+$sql = "INSERT INTO `record` (`mp_user_id`,`card_id`,`status`,`action_time`) VALUES('$mp_user_id','$card_id','$status','$datetime')";
+$res = $db->exec($sql);
+
+// [cc] 解锁表
+$db->exec("UNLOCK TABLES");
+
+//前端ajax请求，输出json结果
+echo json_encode($json_data);
+</=></pre>
       
     </div>
     
@@ -251,9 +365,18 @@ Quick">
     
 <nav id="article-nav">
   
+    <a href="/2015/05/10/rsync-e5-ae-9e-e7-8e-b0-e5-a4-9a-e5-8f-b0linux-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-9a-84-e6-96-87-e4-bb-b6-e5-90-8c-e6-ad-a5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          rsync实现多台linux服务器的文件同步
+        
+      </div>
+    </a>
   
-    <a href="/2016/03/17/redis-e5-ae-9e-e7-8e-b0-e7-82-b9-e8-b5-9e-e5-8a-9f-e8-83-bd/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis实现点赞功能</div>
+  
+    <a href="/2014/11/29/e5-be-ae-e4-bf-a1-e4-bc-81-e4-b8-9a-e5-8f-b7-e5-9b-9e-e8-b0-83-e6-a8-a1-e5-bc-8f-e5-a6-82-e4-bd-95-e5-bc-80-e5-90-af-e5-8f-8a-e4-bd-bf-e7-94-a8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信企业号回调模式如何开启及使用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -288,7 +411,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2016/04/26/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86" data-title="抽奖活动业务逻辑的处理" data-url="http://yoursite.com/2015/03/27/e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
