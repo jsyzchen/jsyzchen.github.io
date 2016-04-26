@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>抽奖活动业务逻辑的处理 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据表结构如下：
+
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT &apos;微信卡券ID&apos;,
+  `appid` char(32) NOT NULL COMMENT &apos;公众号的appid&apos;,
+  `statu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽奖活动业务逻辑的处理">
+<meta property="og:url" content="http://yoursite.com/2015/03/27/e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据表结构如下：
+
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT &apos;微信卡券ID&apos;,
+  `appid` char(32) NOT NULL COMMENT &apos;公众号的appid&apos;,
+  `statu">
+<meta property="og:updated_time" content="2016-04-26T14:09:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抽奖活动业务逻辑的处理">
+<meta name="twitter:description" content="数据表结构如下：
+
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT &apos;微信卡券ID&apos;,
+  `appid` char(32) NOT NULL COMMENT &apos;公众号的appid&apos;,
+  `statu">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/coreseek/" style="font-size: 10px;">coreseek</a> <a href="/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/tags/inotify/" style="font-size: 10px;">inotify</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sphinx/" style="font-size: 10px;">sphinx</a> <a href="/tags/yar/" style="font-size: 13.33px;">yar</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/抽奖算法/" style="font-size: 10px;">抽奖算法</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">John Doe</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/27/e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86-1/" class="article-date">
+  	<time datetime="2015-03-27T04:17:59.000Z" itemprop="datePublished">2015-03-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      抽奖活动业务逻辑的处理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽奖算法/">抽奖算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/php/">php</a><a class="article-category-link" href="/categories/php/web/">web</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据表结构如下：</p>
+<pre>
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT '微信卡券ID',
+  `appid` char(32) NOT NULL COMMENT '公众号的appid',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '卡券是否用来摇奖，0代表否，1代表是',
+  `prob` int(10) unsigned NOT NULL COMMENT '奖品概率（概率=当前数/总和)',
+  `activity_id` varchar(100) DEFAULT '',
+  `shakecard_id` varchar(100) NOT NULL,
+  `title` varchar(100) DEFAULT NULL COMMENT '卡券标题',
+  PRIMARY KEY (`id`),
+  KEY `appid` (`appid`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='卡券表，这里就是指奖品表';
+
+CREATE TABLE `shakecard_rid_cookie` (
+  `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rid` char(32) NOT NULL COMMENT '一个随机不重复的数',
+  `mp_user_id` int(10) unsigned DEFAULT NULL COMMENT '公众号用户中间表id',
+  `activity_id` varchar(100) NOT NULL DEFAULT '' COMMENT '活动id',
+  `today_shake_count` int(10) unsigned NOT NULL COMMENT '今天的摇奖次数',
+  `total_shake_count` int(10) unsigned NOT NULL COMMENT '总共的摇奖次数',
+  PRIMARY KEY (`id`),
+  KEY `mp_user_id` (`mp_user_id`),
+  KEY `today_shake_count` (`today_shake_count`),
+  KEY `rid` (`rid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='cookie和openid对应表';
+
+CREATE TABLE `shakecard_record` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `mp_user_id` int(10) unsigned NOT NULL COMMENT '公众号用户中间表id',
+  `status` tinyint(3) unsigned NOT NULL COMMENT '是否中奖,0代表未中,1代表中',
+  `card_id` int(11) NOT NULL COMMENT '获得奖券的id',
+  `action_time` datetime NOT NULL COMMENT '摇一摇的时间',
+  PRIMARY KEY (`id`),
+  KEY `action_time` (`action_time`),
+  KEY `mp_user_id` (`mp_user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='记录表';
+</pre>
+
+<p>主要代码如下,在本例子中微信卡券就是一种奖品。。</p>
+<pre class="brush: php; gutter: true">
+&lt;?php
+/****************************抽奖的概率算法*****************************/
+function get_rand($proArr) {
+    $result = '';
+    //概率数组的总概率精度
+    $proSum = array_sum($proArr);
+    //概率数组循环
+    foreach ($proArr as $key => $proCur) {//$proCur的值为100,200,300,400
+        $randNum = mt_rand(1, $proSum); //$randNum位1~1000的一个随机数
+        if ($randNum <= intval($procur))="" {="" 如果这个随机数小于等于100="" $result="$key;" break;="" }="" else="" $prosum="" -="intval($proCur);" unset="" ($proarr);="" return="" $result;="" define('__prefix__','shakecard_');="" 首先查看该用户摇的次数是否已满，如果满了直接返回前端已满的状态，这就不举例了="" 为了防止用户中奖的数量大于库存需要做些安全上的处理，我这里用的锁表，也可以用事务。。="" *********************="" 从下面开始="" 到执行="" unlock="" tables="" 之间操作的所有表都需要在下面一行加上="" ",="" `表名`="" write"="" $dsn="mysql:dbname=testdb;host=127.0.0.1" ;="" $user="dbuser" $password="dbpass" $db="new" pdo($dsn,="" $user,="" $password);="" $db-="">exec("LOCK TABLES `__PREFIX__card` WRITE,`__PREFIX__record` WRITE,`__PREFIX__rid_cookie` WRITE");
+
+//查询出奖品的数据
+$card_data = array(array(),array());//得到一个二维数组
+
+$arr = array();
+$win_prob = 0;
+foreach ($card_data as $key => $val) {
+    $arr[$key] = intval($val['prob']);
+    $win_prob += intval($val['prob']);
+}
+//增加一个未中奖
+$arr[] = 100 - $win_prob;
+
+$rid = get_rand($arr); //根据概率获取奖项id
+
+if($rid === count($arr) - 1){//未中奖            
+    $status = 0;
+    $card_id = '';
+    $json_data = array(
+        'status' => $status,
+        'card_id' => $card_id,
+    );
+}else{
+    $result = $card_data[$rid]; //中奖项array
+    $status = 1;
+    $card_id= $result['card_id'];
+
+    //返回数据
+    $json_data = array(
+        'status' => $status,
+        'card_id' => $card_id,
+    );
+}
+
+//存取数据到rid_cookie表,摇的数量增加
+$sql = "UPDATE `__PREFIX__rid_cookie` SET `today_shake_count`=`today_shake_count`+1,`total_shake_count`=`total_shake_count`+1 WHERE `mp_user_id`='$mp_user_id'";
+$res = $db->exec($sql);
+
+/******************存取抽奖记录*********************/
+$sql = "INSERT INTO `record` (`mp_user_id`,`card_id`,`status`,`action_time`) VALUES('$mp_user_id','$card_id','$status','$datetime')";
+$res = $db->exec($sql);
+
+// [cc] 解锁表
+$db->exec("UNLOCK TABLES");
+
+//前端ajax请求，输出json结果
+echo json_encode($json_data);
+</=></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/03/27/e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          抽奖活动业务逻辑的处理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/29/e5-be-ae-e4-bf-a1-e4-bc-81-e4-b8-9a-e5-8f-b7-e5-9b-9e-e8-b0-83-e6-a8-a1-e5-bc-8f-e5-a6-82-e4-bd-95-e5-bc-80-e5-90-af-e5-8f-8a-e4-bd-bf-e7-94-a8-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信企业号回调模式如何开启及使用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86-1" data-title="抽奖活动业务逻辑的处理" data-url="http://yoursite.com/2015/03/27/e6-8a-bd-e5-a5-96-e6-b4-bb-e5-8a-a8-e4-b8-9a-e5-8a-a1-e9-80-bb-e8-be-91-e7-9a-84-e5-a4-84-e7-90-86-1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 John Doe
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
