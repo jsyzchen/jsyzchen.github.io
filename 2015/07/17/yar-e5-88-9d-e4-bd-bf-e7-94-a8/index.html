@@ -18,16 +18,16 @@ cd /usr/lo">
 一、准备工作
 1.安装msgpack扩展下载：http://pecl.php.net/package/msgpack，然后上传到/usr/local目录下，安装完可以删了。
 cd /usr/lo">
-<meta property="og:image" content="http://www.jsyzchen.com/wp-content/uploads/2015/07/20150718114528.png">
-<meta property="og:image" content="http://www.jsyzchen.com/wp-content/uploads/2015/07/client.png">
-<meta property="og:updated_time" content="2016-04-26T14:44:57.000Z">
+<meta property="og:image" content="http://www.jsyzchen.com/uploads/2015/07/20150718114528.png">
+<meta property="og:image" content="http://www.jsyzchen.com/uploads/2015/07/client.png">
+<meta property="og:updated_time" content="2016-04-27T02:01:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yar初使用">
 <meta name="twitter:description" content="Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：http://www.laruence.com/2012/09/15/2779.html下面切入正题：
 一、准备工作
 1.安装msgpack扩展下载：http://pecl.php.net/package/msgpack，然后上传到/usr/local目录下，安装完可以删了。
 cd /usr/lo">
-<meta name="twitter:image" content="http://www.jsyzchen.com/wp-content/uploads/2015/07/20150718114528.png">
+<meta name="twitter:image" content="http://www.jsyzchen.com/uploads/2015/07/20150718114528.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -258,9 +258,9 @@ cd /usr/lo">
 <p><strong>二、实例</strong></p>
 <p>1.server端代码,server.php</p>
 <p><pre><br>&lt;?php<br>class API {<br>    public function api($parameter, $option = “foo”) {<br>        $arr = array(‘code’=&gt;200,’msg’=&gt;’成功’,’data’=&gt;’返回数据’);<br>        return json_encode($arr);<br>    }<br>    protected function client_can_not_see() {<br>    }<br>}<br>$service = new Yar_Server(new API());<br>$service-&gt;handle();<br></pre><br><a href="http://www.jsyzchen.com/wp-content/uploads/2015/07/serverphp.png" target="_blank" rel="external">
-</a><br>2.get请求server端时，会显示接口文档<br><a href="http://www.jsyzchen.com/wp-content/uploads/2015/07/20150718114528.png" target="_blank" rel="external"><img src="http://www.jsyzchen.com/wp-content/uploads/2015/07/20150718114528.png" alt="yar服务端get请求"></a><br>3.客户端代码，client.php</p>
-<p><pre>&lt;?php<br>error_reporting(E_ALL);<br>//简单的串行调用<br>$client = new Yar_Client(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“);<br>$result = $client-&gt;api(“parameter”);<br>//并行化调用<br>function callback($retval, $callinfo) {<br>    if ($callinfo == NULL) {<br>       //做本地的逻辑<br>       return TRUE;<br>    }<br>    echo “method: “ , $callinfo[‘method’] , “ result: “, $retval , “\n”;<br>}<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>/<em> 发送所有注册的调用, 等待返回, 返回后Yar会调用callback回掉函数 </em>/<br>Yar_Concurrent_Client::loop(); //send<br>?&gt;<br></pre><br><a href="http://www.jsyzchen.com/wp-content/uploads/2015/07/clientphp.png" target="_blank" rel="external">
-</a><br>4.客户端显示<br><a href="http://www.jsyzchen.com/wp-content/uploads/2015/07/client.png" target="_blank" rel="external"><img src="http://www.jsyzchen.com/wp-content/uploads/2015/07/client.png" alt="client端显示"></a><br>三、更多Yar文档请参考<a href="http://php.net/manual/zh/book.yar.php" target="_blank" rel="external">http://php.net/manual/zh/book.yar.php</a></p>
+</a><br>2.get请求server端时，会显示接口文档<br><a href="http://www.jsyzchen.com/wp-content/uploads/2015/07/20150718114528.png" target="_blank" rel="external"><img src="http://www.jsyzchen.com/uploads/2015/07/20150718114528.png" alt="yar服务端get请求"></a><br>3.客户端代码，client.php</p>
+<p><pre>&lt;?php<br>error_reporting(E_ALL);<br>//简单的串行调用<br>$client = new Yar_Client(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“);<br>$result = $client-&gt;api(“parameter”);<br>//并行化调用<br>function callback($retval, $callinfo) {<br>    if ($callinfo == NULL) {<br>       //做本地的逻辑<br>       return TRUE;<br>    }<br>    echo “method: “ , $callinfo[‘method’] , “ result: “, $retval , “\n”;<br>}<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>/<em> 发送所有注册的调用, 等待返回, 返回后Yar会调用callback回掉函数 </em>/<br>Yar_Concurrent_Client::loop(); //send<br>?&gt;<br></pre><br><a href="http://www.jsyzchen.com/uploads/2015/07/clientphp.png" target="_blank" rel="external">
+</a><br>4.客户端显示<br><a href="http://www.jsyzchen.com/uploads/2015/07/client.png" target="_blank" rel="external"><img src="http://www.jsyzchen.com/uploads/2015/07/client.png" alt="client端显示"></a><br>三、更多Yar文档请参考<a href="http://php.net/manual/zh/book.yar.php" target="_blank" rel="external">http://php.net/manual/zh/book.yar.php</a></p>
 
       
     </div>
