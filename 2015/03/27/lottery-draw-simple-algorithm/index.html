@@ -4,23 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>编译安装PHP7 | 雨泪漂古 | 过往云烟</title>
+  <title>抽奖活动业务逻辑的处理 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：
-http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
+  <meta name="description" content="数据表结构如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编译安装PHP7">
-<meta property="og:url" content="http://jayzchen.com/2015/12/14/e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85php7/index.html">
+<meta property="og:title" content="抽奖活动业务逻辑的处理">
+<meta property="og:url" content="http://jayzchen.com/2015/03/27/lottery-draw-simple-algorithm/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：
-http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/12/php7-v.jpg">
-<meta property="og:updated_time" content="2016-04-28T13:09:17.000Z">
+<meta property="og:description" content="数据表结构如下：">
+<meta property="og:updated_time" content="2016-04-26T14:53:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编译安装PHP7">
-<meta name="twitter:description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：
-http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
-<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2015/12/php7-v.jpg">
+<meta name="twitter:title" content="抽奖活动业务逻辑的处理">
+<meta name="twitter:description" content="数据表结构如下：">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -76,7 +71,7 @@ http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -169,11 +164,11 @@ http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85php7" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-lottery-draw-simple-algorithm" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/14/e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85php7/" class="article-date">
-  	<time datetime="2015-12-14T06:51:15.000Z" itemprop="datePublished">2015-12-14</time>
+      <a href="/2015/03/27/lottery-draw-simple-algorithm/" class="article-date">
+  	<time datetime="2015-03-27T04:17:59.000Z" itemprop="datePublished">2015-03-27</time>
 </a>
     </div>
   
@@ -186,7 +181,7 @@ http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
         
   
     <h1 class="article-title" itemprop="name">
-      编译安装PHP7
+      抽奖活动业务逻辑的处理
     </h1>
   
 
@@ -195,12 +190,12 @@ http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽奖算法/">抽奖算法</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/linux/">linux</a><a class="article-category-link" href="/categories/linux/php/">php</a><a class="article-category-link" href="/categories/linux/php/web/">web</a>
+	<a class="article-category-link" href="/categories/php/">php</a><a class="article-category-link" href="/categories/php/web/">web</a>
 	</div>
 
 
@@ -210,69 +205,107 @@ http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：</p>
-<p><a href="http://php.net/get/php-7.0.0.tar.gz/from/a/mirror" target="_blank" rel="external">http://php.net/get/php-7.0.0.tar.gz/from/a/mirror</a></p>
-<p><a id="more"></a> 2、解压，进入PHP目录</p>
-<pre class="bash">tar zxvf php-7.0.0.tar.gz
-cd php-7.0.0</pre>
+        <p>数据表结构如下：<br><a id="more"></a></p>
+<pre>
+CREATE TABLE `shakecard_card` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `card_id` varchar(120) NOT NULL COMMENT '微信卡券ID',
+  `appid` char(32) NOT NULL COMMENT '公众号的appid',
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '卡券是否用来摇奖，0代表否，1代表是',
+  `prob` int(10) unsigned NOT NULL COMMENT '奖品概率（概率=当前数/总和)',
+  `activity_id` varchar(100) DEFAULT '',
+  `shakecard_id` varchar(100) NOT NULL,
+  `title` varchar(100) DEFAULT NULL COMMENT '卡券标题',
+  PRIMARY KEY (`id`),
+  KEY `appid` (`appid`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='卡券表，这里就是指奖品表';
 
-<p>3、安装依赖包，我用的centos,偷下懒，直接yum安装</p>
-<pre class="bash">yum install -y gcc gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers
+CREATE TABLE `shakecard_rid_cookie` (
+  `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rid` char(32) NOT NULL COMMENT '一个随机不重复的数',
+  `mp_user_id` int(10) unsigned DEFAULT NULL COMMENT '公众号用户中间表id',
+  `activity_id` varchar(100) NOT NULL DEFAULT '' COMMENT '活动id',
+  `today_shake_count` int(10) unsigned NOT NULL COMMENT '今天的摇奖次数',
+  `total_shake_count` int(10) unsigned NOT NULL COMMENT '总共的摇奖次数',
+  PRIMARY KEY (`id`),
+  KEY `mp_user_id` (`mp_user_id`),
+  KEY `today_shake_count` (`today_shake_count`),
+  KEY `rid` (`rid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='cookie和openid对应表';
+
+CREATE TABLE `shakecard_record` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `mp_user_id` int(10) unsigned NOT NULL COMMENT '公众号用户中间表id',
+  `status` tinyint(3) unsigned NOT NULL COMMENT '是否中奖,0代表未中,1代表中',
+  `card_id` int(11) NOT NULL COMMENT '获得奖券的id',
+  `action_time` datetime NOT NULL COMMENT '摇一摇的时间',
+  PRIMARY KEY (`id`),
+  KEY `action_time` (`action_time`),
+  KEY `mp_user_id` (`mp_user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='记录表';
 </pre>
 
-<p>4、/alidata/server/php-7.0/ 为我的PHP安装目录，一般是在/usr/local下，大家按照自己的习惯替换</p>
-<pre class="bash">./configure --prefix=/alidata/server/php-7.0 
-\ --with-config-file-path=/alidata/server/php-7.0/etc 
-\ --with-mysql=mysqlnd 
-\ --with-pdo-mysql=mysqlnd 
-\ --with-mysqli=mysqlnd 
-\ --with-gd 
-\ --with-iconv 
-\ --with-zlib 
-\ --enable-xml 
-\ --enable-bcmath 
-\ --enable-shmop 
-\ --enable-sysvsem 
-\ --enable-inline-optimization 
-\ --enable-mbregex 
-\ --enable-fpm 
-\ --enable-mbstring 
-\ --enable-ftp 
-\ --enable-gd-native-ttf 
-\ --with-openssl 
-\ --enable-pcntl 
-\ --enable-sockets 
-\ --with-xmlrpc 
-\ --enable-zip 
-\ --enable-soap 
-\ --without-pear 
-\ --with-gettext 
-\ --enable-session 
-\ --with-mcrypt 
-\ --with-curl 
-\ --with-jpeg-dir 
-\ --with-freetype-dir 
-\ --with-xpm-dir=/usr 
-\ --with-bz2</pre>
+<p>主要代码如下,在本例子中微信卡券就是一种奖品。。</p>
+<pre class="brush: php; gutter: true">
+&lt;?php
+/****************************抽奖的概率算法*****************************/
+function get_rand($proArr) {
+    $result = '';
+    //概率数组的总概率精度
+    $proSum = array_sum($proArr);
+    //概率数组循环
+    foreach ($proArr as $key => $proCur) {//$proCur的值为100,200,300,400
+        $randNum = mt_rand(1, $proSum); //$randNum位1~1000的一个随机数
+        if ($randNum <= intval($procur))="" {="" 如果这个随机数小于等于100="" $result="$key;" break;="" }="" else="" $prosum="" -="intval($proCur);" unset="" ($proarr);="" return="" $result;="" define('__prefix__','shakecard_');="" 首先查看该用户摇的次数是否已满，如果满了直接返回前端已满的状态，这就不举例了="" 为了防止用户中奖的数量大于库存需要做些安全上的处理，我这里用的锁表，也可以用事务。。="" *********************="" 从下面开始="" 到执行="" unlock="" tables="" 之间操作的所有表都需要在下面一行加上="" ",="" `表名`="" write"="" $dsn="mysql:dbname=testdb;host=127.0.0.1" ;="" $user="dbuser" $password="dbpass" $db="new" pdo($dsn,="" $user,="" $password);="" $db-="">exec("LOCK TABLES `__PREFIX__card` WRITE,`__PREFIX__record` WRITE,`__PREFIX__rid_cookie` WRITE");
 
-<p>5、</p>
-<pre class="bash">make &amp;&amp; make install</pre>
+//查询出奖品的数据
+$card_data = array(array(),array());//得到一个二维数组
 
-<p>6、安装完成后</p>
-<pre class="bash">cp php.ini-production /alidata/server/php-7.0/etc/php.ini
-cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
-cp php-fpm.conf.default php-fpm.conf
-cp www.conf.default www.conf</pre>
+$arr = array();
+$win_prob = 0;
+foreach ($card_data as $key => $val) {
+    $arr[$key] = intval($val['prob']);
+    $win_prob += intval($val['prob']);
+}
+//增加一个未中奖
+$arr[] = 100 - $win_prob;
 
-<p>7、建立软链接</p>
-<pre class="bash">ln -s /alidata/server/php-7.0/bin/php /usr/bin/php
-ln -s /alidata/server/php-7.0/sbin/php-fpm /usr/bin/php-fpm</pre>
+$rid = get_rand($arr); //根据概率获取奖项id
 
-<p>8、查看效果</p>
-<pre class="bash">php -v</pre>
+if($rid === count($arr) - 1){//未中奖            
+    $status = 0;
+    $card_id = '';
+    $json_data = array(
+        'status' => $status,
+        'card_id' => $card_id,
+    );
+}else{
+    $result = $card_data[$rid]; //中奖项array
+    $status = 1;
+    $card_id= $result['card_id'];
 
-<p><a href="http://www.jsyzchen.com/wp-content/uploads/2015/12/php7-v.jpg" target="_blank" rel="external"><img src="http://img.jsyzchen.com/uploads/2015/12/php7-v.jpg" alt="php7-v"></a></p>
+    //返回数据
+    $json_data = array(
+        'status' => $status,
+        'card_id' => $card_id,
+    );
+}
 
+//存取数据到rid_cookie表,摇的数量增加
+$sql = "UPDATE `__PREFIX__rid_cookie` SET `today_shake_count`=`today_shake_count`+1,`total_shake_count`=`total_shake_count`+1 WHERE `mp_user_id`='$mp_user_id'";
+$res = $db->exec($sql);
+
+/******************存取抽奖记录*********************/
+$sql = "INSERT INTO `record` (`mp_user_id`,`card_id`,`status`,`action_time`) VALUES('$mp_user_id','$card_id','$status','$datetime')";
+$res = $db->exec($sql);
+
+// [cc] 解锁表
+$db->exec("UNLOCK TABLES");
+
+//前端ajax请求，输出json结果
+echo json_encode($json_data);
+</=></pre>
       
     </div>
     
@@ -281,18 +314,18 @@ ln -s /alidata/server/php-7.0/sbin/php-fpm /usr/bin/php-fpm</pre>
     
 <nav id="article-nav">
   
-    <a href="/2016/02/15/coreseek-e6-94-af-e6-8c-81-e4-b8-ad-e6-96-87-e5-85-a8-e6-96-87-e6-a3-80-e7-b4-a2-e6-90-9c-e7-b4-a2-e7-9a-84sphinx-e7-9a-84-e5-ae-89-e8-a3-85-e6-b5-8b-e8-af-95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/05/10/rsync-linux-sync-file/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Coreseek的安装测试
+          rsync实现多台linux服务器的文件同步
         
       </div>
     </a>
   
   
-    <a href="/2015/07/21/angularjs-e7-bb-93-e5-90-88yar-e6-9e-84-e5-bb-ba-e4-b8-80-e6-ac-beemail-e5-b0-8f-e5-ba-94-e7-94-a8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AngularJs结合Yar构建一款email小应用</div>
+    <a href="/2014/11/29/wechat-qy-first-config-use/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信企业号回调模式如何开启及使用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -327,7 +360,7 @@ ln -s /alidata/server/php-7.0/sbin/php-fpm /usr/bin/php-fpm</pre>
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85php7" data-title="编译安装PHP7" data-url="http://jayzchen.com/2015/12/14/e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85php7/"></div>
+	<div class="ds-thread" data-thread-key="lottery-draw-simple-algorithm" data-title="抽奖活动业务逻辑的处理" data-url="http://jayzchen.com/2015/03/27/lottery-draw-simple-algorithm/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

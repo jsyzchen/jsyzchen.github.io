@@ -4,18 +4,23 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Redis实现点赞功能 | 雨泪漂古 | 过往云烟</title>
+  <title>编译安装PHP7 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.PHP代码">
+  <meta name="description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：
+http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis实现点赞功能">
-<meta property="og:url" content="http://jayzchen.com/2016/03/17/redis-e5-ae-9e-e7-8e-b0-e7-82-b9-e8-b5-9e-e5-8a-9f-e8-83-bd/index.html">
+<meta property="og:title" content="编译安装PHP7">
+<meta property="og:url" content="http://jayzchen.com/2015/12/14/install-php7/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="1.PHP代码">
-<meta property="og:updated_time" content="2016-04-26T14:13:50.000Z">
+<meta property="og:description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：
+http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/12/php7-v.jpg">
+<meta property="og:updated_time" content="2016-04-28T13:09:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis实现点赞功能">
-<meta name="twitter:description" content="1.PHP代码">
+<meta name="twitter:title" content="编译安装PHP7">
+<meta name="twitter:description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：
+http://php.net/get/php-7.0.0.tar.gz/from/a/mirror">
+<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2015/12/php7-v.jpg">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -71,7 +76,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -164,11 +169,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-redis-e5-ae-9e-e7-8e-b0-e7-82-b9-e8-b5-9e-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-install-php7" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/17/redis-e5-ae-9e-e7-8e-b0-e7-82-b9-e8-b5-9e-e5-8a-9f-e8-83-bd/" class="article-date">
-  	<time datetime="2016-03-17T12:12:04.000Z" itemprop="datePublished">2016-03-17</time>
+      <a href="/2015/12/14/install-php7/" class="article-date">
+  	<time datetime="2015-12-14T06:51:15.000Z" itemprop="datePublished">2015-12-14</time>
 </a>
     </div>
   
@@ -181,7 +186,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Redis实现点赞功能
+      编译安装PHP7
     </h1>
   
 
@@ -189,9 +194,13 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/php/">php</a><a class="article-category-link" href="/categories/php/redis/">redis</a>
+	<a class="article-category-link" href="/categories/linux/">linux</a><a class="article-category-link" href="/categories/linux/php/">php</a><a class="article-category-link" href="/categories/linux/php/web/">web</a>
 	</div>
 
 
@@ -201,166 +210,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.PHP代码</p>
-<a id="more"></a>
-<pre>&lt;?php 
-$type      = isset($_GET['type']) ? intval($_GET['type']) : 2;//类型，1为点赞，2为查询点赞数
-$uid       = addcslashes($_GET['uid']);//用户id
-$ip        = $_SERVER['REMOTE_ADDR'];//ip地址
-$blog_id   = isset($_GET['blog_id']) ? intval($_GET['blog_id']) : '';//博客id
+        <p>期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 1、下载php7包，地址：</p>
+<p><a href="http://php.net/get/php-7.0.0.tar.gz/from/a/mirror" target="_blank" rel="external">http://php.net/get/php-7.0.0.tar.gz/from/a/mirror</a></p>
+<p><a id="more"></a> 2、解压，进入PHP目录</p>
+<pre class="bash">tar zxvf php-7.0.0.tar.gz
+cd php-7.0.0</pre>
 
-if(empty($blog_id)){//参数为空
-    $return_data = array(
-        'code' =&gt; 4,
-        'msg'  =&gt; 'blog_id can not be empty!',
-    );
-    return $return_data;
-    die;
-}
-
-$redis=new Redis();//Redis 实例化
-$redis-&gt;conncet('127.0.0.1', 6379);
-$redis_key = 'dianzan_';
-
-if($type === 1){//为点赞的
-    if(empty($uid)){//uid参数不能为空
-        $return_data = array(
-            'code' =&gt; 4,
-            'msg'  =&gt; 'uid can not be empty!',
-        );
-        return $return_data;
-        die;
-    }
-
-    //TODO 防ip redis sorted set
-    if(!$redis-&gt;exists($redis_key.'fang_ip')){
-        $redis-&gt;zadd($redis_key.'fang_ip',0,$ip);
-    }
-    $ip_count =  $redis-&gt;zScore($redis_key.'fang_ip',$ip);
-    if($ip_count &amp;&amp; intval($ip_count) &gt; 20){
-        $return_data = array(
-            'code' =&gt; 3,
-            'msg'  =&gt; 'ip dianzan num &gt; 20',
-        );
-        return $return_data;
-        die;
-    }else{
-        $redis-&gt;zincrby($redis_key.'fang_ip',1,$ip);
-    }
-
-    //TODO 查看该用户是否存在
-    //先去redis里查
-    if(!$redis-&gt;sismember($redis_key.'uid_is_exist',$uid)){
-        //不存在请求接口
-        $api_url = '';//
-        $res = get_url($api_url);
-        $arr_res = json_decode($res, true);
-        if ($arr_res['code'] !== 0) {
-            $return_data = array(
-                'code' =&gt; 5,
-                'msg' =&gt; 'user is not exist!',
-            );
-            return $return_data;
-            die;
-        }else{
-            //存进redis set
-            $redis-&gt;sadd($redis_key.'uid_is_exist',$uid);
-        }
-    }
-
-    //TODO 查看该用户是否点赞过该楼盘 redis set
-    if($redis-&gt;sismember($redis_key.$blog_id.'_uid',$uid)){
-        $return_data = array(
-            'code' =&gt; 1,
-            'msg'  =&gt; 'user has upvoted',
-        );
-    }else{
-        $redis-&gt;sadd($redis_key.$blog_id.'_uid',$uid);//添加该用户到列表
-
-        if($redis-&gt;zScore($redis_key,$blog_id) === false){
-            $redis-&gt;zadd($redis_key,100,$blog_id);//展示点赞基数（100）
-        }
-        $score = $redis-&gt;zIncrBy($redis_key,1,$blog_id);//该楼盘点赞数加1，并返回当前的
-
-        $return_data = array(
-            'code' =&gt; 0,
-            'msg' =&gt; 'success',
-            'data' =&gt; array(
-                'blog_id'=&gt; $blog_id,
-                'score'=&gt; $score
-            )
-        );
-    }
-}else{//查询点赞数 redis sorted set
-    $score = $redis-&gt;zScore($redis_key,$blog_id);
-    if($score == false){
-        $score = 100;
-    }
-    if($uid){
-        if($redis-&gt;sismember($redis_key.$blog_id.'_uid',$uid)){//查看该用户是否点赞过该楼盘
-            $status = 1;//已经点赞过
-        }else{
-            $status = 0;//未点赞过
-        }
-    }else{
-        $status = 0;
-    }
-
-    $return_data = array(
-        'code' =&gt; 0,
-        'msg' =&gt; 'success',
-        'data' =&gt; array(
-            'blog_id'=&gt; $blog_id,
-            'score'=&gt; $score,
-            'status'=&gt; $status
-        )
-    );
-}
-
-return $return_data;
+<p>3、安装依赖包，我用的centos,偷下懒，直接yum安装</p>
+<pre class="bash">yum install -y gcc gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers
 </pre>
 
-<p>2.cron，定时更新数据库的数据,并从Redis删除存储ip的key</p>
-<pre>&lt;?php
-// 引入mysql 类,实例化
-$db = new cls_mysql();
+<p>4、/alidata/server/php-7.0/ 为我的PHP安装目录，一般是在/usr/local下，大家按照自己的习惯替换</p>
+<pre class="bash">./configure --prefix=/alidata/server/php-7.0 
+\ --with-config-file-path=/alidata/server/php-7.0/etc 
+\ --with-mysql=mysqlnd 
+\ --with-pdo-mysql=mysqlnd 
+\ --with-mysqli=mysqlnd 
+\ --with-gd 
+\ --with-iconv 
+\ --with-zlib 
+\ --enable-xml 
+\ --enable-bcmath 
+\ --enable-shmop 
+\ --enable-sysvsem 
+\ --enable-inline-optimization 
+\ --enable-mbregex 
+\ --enable-fpm 
+\ --enable-mbstring 
+\ --enable-ftp 
+\ --enable-gd-native-ttf 
+\ --with-openssl 
+\ --enable-pcntl 
+\ --enable-sockets 
+\ --with-xmlrpc 
+\ --enable-zip 
+\ --enable-soap 
+\ --without-pear 
+\ --with-gettext 
+\ --enable-session 
+\ --with-mcrypt 
+\ --with-curl 
+\ --with-jpeg-dir 
+\ --with-freetype-dir 
+\ --with-xpm-dir=/usr 
+\ --with-bz2</pre>
 
-$redis=new Redis();//Redis 实例化
-$redis-&gt;conncet('127.0.0.1', 6379);
-$redis_key = 'dianzan_';
+<p>5、</p>
+<pre class="bash">make &amp;&amp; make install</pre>
 
-if(!$redis){//如果连不上redis，下次更新
-    return false;
-    die;
-}
-$redis-&gt;del($redis_key.'fang_ip');//删除存储ip的key
+<p>6、安装完成后</p>
+<pre class="bash">cp php.ini-production /alidata/server/php-7.0/etc/php.ini
+cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+cp php-fpm.conf.default php-fpm.conf
+cp www.conf.default www.conf</pre>
 
-$count = $redis-&gt;zCard($redis_key);
-$members = $redis-&gt;zRange($redis_key,0,$count-1);//取出所有元素
+<p>7、建立软链接</p>
+<pre class="bash">ln -s /alidata/server/php-7.0/bin/php /usr/bin/php
+ln -s /alidata/server/php-7.0/sbin/php-fpm /usr/bin/php-fpm</pre>
 
-$insert_sql = "insert into house_upvote (blog_id,score) values ";
-$is_has_insert = false;//是否有插入数据
-foreach($members as $member){
-    $score = $redis-&gt;zScore($redis_key,$member);
-    $blog_id = $member;
-    $sql = "select blog_id from house_upvote where blog_id='{$blog_id}'";//暂时使用索引覆盖,数量多了 TODO
-    $res = $db-&gt;query($sql,true);
-    if($res){//有数据时更新
-        $sql = "update house_upvote set score='{$score}' where blog_id='{$blog_id}'";
-        $db-&gt;query($sql);
-    }else{//没数据时添加
-        $insert_sql .= " ('{$blog_id}','{$score}'),";
-        $is_has_insert = true;
-    }
+<p>8、查看效果</p>
+<pre class="bash">php -v</pre>
 
-    $db-&gt;ping();
-}
-if($is_has_insert === true){//如果有插入数据
-    $insert_sql = trim($insert_sql, ',');
-    $db-&gt;query($insert_sql);
-}
-$db-&gt;close();
-</pre>
+<p><a href="http://www.jsyzchen.com/wp-content/uploads/2015/12/php7-v.jpg" target="_blank" rel="external"><img src="http://img.jsyzchen.com/uploads/2015/12/php7-v.jpg" alt="php7-v"></a></p>
+
       
     </div>
     
@@ -369,9 +281,18 @@ $db-&gt;close();
     
 <nav id="article-nav">
   
+    <a href="/2016/02/15/coreseek-install-test-sphinx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Coreseek的安装测试
+        
+      </div>
+    </a>
   
-    <a href="/2016/02/15/coreseek-e6-94-af-e6-8c-81-e4-b8-ad-e6-96-87-e5-85-a8-e6-96-87-e6-a3-80-e7-b4-a2-e6-90-9c-e7-b4-a2-e7-9a-84sphinx-e7-9a-84-e5-ae-89-e8-a3-85-e6-b5-8b-e8-af-95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Coreseek的安装测试</div>
+  
+    <a href="/2015/07/21/angularjs-yar-email/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AngularJs结合Yar构建一款email小应用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -406,7 +327,7 @@ $db-&gt;close();
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="redis-e5-ae-9e-e7-8e-b0-e7-82-b9-e8-b5-9e-e5-8a-9f-e8-83-bd" data-title="Redis实现点赞功能" data-url="http://jayzchen.com/2016/03/17/redis-e5-ae-9e-e7-8e-b0-e7-82-b9-e8-b5-9e-e5-8a-9f-e8-83-bd/"></div>
+	<div class="ds-thread" data-thread-key="install-php7" data-title="编译安装PHP7" data-url="http://jayzchen.com/2015/12/14/install-php7/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

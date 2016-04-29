@@ -4,42 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Coreseek的安装测试 | 雨泪漂古 | 过往云烟</title>
+  <title>Redis实现点赞功能 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Coreseek安装文档：http://www.coreseek.cn/products-install/
-1.设置路径和中文环境
-export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8
-
-
-2.下载Coreseek
-weget http://www.coreseek.cn/uploads">
+  <meta name="description" content="1.PHP代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Coreseek的安装测试">
-<meta property="og:url" content="http://jayzchen.com/2016/02/15/coreseek-e6-94-af-e6-8c-81-e4-b8-ad-e6-96-87-e5-85-a8-e6-96-87-e6-a3-80-e7-b4-a2-e6-90-9c-e7-b4-a2-e7-9a-84sphinx-e7-9a-84-e5-ae-89-e8-a3-85-e6-b5-8b-e8-af-95/index.html">
+<meta property="og:title" content="Redis实现点赞功能">
+<meta property="og:url" content="http://jayzchen.com/2016/03/17/redis-upvote/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="Coreseek安装文档：http://www.coreseek.cn/products-install/
-1.设置路径和中文环境
-export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8
-
-
-2.下载Coreseek
-weget http://www.coreseek.cn/uploads">
+<meta property="og:description" content="1.PHP代码">
 <meta property="og:updated_time" content="2016-04-26T14:13:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coreseek的安装测试">
-<meta name="twitter:description" content="Coreseek安装文档：http://www.coreseek.cn/products-install/
-1.设置路径和中文环境
-export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8
-
-
-2.下载Coreseek
-weget http://www.coreseek.cn/uploads">
+<meta name="twitter:title" content="Redis实现点赞功能">
+<meta name="twitter:description" content="1.PHP代码">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -95,7 +71,7 @@ weget http://www.coreseek.cn/uploads">
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -188,11 +164,11 @@ weget http://www.coreseek.cn/uploads">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-coreseek-e6-94-af-e6-8c-81-e4-b8-ad-e6-96-87-e5-85-a8-e6-96-87-e6-a3-80-e7-b4-a2-e6-90-9c-e7-b4-a2-e7-9a-84sphinx-e7-9a-84-e5-ae-89-e8-a3-85-e6-b5-8b-e8-af-95" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-redis-upvote" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/15/coreseek-e6-94-af-e6-8c-81-e4-b8-ad-e6-96-87-e5-85-a8-e6-96-87-e6-a3-80-e7-b4-a2-e6-90-9c-e7-b4-a2-e7-9a-84sphinx-e7-9a-84-e5-ae-89-e8-a3-85-e6-b5-8b-e8-af-95/" class="article-date">
-  	<time datetime="2016-02-15T10:23:04.000Z" itemprop="datePublished">2016-02-15</time>
+      <a href="/2016/03/17/redis-upvote/" class="article-date">
+  	<time datetime="2016-03-17T12:12:04.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -205,7 +181,7 @@ weget http://www.coreseek.cn/uploads">
         
   
     <h1 class="article-title" itemprop="name">
-      Coreseek的安装测试
+      Redis实现点赞功能
     </h1>
   
 
@@ -213,13 +189,9 @@ weget http://www.coreseek.cn/uploads">
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coreseek/">coreseek</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sphinx/">sphinx</a></li></ul>
-	</div>
-
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/linux/">linux</a><a class="article-category-link" href="/categories/linux/mysql/">mysql</a><a class="article-category-link" href="/categories/linux/mysql/php/">php</a><a class="article-category-link" href="/categories/linux/mysql/php/sphinx/">sphinx</a>
+	<a class="article-category-link" href="/categories/php/">php</a><a class="article-category-link" href="/categories/php/redis/">redis</a>
 	</div>
 
 
@@ -229,47 +201,166 @@ weget http://www.coreseek.cn/uploads">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Coreseek安装文档：<a href="http://www.coreseek.cn/products-install/" target="_blank" rel="external">http://www.coreseek.cn/products-install/</a></p>
-<p><strong>1.设置路径和中文环境</strong></p>
-<pre>export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8
+        <p>1.PHP代码</p>
+<a id="more"></a>
+<pre>&lt;?php 
+$type      = isset($_GET['type']) ? intval($_GET['type']) : 2;//类型，1为点赞，2为查询点赞数
+$uid       = addcslashes($_GET['uid']);//用户id
+$ip        = $_SERVER['REMOTE_ADDR'];//ip地址
+$blog_id   = isset($_GET['blog_id']) ? intval($_GET['blog_id']) : '';//博客id
+
+if(empty($blog_id)){//参数为空
+    $return_data = array(
+        'code' =&gt; 4,
+        'msg'  =&gt; 'blog_id can not be empty!',
+    );
+    return $return_data;
+    die;
+}
+
+$redis=new Redis();//Redis 实例化
+$redis-&gt;conncet('127.0.0.1', 6379);
+$redis_key = 'dianzan_';
+
+if($type === 1){//为点赞的
+    if(empty($uid)){//uid参数不能为空
+        $return_data = array(
+            'code' =&gt; 4,
+            'msg'  =&gt; 'uid can not be empty!',
+        );
+        return $return_data;
+        die;
+    }
+
+    //TODO 防ip redis sorted set
+    if(!$redis-&gt;exists($redis_key.'fang_ip')){
+        $redis-&gt;zadd($redis_key.'fang_ip',0,$ip);
+    }
+    $ip_count =  $redis-&gt;zScore($redis_key.'fang_ip',$ip);
+    if($ip_count &amp;&amp; intval($ip_count) &gt; 20){
+        $return_data = array(
+            'code' =&gt; 3,
+            'msg'  =&gt; 'ip dianzan num &gt; 20',
+        );
+        return $return_data;
+        die;
+    }else{
+        $redis-&gt;zincrby($redis_key.'fang_ip',1,$ip);
+    }
+
+    //TODO 查看该用户是否存在
+    //先去redis里查
+    if(!$redis-&gt;sismember($redis_key.'uid_is_exist',$uid)){
+        //不存在请求接口
+        $api_url = '';//
+        $res = get_url($api_url);
+        $arr_res = json_decode($res, true);
+        if ($arr_res['code'] !== 0) {
+            $return_data = array(
+                'code' =&gt; 5,
+                'msg' =&gt; 'user is not exist!',
+            );
+            return $return_data;
+            die;
+        }else{
+            //存进redis set
+            $redis-&gt;sadd($redis_key.'uid_is_exist',$uid);
+        }
+    }
+
+    //TODO 查看该用户是否点赞过该楼盘 redis set
+    if($redis-&gt;sismember($redis_key.$blog_id.'_uid',$uid)){
+        $return_data = array(
+            'code' =&gt; 1,
+            'msg'  =&gt; 'user has upvoted',
+        );
+    }else{
+        $redis-&gt;sadd($redis_key.$blog_id.'_uid',$uid);//添加该用户到列表
+
+        if($redis-&gt;zScore($redis_key,$blog_id) === false){
+            $redis-&gt;zadd($redis_key,100,$blog_id);//展示点赞基数（100）
+        }
+        $score = $redis-&gt;zIncrBy($redis_key,1,$blog_id);//该楼盘点赞数加1，并返回当前的
+
+        $return_data = array(
+            'code' =&gt; 0,
+            'msg' =&gt; 'success',
+            'data' =&gt; array(
+                'blog_id'=&gt; $blog_id,
+                'score'=&gt; $score
+            )
+        );
+    }
+}else{//查询点赞数 redis sorted set
+    $score = $redis-&gt;zScore($redis_key,$blog_id);
+    if($score == false){
+        $score = 100;
+    }
+    if($uid){
+        if($redis-&gt;sismember($redis_key.$blog_id.'_uid',$uid)){//查看该用户是否点赞过该楼盘
+            $status = 1;//已经点赞过
+        }else{
+            $status = 0;//未点赞过
+        }
+    }else{
+        $status = 0;
+    }
+
+    $return_data = array(
+        'code' =&gt; 0,
+        'msg' =&gt; 'success',
+        'data' =&gt; array(
+            'blog_id'=&gt; $blog_id,
+            'score'=&gt; $score,
+            'status'=&gt; $status
+        )
+    );
+}
+
+return $return_data;
 </pre>
 
-<p><strong>2.下载Coreseek</strong></p>
-<pre>weget http://www.coreseek.cn/uploads/csft/3.2/coreseek-3.2.14.tar.gz
-tar xzvf coreseek-3.2.14.tar.gz
-cd coreseek-3.2.14
+<p>2.cron，定时更新数据库的数据,并从Redis删除存储ip的key</p>
+<pre>&lt;?php
+// 引入mysql 类,实例化
+$db = new cls_mysql();
+
+$redis=new Redis();//Redis 实例化
+$redis-&gt;conncet('127.0.0.1', 6379);
+$redis_key = 'dianzan_';
+
+if(!$redis){//如果连不上redis，下次更新
+    return false;
+    die;
+}
+$redis-&gt;del($redis_key.'fang_ip');//删除存储ip的key
+
+$count = $redis-&gt;zCard($redis_key);
+$members = $redis-&gt;zRange($redis_key,0,$count-1);//取出所有元素
+
+$insert_sql = "insert into house_upvote (blog_id,score) values ";
+$is_has_insert = false;//是否有插入数据
+foreach($members as $member){
+    $score = $redis-&gt;zScore($redis_key,$member);
+    $blog_id = $member;
+    $sql = "select blog_id from house_upvote where blog_id='{$blog_id}'";//暂时使用索引覆盖,数量多了 TODO
+    $res = $db-&gt;query($sql,true);
+    if($res){//有数据时更新
+        $sql = "update house_upvote set score='{$score}' where blog_id='{$blog_id}'";
+        $db-&gt;query($sql);
+    }else{//没数据时添加
+        $insert_sql .= " ('{$blog_id}','{$score}'),";
+        $is_has_insert = true;
+    }
+
+    $db-&gt;ping();
+}
+if($is_has_insert === true){//如果有插入数据
+    $insert_sql = trim($insert_sql, ',');
+    $db-&gt;query($insert_sql);
+}
+$db-&gt;close();
 </pre>
-
-<p><strong>3.安装mmseg</strong></p>
-<pre>cd mmseg-3.2.14
-./bootstrap
-./configure --prefix=/usr/local/mmseg3
-make &amp;&amp; make install
-</pre>
-
-<p>如果是Mac OS X:</p>
-<pre>wget https://raw.githubusercontent.com/Homebrew/homebrew/9c7802270aabf638654ea0bccecc592e04785f87/Library/Formula/mmseg.rb -O/usr/local/Library/Formula/mmseg.rb
-brew install mmseg
-</pre>
-
-<p><strong>4.安装coreseek</strong></p>
-<pre>cd csft-3.2.14
-sh buildconf.sh
-./configure --prefix=/usr/local/coreseek  --without-unixodbc --with-mmseg --with-mmseg-includes=/usr/local/mmseg3/include/mmseg/ --with-mmseg-libs=/usr/local/mmseg3/lib/ --with-mysql
-make &amp;&amp; make install
-</pre>
-
-<p><strong>4.测试mmseg分词，coreseek搜索</strong></p>
-<pre>cd testpack
-/usr/local/mmseg3/bin/mmseg -d /usr/local/mmseg3/etc var/test/test.xml
-/usr/local/coreseek/bin/indexer -c etc/csft.conf --all
-/usr/local/coreseek/bin/search -c etc/csft.conf 
-</pre>
-
-<p>测试效果可以参考：<a href="http://www.coreseek.cn/products/products-install/install_on_bsd_linux/" target="_blank" rel="external">http://www.coreseek.cn/products/products-install/install_on_bsd_linux/</a>第三点</p>
-
       
     </div>
     
@@ -278,18 +369,9 @@ make &amp;&amp; make install
     
 <nav id="article-nav">
   
-    <a href="/2016/03/17/redis-e5-ae-9e-e7-8e-b0-e7-82-b9-e8-b5-9e-e5-8a-9f-e8-83-bd/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Redis实现点赞功能
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/14/e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85php7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">编译安装PHP7</div>
+    <a href="/2016/02/15/coreseek-install-test-sphinx/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Coreseek的安装测试</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -324,7 +406,7 @@ make &amp;&amp; make install
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="coreseek-e6-94-af-e6-8c-81-e4-b8-ad-e6-96-87-e5-85-a8-e6-96-87-e6-a3-80-e7-b4-a2-e6-90-9c-e7-b4-a2-e7-9a-84sphinx-e7-9a-84-e5-ae-89-e8-a3-85-e6-b5-8b-e8-af-95" data-title="Coreseek的安装测试" data-url="http://jayzchen.com/2016/02/15/coreseek-e6-94-af-e6-8c-81-e4-b8-ad-e6-96-87-e5-85-a8-e6-96-87-e6-a3-80-e7-b4-a2-e6-90-9c-e7-b4-a2-e7-9a-84sphinx-e7-9a-84-e5-ae-89-e8-a3-85-e6-b5-8b-e8-af-95/"></div>
+	<div class="ds-thread" data-thread-key="redis-upvote" data-title="Redis实现点赞功能" data-url="http://jayzchen.com/2016/03/17/redis-upvote/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

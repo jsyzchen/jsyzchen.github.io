@@ -4,30 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Yar初使用 | 雨泪漂古 | 过往云烟</title>
+  <title>微信企业号回调模式如何开启及使用 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：http://www.laruence.com/2012/09/15/2779.html下面切入正题：
-一、准备工作
-1.安装msgpack扩展下载：http://pecl.php.net/package/msgpack，然后上传到/usr/local目录下，安装完可以删了。
-cd /usr/lo">
+  <meta name="description" content="1.首先你得在微信企业号后台开启某个应用的回调模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yar初使用">
-<meta property="og:url" content="http://jayzchen.com/2015/07/17/yar-e5-88-9d-e4-bd-bf-e7-94-a8/index.html">
+<meta property="og:title" content="微信企业号回调模式如何开启及使用">
+<meta property="og:url" content="http://jayzchen.com/2014/11/29/wechat-qy-first-config-use/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：http://www.laruence.com/2012/09/15/2779.html下面切入正题：
-一、准备工作
-1.安装msgpack扩展下载：http://pecl.php.net/package/msgpack，然后上传到/usr/local目录下，安装完可以删了。
-cd /usr/lo">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/07/20150718114528.png">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/07/client.png">
-<meta property="og:updated_time" content="2016-04-28T13:09:55.000Z">
+<meta property="og:description" content="1.首先你得在微信企业号后台开启某个应用的回调模式">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2014/11/20141129151138.png">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2014/11/20141129144943.png">
+<meta property="og:updated_time" content="2016-04-28T13:08:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yar初使用">
-<meta name="twitter:description" content="Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：http://www.laruence.com/2012/09/15/2779.html下面切入正题：
-一、准备工作
-1.安装msgpack扩展下载：http://pecl.php.net/package/msgpack，然后上传到/usr/local目录下，安装完可以删了。
-cd /usr/lo">
-<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2015/07/20150718114528.png">
+<meta name="twitter:title" content="微信企业号回调模式如何开启及使用">
+<meta name="twitter:description" content="1.首先你得在微信企业号后台开启某个应用的回调模式">
+<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2014/11/20141129151138.png">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -83,7 +74,7 @@ cd /usr/lo">
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -176,11 +167,11 @@ cd /usr/lo">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-yar-e5-88-9d-e4-bd-bf-e7-94-a8" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-wechat-qy-first-config-use" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/17/yar-e5-88-9d-e4-bd-bf-e7-94-a8/" class="article-date">
-  	<time datetime="2015-07-17T10:03:40.000Z" itemprop="datePublished">2015-07-17</time>
+      <a href="/2014/11/29/wechat-qy-first-config-use/" class="article-date">
+  	<time datetime="2014-11-29T07:16:07.000Z" itemprop="datePublished">2014-11-29</time>
 </a>
     </div>
   
@@ -193,7 +184,7 @@ cd /usr/lo">
         
   
     <h1 class="article-title" itemprop="name">
-      Yar初使用
+      微信企业号回调模式如何开启及使用
     </h1>
   
 
@@ -202,12 +193,12 @@ cd /usr/lo">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yar/">yar</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/php/">php</a><a class="article-category-link" href="/categories/php/web/">web</a>
+	<a class="article-category-link" href="/categories/php/">php</a>
 	</div>
 
 
@@ -217,17 +208,13 @@ cd /usr/lo">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：<a href="http://www.laruence.com/2012/09/15/2779.html" title="YAR" target="_blank" rel="external">http://www.laruence.com/2012/09/15/2779.html</a><br>下面切入正题：</p>
-<p><strong>一、准备工作</strong></p>
-<p>1.安装msgpack扩展<br>下载：<a href="http://pecl.php.net/package/msgpack" target="_blank" rel="external">http://pecl.php.net/package/msgpack</a>，然后上传到/usr/local目录下，安装完可以删了。</p>
-<p><pre>cd /usr/local<br>tar zxvf msgpack-x.x.x.tgz<br>cd msgpack-0.x.x<br>phpize<br>./configure - -with-php-config=/usr/local/php/bin/php-config #这里是你php的安装目录+/bin/php-config,下同<br>make &amp;&amp; make install</pre><br>会在no-debug-non-zts-xxxxxxxx中生成msgpack.so<br>在php.ini中加入extension=/usr/local/php/lib/php/extensions/no-debug-non-zts-xxxxxxxx/msgback.so<br><a id="more"></a><br>2.安装Yar扩展<br>下载：<a href="http://pecl.php.net/package/yar" target="_blank" rel="external">http://pecl.php.net/package/yar</a></p>
-<p><pre>cd /usr/local<br>tar zxvf yar-1.2.4.tgz<br>cd yar-1.2.4<br>phpize<br>./configure - -with-php-config=/usr/local/php/bin/php-config<br>make &amp;&amp; make install</pre><br>会在no-debug-non-zts-xxxxxxxx中生成yar.so<br>在php.ini中加入extension=/usr/local/php/lib/php/extensions/no-debug-non-zts-xxxxxxxx/yar.so<br>3.重启php或apache</p>
-<p><strong>二、实例</strong></p>
-<p>1.server端代码,server.php</p>
-<p><pre><br>&lt;?php<br>class API {<br>    public function api($parameter, $option = “foo”) {<br>        $arr = array(‘code’=&gt;200,’msg’=&gt;’成功’,’data’=&gt;’返回数据’);<br>        return json_encode($arr);<br>    }<br>    protected function client_can_not_see() {<br>    }<br>}<br>$service = new Yar_Server(new API());<br>$service-&gt;handle();<br></pre><br><a href="http://www.jsyzchen.com/wp-content/uploads/2015/07/serverphp.png" target="_blank" rel="external">
-</a><br>2.get请求server端时，会显示接口文档<br><a href="http://www.jsyzchen.com/wp-content/uploads/2015/07/20150718114528.png" target="_blank" rel="external"><img src="http://img.jsyzchen.com/uploads/2015/07/20150718114528.png" alt="yar服务端get请求"></a><br>3.客户端代码，client.php</p>
-<p><pre>&lt;?php<br>error_reporting(E_ALL);<br>//简单的串行调用<br>$client = new Yar_Client(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“);<br>$result = $client-&gt;api(“parameter”);<br>//并行化调用<br>function callback($retval, $callinfo) {<br>    if ($callinfo == NULL) {<br>       //做本地的逻辑<br>       return TRUE;<br>    }<br>    echo “method: “ , $callinfo[‘method’] , “ result: “, $retval , “\n”;<br>}<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>Yar_Concurrent_Client::call(“<a href="http://yar.jsyzchen.com/server.php" target="_blank" rel="external">http://yar.jsyzchen.com/server.php</a>“, “api”, array(“parameters”), “callback”);<br>/<em> 发送所有注册的调用, 等待返回, 返回后Yar会调用callback回掉函数 </em>/<br>Yar_Concurrent_Client::loop(); //send<br>?&gt;<br></pre><br><a href="http://img.jsyzchen.com/uploads/2015/07/clientphp.png" target="_blank" rel="external">
-</a><br>4.客户端显示<br><a href="http://img.jsyzchen.com/uploads/2015/07/client.png" target="_blank" rel="external"><img src="http://img.jsyzchen.com/uploads/2015/07/client.png" alt="client端显示"></a><br>三、更多Yar文档请参考<a href="http://php.net/manual/zh/book.yar.php" target="_blank" rel="external">http://php.net/manual/zh/book.yar.php</a></p>
+        <p>1.首先你得在微信企业号后台开启某个应用的回调模式<br><a href="http://img.jsyzchen.com/uploads/2014/11/20141129151138.png" target="_blank" rel="external"><img src="http://img.jsyzchen.com/uploads/2014/11/20141129151138.png" alt="回调"></a><br><a id="more"></a><br><a href="http://img.jsyzchen.com/uploads/2014/11/20141129144943.png" target="_blank" rel="external"><img src="http://img.jsyzchen.com/uploads/2014/11/20141129144943.png" alt="回调模式"></a></p>
+<p>&nbsp;</p>
+<p>2.回调模式的使用（即代码的实现）</p>
+<p>首先下载微信的PHP SDK，下载地址：<a href="https://github.com/dodgepudding/wechat-php-sdk" title="微信php SDK" target="_blank" rel="external">https://github.com/dodgepudding/wechat-php-sdk</a></p>
+<p>在你开启回调模式是填写的URL地址（如：<a href="http://www.jsyzchen.com/index.php）里写下如下代码" target="_blank" rel="external">http://www.jsyzchen.com/index.php）里写下如下代码</a>:</p>
+<p><pre class="brush: php; gutter: true"><br>&lt;?php<br>include “./wechat/qywechat.class.php”;//引入企业微信号的类<br>function logdebug($text){ //调试输出方法<br>    file_put_contents(‘./data/log.txt’,$text.”\n”,FILE<em>APPEND);<br>};<br>$options = array(<br>    ‘token’=&gt;’qyweixin’, //填写应用接口的Token<br>    ‘encodingaeskey’=&gt;’’,//填写加密用的EncodingAESKey<br>    ‘appid’=&gt;’’, //填写高级调用功能的appid,及企业号ID<br>    ‘appsecret’=&gt;’’, //填写高级调用功能的密钥<br>    //‘datapath’=&gt;’./data/cookie</em>‘,<br>    ‘debug’=&gt;true,<br>    ‘logcallback’=&gt;’logdebug’, //调试输出方法，需要有一个string类型的参数<br>    ‘agentid’=&gt;’2’, //应用的id<br>);<br>$weObj = new Wechat($options);//实例化对象<br>$res = $weObj-&gt;valid(); //注意, 企业号与普通公众号不同，必须打开验证，不要注释掉<br>if (!$res) {<br>    logdebug(“验证失败！”);<br>    var_dump($res);<br>    exit;<br>}<br>$type = $weObj-&gt;getRev()-&gt;getRevType();//得到收到信息的类型<br>switch($type) {<br>    case Wechat::MSGTYPE_TEXT://文本类型<br>        $weObj-&gt;text(“hello, I’m text”)-&gt;reply();<br>        break;<br>    case Wechat::MSGTYPE_EVENT://事件类型<br>        $weObj-&gt;text(“hello, I’m event”)-&gt;reply();<br>        break;<br>    case Wechat::MSGTYPE_IMAGE://图片类型<br>        $weObj-&gt;text(“已收到图片”)-&gt;reply();<br>        break;<br>    default:<br>        $weObj-&gt;text(“help info”)-&gt;reply();<br>}<br></pre><br>好了，这样你就可以用微信客户端发送消息给企业号应用喽，它可以自动回复哦。。</p>
+<p>&nbsp;</p>
 
       
     </div>
@@ -237,20 +224,15 @@ cd /usr/lo">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/21/angularjs-e7-bb-93-e5-90-88yar-e6-9e-84-e5-bb-ba-e4-b8-80-e6-ac-beemail-e5-b0-8f-e5-ba-94-e7-94-a8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/03/27/lottery-draw-simple-algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          AngularJs结合Yar构建一款email小应用
+          抽奖活动业务逻辑的处理
         
       </div>
     </a>
   
-  
-    <a href="/2015/05/10/rsync-e5-ae-9e-e7-8e-b0-e5-a4-9a-e5-8f-b0linux-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-9a-84-e6-96-87-e4-bb-b6-e5-90-8c-e6-ad-a5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">rsync实现多台linux服务器的文件同步</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -283,7 +265,7 @@ cd /usr/lo">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="yar-e5-88-9d-e4-bd-bf-e7-94-a8" data-title="Yar初使用" data-url="http://jayzchen.com/2015/07/17/yar-e5-88-9d-e4-bd-bf-e7-94-a8/"></div>
+	<div class="ds-thread" data-thread-key="wechat-qy-first-config-use" data-title="微信企业号回调模式如何开启及使用" data-url="http://jayzchen.com/2014/11/29/wechat-qy-first-config-use/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
