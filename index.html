@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -327,47 +327,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Coreseek安装文档：<a href="http://www.coreseek.cn/products-install/" target="_blank" rel="external">http://www.coreseek.cn/products-install/</a></p>
+        <p>Coreseek安装文档：<a href="http://www.coreseek.cn/products-install/">http://www.coreseek.cn/products-install/</a></p>
 <p><strong>1.设置路径和中文环境</strong></p>
 <pre>export PATH=/usr/local/bin:$PATH
 export LC_ALL=zh_CN.UTF-8
 export LANG=zh_CN.UTF-8
 </pre>
-
-<p><strong>2.下载Coreseek</strong></p>
-<pre>weget http://www.coreseek.cn/uploads/csft/3.2/coreseek-3.2.14.tar.gz
-tar xzvf coreseek-3.2.14.tar.gz
-cd coreseek-3.2.14
-</pre>
-
-<p><strong>3.安装mmseg</strong></p>
-<pre>cd mmseg-3.2.14
-./bootstrap
-./configure --prefix=/usr/local/mmseg3
-make &amp;&amp; make install
-</pre>
-
-<p>如果是Mac OS X:</p>
-<pre>wget https://raw.githubusercontent.com/Homebrew/homebrew/9c7802270aabf638654ea0bccecc592e04785f87/Library/Formula/mmseg.rb -O/usr/local/Library/Formula/mmseg.rb
-brew install mmseg
-</pre>
-
-<p><strong>4.安装coreseek</strong></p>
-<pre>cd csft-3.2.14
-sh buildconf.sh
-./configure --prefix=/usr/local/coreseek  --without-unixodbc --with-mmseg --with-mmseg-includes=/usr/local/mmseg3/include/mmseg/ --with-mmseg-libs=/usr/local/mmseg3/lib/ --with-mysql
-make &amp;&amp; make install
-</pre>
-
-<p><strong>4.测试mmseg分词，coreseek搜索</strong></p>
-<pre>cd testpack
-/usr/local/mmseg3/bin/mmseg -d /usr/local/mmseg3/etc var/test/test.xml
-/usr/local/coreseek/bin/indexer -c etc/csft.conf --all
-/usr/local/coreseek/bin/search -c etc/csft.conf 
-</pre>
-
-<p>测试效果可以参考：<a href="http://www.coreseek.cn/products/products-install/install_on_bsd_linux/" target="_blank" rel="external">http://www.coreseek.cn/products/products-install/install_on_bsd_linux/</a>第三点</p>
-
       
     </div>
     
@@ -384,6 +349,10 @@ make &amp;&amp; make install
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/15/coreseek-install-test-sphinx/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
