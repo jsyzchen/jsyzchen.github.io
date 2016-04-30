@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>博客从WordPress转到Hexo | 雨泪漂古 | 过往云烟</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客从WordPress转到Hexo">
+<meta property="og:url" content="http://jayzchen.com/2016/04/30/blog-wordpress-to-hexo/index.html">
+<meta property="og:site_name" content="雨泪漂古 | 过往云烟">
+<meta property="og:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/hexo-default-web.png">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/duoshuo-domain.png">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/my-duoshuo-domain.png">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/new-repository.png">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/create-a-new-repository.png">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/wordpress-blog-pictures.jpg">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/hexo-blog-pictures.jpeg">
+<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/custom-domain.png">
+<meta property="og:updated_time" content="2016-04-30T15:55:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博客从WordPress转到Hexo">
+<meta name="twitter:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
+<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2016/04/hexo-default-web.png">
+  
+    <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://img.jsyzchen.com/favicon.ico">
+  
+  <link rel="stylesheet" href="http://cdn.jsyzchen.com/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://img.jsyzchen.com/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Jsyz Chen</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Makedown/" style="font-size: 10px;">Makedown</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/coreseek/" style="font-size: 10px;">coreseek</a> <a href="/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/inotify/" style="font-size: 10px;">inotify</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sphinx/" style="font-size: 10px;">sphinx</a> <a href="/tags/yar/" style="font-size: 13.33px;">yar</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/抽奖算法/" style="font-size: 10px;">抽奖算法</a> <a href="/tags/点赞功能/" style="font-size: 10px;">点赞功能</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">陈晨，PHP开发工程师，现就职于新浪乐居。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Jsyz Chen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://img.jsyzchen.com/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Jsyz Chen</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-blog-wordpress-to-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/30/blog-wordpress-to-hexo/" class="article-date">
+  	<time datetime="2016-04-30T08:49:30.000Z" itemprop="datePublished">2016-04-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      博客从WordPress转到Hexo
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Makedown/">Makedown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Hexo/">Hexo</a><a class="article-category-link" href="/categories/Hexo/wordpress/">wordpress</a><a class="article-category-link" href="/categories/Hexo/wordpress/git/">git</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>偶然的机会看到了<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a>，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说Node.js有多么多么好，要把PHP给替代掉什么的，虽然Node.js的作用只是用来生成静态页面的，但可以感觉到，生成速度的确快；第二，支持Makedown，早就想学习Makedown了，正好边写博客，边学Makedown；第三，支持部署到Github上，以前WordPress都是部署到阿里云的云服务器ECS上的，还单独买了一个云数据库RDS，一个月得一百多块的花销，现在可以免费地放在Github上，省了一百多块钱，何乐而不为呢，哈哈。。不罗嗦了，直接上步骤。。<br><a id="more"></a></p>
+<h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p><strong>1.安装Node.js</strong><br>Centos之类的,yum install nodejs &amp;&amp; sudo yum install npm<br>Mac OS X系统,使用brew install node 安装一下<br>如果需要源码安装，可以去<a href="https://nodejs.org" target="_blank" rel="external">Node官网</a>下载,然后编译安装<br><strong>2.安装git</strong><br>和上面一样，yum或brew或源码安装一下，这里就不再多说。可以参考此文档:<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="external">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> 进去可以选择中文,</p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
+<pre><code>$ npm install -g hexo-cli  
+$ npm install hexo-server --save
+</code></pre><h3 id="使用Hexo"><a href="#使用Hexo" class="headerlink" title="使用Hexo"></a>使用Hexo</h3><pre><code>$ npm install hexo-cli -g
+$ hexo init blog
+$ cd blog
+$ npm install
+$ hexo server
+</code></pre><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>效果图如下:<br><img src="http://img.jsyzchen.com/uploads/2016/04/hexo-default-web.png" alt="hexo-default-web"></p>
+<h3 id="更换主题与配置"><a href="#更换主题与配置" class="headerlink" title="更换主题与配置"></a>更换主题与配置</h3><p>默认的主题不是特别好看，我们可以在<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo官网的主题页</a>选择自己喜欢的主题，我选的是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>。<br><strong>1.安装</strong></p>
+<pre><code>$ cd blog
+$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+$ cd themes/yilia
+$ git pull
+</code></pre><p><strong>2.主题修改配置</strong><br>修改blog目录下的 _config.yml ： theme: yilia</p>
+<p><strong>3.yilia配置</strong>  </p>
+<pre><code>$ cd blog/theme/yilia
+$ vim _config.yml
+</code></pre><p>然后根据里面的提示填写就行了，这里就不多说了。里面有个多说的配置，litten可能有点没说清楚，其实填写的是多说站点设置里的多说域名你填写的部分。<br><img src="http://img.jsyzchen.com/uploads/2016/04/duoshuo-domain.png" alt="duoshuo-domain"><br><img src="http://img.jsyzchen.com/uploads/2016/04/my-duoshuo-domain.png" alt="duoshuo-domain"><br>我这里如下填写： </p>
+<pre><code>duoshuo: jsyzchen
+</code></pre><h3 id="WordPress迁移"><a href="#WordPress迁移" class="headerlink" title="WordPress迁移"></a>WordPress迁移</h3><p>现在我们将WordPress的文章迁移到Hexo，如果你不需要迁移，跳过即可。<br>首先，安装 hexo-migrator-wordpress 插件。</p>
+<pre><code>$ npm install hexo-migrator-wordpress --save
+</code></pre><p>在 WordPress 仪表盘中导出数据(“Tools” → “Export” → “WordPress”)（详情参考<a href="https://en.support.wordpress.com/export/" target="_blank" rel="external">WP支持页面</a>）。<br>插件安装完成后，执行下列命令来迁移所有文章。source 可以是 WordPress 导出的文件路径或网址。  </p>
+<pre><code>$ hexo migrate wordpress &lt;source&gt;
+</code></pre><p>完成之后可以</p>
+<pre><code>$ hexo server
+</code></pre><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 查看效果</p>
+<h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p><strong>1.申请GitHub</strong><br><a href="https://github.com/" target="_blank" rel="external">GitHub</a>直接申请一下就好了。</p>
+<p><strong>2.新建Repository(仓库)</strong></p>
+<p>登陆Github账号后，点击右上角的“+”号按钮，选择“New repository”<br><img src="http://img.jsyzchen.com/uploads/2016/04/new-repository.png" alt="new-repository"></p>
+<p>在Create a new repository界面填写格式如下图所示: 用户名.github.io，固定写法<br><img src="http://img.jsyzchen.com/uploads/2016/04/create-a-new-repository.png" alt="create-a-new-repository"></p>
+<p><strong>3.设置你的git用户名和密码</strong></p>
+<p>Git会根据用户的名字和邮箱来记录提交，GitHub也是用这些信息来做权限的处理。<br>git config –global user.name”这里是你申请Github账号时的name”<br>git config –global user.email”这里是你申请Github账号时的邮箱”</p>
+<p><strong>3.SSH配置</strong></p>
+<p>SSH配置，有些麻烦。可以参考此文档：<a href="https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration" target="_blank" rel="external">https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration</a>,进去可以选择中文,还是比较详细的。<br><strong>4.部署</strong></p>
+<p>进入blog目录下,编辑 _config.yml，把下面的your_username换成你的github用户名，注意冒号后面有一空格。</p>
+<pre><code>deploy:
+    type: git
+    repo: https://github.com/your_username/your_username.github.io.git
+    branch: master
+</code></pre><h3 id="部署代码到Github"><a href="#部署代码到Github" class="headerlink" title="部署代码到Github"></a>部署代码到Github</h3><p><strong>1.清除缓存文件 (db.json) 和已生成的静态文件 (public)。</strong>  </p>
+<pre><code>$ hexo clean
+</code></pre><p><strong>2.生成静态文件</strong></p>
+<pre><code>$ hexo generate
+</code></pre><p><strong>3.部署</strong></p>
+<pre><code>$ hexo deploy
+</code></pre><p>上面2、3两个命令可以合起来</p>
+<pre><code>$ hexo d -g
+</code></pre><p>如果你此时没有看到一大段执行代码，一般是SSH配置有误。<br>如果成功了，你进入Github repository,就是your_username.github.io是有代码的<br>此时，你在浏览器里输入<a href="http://your_username.github.io,就可以看到你的博客了" target="_blank" rel="external">http://your_username.github.io,就可以看到你的博客了</a>  </p>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>我的WordPress和Hexo博客对比图:<br>1.原来的WordPress<br><img src="http://img.jsyzchen.com/uploads/2016/04/wordpress-blog-pictures.jpg" alt="wordpress-blog-pictures"><br>2.如今的Hexo<br><img src="http://img.jsyzchen.com/uploads/2016/04/hexo-blog-pictures.jpeg" alt="hexo-blog-pictures"><br>怎么感觉变丑了呢，没事，能省钱就好了，哈哈。。</p>
+<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>虽然使用your_username.github.io可以直接访问博客，但如果你想用自己的域名打开博客。<br><strong>1.域名解析</strong></p>
+<p>进入你的域名解析管理控制台，设置主机记录@，类型A，到IP 192.30.252.153(GitHub IP)。<br>我用的是万网,设置如下:<br><img src="http://img.jsyzchen.com/uploads/2016/04/custom-domain.png" alt="hexo-blog-pictures"><br><strong>2.GitHub设置</strong></p>
+<p>在github项目中，blog/source目录下,新建一个文件CNAME，文件中写出你要绑定的域名,比如我的是jsyzchen.com</p>
+<p><strong>3.部署更新文件</strong></p>
+<pre><code>$ hexo clean
+$ hexo g -d
+</code></pre><p>然后在浏览器输入你绑定的域名就可以看到你的Hexo博客了</p>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>所谓的性能优化，也就是把能一些图片,js,css放入cdn里,这样的话加载速度会大大加快，我这里推荐的<a href="http://www.qiniu.com/" target="_blank" rel="external">七牛云存储</a>,它有免费的额度，一般像博客这样的系统文件不会超的，而且七牛的CDN挺不错的，加载速度挺快。至于如何设置，可以查看七牛的帮助文档，你可以使用七牛的镜像存储，这样你就不需要把你的文件一个一个地往七牛存了，你可能还需要改些你选择主题的源码，就是把它以前调的图片，js，css地址改为CDN的访问地址就行了，这里不在啰嗦了。</p>
+<h3 id="文档推荐"><a href="#文档推荐" class="headerlink" title="文档推荐"></a>文档推荐</h3><p>1.Hexo官方文档: <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a><br>2.Git文档,里面有Git介绍、安装和使用等等，GitHub讲解也有: <a href="https://git-scm.com/doc" target="_blank" rel="external">https://git-scm.com/doc</a><br>3.Node.js官网: <a href="https://nodejs.org" target="_blank" rel="external">https://nodejs.org</a><br>4.MakeDown语法中文版: <a href="http://www.markdown.cn/" target="_blank" rel="external">http://www.markdown.cn/</a></p>
+<h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><p>1.<a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a><br>2.<a href="http://www.jianshu.com/p/a2023a601ceb" target="_blank" rel="external">hexo–搭建</a><br>3.<a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">Hexo在github上构建免费的Web应用</a></p>
+<p><strong>码字不容易,转载请注明原地址，Jsyz Chen的博客：<a href="http://www.jsyzchen.com/blog-wordpress-to-hexo" target="_blank" rel="external">http://www.jsyzchen.com/blog-wordpress-to-hexo/</a> 谢谢！</strong></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/17/redis-upvote/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis实现点赞功能</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="blog-wordpress-to-hexo" data-title="博客从WordPress转到Hexo" data-url="http://jayzchen.com/2016/04/30/blog-wordpress-to-hexo/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jsyzchen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Jsyz Chen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="http://cdn.jsyzchen.com/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="http://apps.bdimg.com/libs/require.js/2.1.6/require.min.js"></script>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://cdn.jsyzchen.com/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
