@@ -72,7 +72,7 @@ require([], function (){
 	//是否开启动画
 	if(yiliaConfig.animate === true){
 
-		require(['//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js'], function(){
+		require(['http://cdn.jsyzchen.com/js/jquery.lazyload.js'], function(){
 			//avatar
 			$(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
 			$(".js-avatar")[0].onload = function(){
