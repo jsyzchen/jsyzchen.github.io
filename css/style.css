@@ -11,8 +11,8 @@ body:after {
 }
 @font-face {
   font-family: 'FontAwesome';
-  src: url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.eot");
-  src: url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.woff") format("woff"), url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.ttf") format("truetype"), url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.svgz#FontAwesomeRegular") format("svg"), url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.svg#FontAwesomeRegular") format("svg");
+  src: url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.eot");
+  src: url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.woff") format("woff"), url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.ttf") format("truetype"), url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.svgz#FontAwesomeRegular") format("svg"), url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.svg#FontAwesomeRegular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -128,8 +128,8 @@ button::-moz-focus-inner {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
-  src: url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.eot?v=#4.0.3");
-  src: url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.eot?#iefix&v=#4.0.3") format("embedded-opentype"), url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.woff?v=#4.0.3") format("woff"), url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.ttf?v=#4.0.3") format("truetype"), url("http://cdn.jsyzchen.com/css/fonts/fontawesome-webfont.svg#fontawesomeregular?v=#4.0.3") format("svg");
+  src: url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.eot?v=#4.0.3");
+  src: url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.eot?#iefix&v=#4.0.3") format("embedded-opentype"), url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.woff?v=#4.0.3") format("woff"), url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.ttf?v=#4.0.3") format("truetype"), url("http://static.jsyzchen.com/css/fonts/fontawesome-webfont.svg#fontawesomeregular?v=#4.0.3") format("svg");
 }
 html,
 body,
@@ -610,70 +610,70 @@ a {
   margin-right: 0;
 }
 #header .header-nav .social a.weibo {
-  background: url("http://img.jsyzchen.com/img/weibo.png") center no-repeat #aaf;
+  background: url("http://static.jsyzchen.com/img/weibo.png") center no-repeat #aaf;
   border: 1px solid #aaf;
 }
 #header .header-nav .social a.weibo:hover {
   border: 1px solid #aaf;
 }
 #header .header-nav .social a.rss {
-  background: url("http://img.jsyzchen.com/img/rss.png") center no-repeat #ef7522;
+  background: url("http://static.jsyzchen.com/img/rss.png") center no-repeat #ef7522;
   border: 1px solid #ef7522;
 }
 #header .header-nav .social a.rss:hover {
   border: 1px solid #cf5d0f;
 }
 #header .header-nav .social a.github {
-  background: url("http://img.jsyzchen.com/img/github.png") center no-repeat #afb6ca;
+  background: url("http://static.jsyzchen.com/img/github.png") center no-repeat #afb6ca;
   border: 1px solid #afb6ca;
 }
 #header .header-nav .social a.github:hover {
   border: 1px solid #909ab6;
 }
 #header .header-nav .social a.facebook {
-  background: url("http://img.jsyzchen.com/img/facebook.png") center no-repeat #3b5998;
+  background: url("http://static.jsyzchen.com/img/facebook.png") center no-repeat #3b5998;
   border: 1px solid #3b5998;
 }
 #header .header-nav .social a.facebook:hover {
   border: 1px solid #2d4373;
 }
 #header .header-nav .social a.google {
-  background: url("http://img.jsyzchen.com/img/google.png") center no-repeat #c83d20;
+  background: url("http://static.jsyzchen.com/img/google.png") center no-repeat #c83d20;
   border: 1px solid #c83d20;
 }
 #header .header-nav .social a.google:hover {
   border: 1px solid #9c3019;
 }
 #header .header-nav .social a.twitter {
-  background: url("http://img.jsyzchen.com/img/twitter.png") center no-repeat #55cff8;
+  background: url("http://static.jsyzchen.com/img/twitter.png") center no-repeat #55cff8;
   border: 1px solid #55cff8;
 }
 #header .header-nav .social a.twitter:hover {
   border: 1px solid #24c1f6;
 }
 #header .header-nav .social a.linkedin {
-  background: url("http://img.jsyzchen.com/img/linkedin.png") center no-repeat #005a87;
+  background: url("http://static.jsyzchen.com/img/linkedin.png") center no-repeat #005a87;
   border: 1px solid #005a87;
 }
 #header .header-nav .social a.linkedin:hover {
   border: 1px solid #006b98;
 }
 #header .header-nav .social a.zhihu {
-  background: url("http://img.jsyzchen.com/img/zhihu.png") center no-repeat #0078d8;
+  background: url("http://static.jsyzchen.com/img/zhihu.png") center no-repeat #0078d8;
   border: 1px solid #0078d8;
 }
 #header .header-nav .social a.zhihu:hover {
   border: 1px solid #0078d8;
 }
 #header .header-nav .social a.douban {
-  background: url("http://img.jsyzchen.com/img/douban.png") center no-repeat #06c611;
+  background: url("http://static.jsyzchen.com/img/douban.png") center no-repeat #06c611;
   border: 1px solid #06c611;
 }
 #header .header-nav .social a.douban:hover {
   border: 1px solid #06c611;
 }
 #header .header-nav .social a.mail {
-  background: url("http://img.jsyzchen.com/img/mail.png") center no-repeat #005a87;
+  background: url("http://static.jsyzchen.com/img/mail.png") center no-repeat #005a87;
   border: 1px solid #005a87;
 }
 #header .header-nav .social a.mail:hover {
@@ -2200,24 +2200,24 @@ pre .css ~ * .id {
 ::-webkit-scrollbar-button:start {
   width: 10px;
   height: 10px;
-  background: url("http://img.jsyzchen.com/img/scrollbar_arrow.png") no-repeat 0 0;
+  background: url("http://static.jsyzchen.com/img/scrollbar_arrow.png") no-repeat 0 0;
 }
 ::-webkit-scrollbar-button:start:hover {
-  background: url("http://img.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -15px 0;
+  background: url("http://static.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -15px 0;
 }
 ::-webkit-scrollbar-button:start:active {
-  background: url("http://img.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -30px 0;
+  background: url("http://static.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -30px 0;
 }
 ::-webkit-scrollbar-button:end {
   width: 10px;
   height: 10px;
-  background: url("http://img.jsyzchen.com/img/scrollbar_arrow.png") no-repeat 0 -18px;
+  background: url("http://static.jsyzchen.com/img/scrollbar_arrow.png") no-repeat 0 -18px;
 }
 ::-webkit-scrollbar-button:end:hover {
-  background: url("http://img.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -15px -18px;
+  background: url("http://static.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -15px -18px;
 }
 ::-webkit-scrollbar-button:end:active {
-  background: url("http://img.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -30px -18px;
+  background: url("http://static.jsyzchen.com/img/scrollbar_arrow.png") no-repeat -30px -18px;
 }
 #viewer {
   position: fixed;
