@@ -12,19 +12,19 @@
 <meta property="og:url" content="http://jayzchen.com/2016/04/30/blog-wordpress-to-hexo/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/hexo-default-web.png">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/duoshuo-domain.jpeg">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/my-duoshuo-domain.jpeg">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/new-repository.png">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/create-a-new-repository.png">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/wordpress-blog-pictures.jpg">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/hexo-blog-pictures.jpeg">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2016/04/custom-domain.jpeg">
-<meta property="og:updated_time" content="2016-05-09T07:08:00.000Z">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/hexo-default-web.png">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/duoshuo-domain.jpeg">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/my-duoshuo-domain.jpeg">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/new-repository.png">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/create-a-new-repository.png">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/wordpress-blog-pictures.jpg">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/hexo-blog-pictures.jpeg">
+<meta property="og:image" content="http://static.jsyzchen.com/uploads/2016/04/custom-domain.jpeg">
+<meta property="og:updated_time" content="2016-05-11T02:46:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客从WordPress迁移到Hexo">
 <meta name="twitter:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
-<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2016/04/hexo-default-web.png">
+<meta name="twitter:image" content="http://static.jsyzchen.com/uploads/2016/04/hexo-default-web.png">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -252,7 +252,7 @@ $ hexo init blog
 $ cd blog
 $ npm install
 $ hexo server
-</code></pre><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>效果图如下:<br><img src="http://img.jsyzchen.com/uploads/2016/04/hexo-default-web.png" alt="hexo-default-web"></p>
+</code></pre><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>效果图如下:<br><img src="http://static.jsyzchen.com/uploads/2016/04/hexo-default-web.png" alt="hexo-default-web"></p>
 <h3 id="更换主题与配置"><a href="#更换主题与配置" class="headerlink" title="更换主题与配置"></a>更换主题与配置</h3><p>默认的主题不是特别好看，我们可以在<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo官网的主题页</a>选择自己喜欢的主题，我选的是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>。<br><strong>1.安装</strong></p>
 <pre><code>$ cd blog
 $ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
@@ -262,7 +262,7 @@ $ git pull
 <p><strong>3.yilia配置</strong>  </p>
 <pre><code>$ cd blog/theme/yilia
 $ vim _config.yml
-</code></pre><p>然后根据里面的提示填写就行了，这里就不多说了。里面有个多说的配置，litten可能有点没说清楚，其实填写的是多说站点设置里的多说域名你填写的部分。<br><img src="http://img.jsyzchen.com/uploads/2016/04/duoshuo-domain.jpeg" alt="duoshuo-domain"><br><img src="http://img.jsyzchen.com/uploads/2016/04/my-duoshuo-domain.jpeg" alt="duoshuo-domain"><br>我这里如下填写： </p>
+</code></pre><p>然后根据里面的提示填写就行了，这里就不多说了。里面有个多说的配置，litten可能有点没说清楚，其实填写的是多说站点设置里的多说域名你填写的部分。<br><img src="http://static.jsyzchen.com/uploads/2016/04/duoshuo-domain.jpeg" alt="duoshuo-domain"><br><img src="http://static.jsyzchen.com/uploads/2016/04/my-duoshuo-domain.jpeg" alt="duoshuo-domain"><br>我这里如下填写： </p>
 <pre><code>duoshuo: jsyzchen
 </code></pre><h3 id="WordPress迁移"><a href="#WordPress迁移" class="headerlink" title="WordPress迁移"></a>WordPress迁移</h3><p>现在我们将WordPress的文章迁移到Hexo，如果你不需要迁移，跳过即可。<br>首先，安装 hexo-migrator-wordpress 插件。</p>
 <pre><code>$ npm install hexo-migrator-wordpress --save
@@ -273,8 +273,8 @@ $ vim _config.yml
 </code></pre><p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 查看效果</p>
 <h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p><strong>1.申请GitHub</strong><br><a href="https://github.com/" target="_blank" rel="external">GitHub</a>直接申请一下就好了。</p>
 <p><strong>2.新建Repository(仓库)</strong></p>
-<p>登陆Github账号后，点击右上角的“+”号按钮，选择“New repository”<br><img src="http://img.jsyzchen.com/uploads/2016/04/new-repository.png" alt="new-repository"></p>
-<p>在Create a new repository界面填写格式如下图所示: 用户名.github.io，固定写法<br><img src="http://img.jsyzchen.com/uploads/2016/04/create-a-new-repository.png" alt="create-a-new-repository"></p>
+<p>登陆Github账号后，点击右上角的“+”号按钮，选择“New repository”<br><img src="http://static.jsyzchen.com/uploads/2016/04/new-repository.png" alt="new-repository"></p>
+<p>在Create a new repository界面填写格式如下图所示: 用户名.github.io，固定写法<br><img src="http://static.jsyzchen.com/uploads/2016/04/create-a-new-repository.png" alt="create-a-new-repository"></p>
 <p><strong>3.设置你的git用户名和密码</strong></p>
 <p>Git会根据用户的名字和邮箱来记录提交，GitHub也是用这些信息来做权限的处理。<br>git config –global user.name”这里是你申请Github账号时的name”<br>git config –global user.email”这里是你申请Github账号时的邮箱”</p>
 <p><strong>3.SSH配置</strong></p>
@@ -293,9 +293,9 @@ $ vim _config.yml
 </code></pre><p>上面2、3两个命令可以合起来</p>
 <pre><code>$ hexo d -g
 </code></pre><p>如果你此时没有看到一大段执行代码，一般是SSH配置有误。<br>如果成功了，你进入Github repository,就是your_username.github.io是有代码的<br>此时，你在浏览器里输入<a href="http://your_username.github.io" target="_blank" rel="external">http://your_username.github.io</a> 就可以看到你的博客了  </p>
-<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>我的WordPress和Hexo博客对比图:<br>1.原来的WordPress<br><img src="http://img.jsyzchen.com/uploads/2016/04/wordpress-blog-pictures.jpg" alt="wordpress-blog-pictures"><br>2.如今的Hexo<br><img src="http://img.jsyzchen.com/uploads/2016/04/hexo-blog-pictures.jpeg" alt="hexo-blog-pictures"><br>怎么感觉变丑了呢，没事，能省钱就好了，哈哈。。</p>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>我的WordPress和Hexo博客对比图:<br>1.原来的WordPress<br><img src="http://static.jsyzchen.com/uploads/2016/04/wordpress-blog-pictures.jpg" alt="wordpress-blog-pictures"><br>2.如今的Hexo<br><img src="http://static.jsyzchen.com/uploads/2016/04/hexo-blog-pictures.jpeg" alt="hexo-blog-pictures"><br>怎么感觉变丑了呢，没事，能省钱就好了，哈哈。。</p>
 <h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>虽然使用your_username.github.io可以直接访问博客，但如果你想用自己的域名打开博客。<br><strong>1.域名解析</strong></p>
-<p>进入你的域名解析管理控制台，设置主机记录@，类型A，到IP 192.30.252.153(GitHub IP)。<br>我用的是万网,设置如下:<br><img src="http://img.jsyzchen.com/uploads/2016/04/custom-domain.jpeg" alt="hexo-blog-pictures"><br><strong>2.GitHub设置</strong></p>
+<p>进入你的域名解析管理控制台，设置主机记录@，类型A，到IP 192.30.252.153(GitHub IP)。<br>我用的是万网,设置如下:<br><img src="http://static.jsyzchen.com/uploads/2016/04/custom-domain.jpeg" alt="hexo-blog-pictures"><br><strong>2.GitHub设置</strong></p>
 <p>在github项目中，blog/source目录下,新建一个文件CNAME，文件中写出你要绑定的域名,比如我的是jsyzchen.com</p>
 <p><strong>3.部署更新文件</strong></p>
 <pre><code>$ hexo clean
