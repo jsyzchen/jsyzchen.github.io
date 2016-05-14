@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Category: web | 雨泪漂古 | 过往云烟</title>
+  <title>简单的接口加密 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="雨泪漂古 | 过往云烟">
-<meta property="og:url" content="http://jayzchen.com/categories/linux/php/web/index.html">
+  <meta name="description" content="之前的接口只会给不同的应用分配app_key,其实这样很容易让别人破解获取我们的接口信息,所以就想着能做一个接口加密。因为大多是公司内部各部门调，所以只是想做一个简单的接口加密,也就没有使用OAuth2.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单的接口加密">
+<meta property="og:url" content="http://jayzchen.com/2016/05/14/simple-encrypt-api/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
+<meta property="og:description" content="之前的接口只会给不同的应用分配app_key,其实这样很容易让别人破解获取我们的接口信息,所以就想着能做一个接口加密。因为大多是公司内部各部门调，所以只是想做一个简单的接口加密,也就没有使用OAuth2.0">
+<meta property="og:updated_time" content="2016-05-14T16:04:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="雨泪漂古 | 过往云烟">
-<meta name="twitter:description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
+<meta name="twitter:title" content="简单的接口加密">
+<meta name="twitter:description" content="之前的接口只会给不同的应用分配app_key,其实这样很容易让别人破解获取我们的接口信息,所以就想着能做一个接口加密。因为大多是公司内部各部门调，所以只是想做一个简单的接口加密,也就没有使用OAuth2.0">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -191,57 +192,175 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-simple-encrypt-api" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/14/install-php7/" class="archive-article-date">
-  	<time datetime="2015-12-14T06:51:15.000Z" itemprop="datePublished">Dec 14</time>
+    <div class="article-meta">
+      <a href="/2016/05/14/simple-encrypt-api/" class="article-date">
+  	<time datetime="2016-05-14T15:26:00.000Z" itemprop="datePublished">2016-05-14</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/14/install-php7/">编译安装PHP7</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      简单的接口加密
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/encrypt/">encrypt</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/linux/">linux</a><a class="article-category-link" href="/categories/linux/php/">php</a><a class="article-category-link" href="/categories/linux/php/web/">web</a>
+	<a class="article-category-link" href="/categories/PHP/">PHP</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前的接口只会给不同的应用分配app_key,其实这样很容易让别人破解获取我们的接口信息,所以就想着能做一个接口加密。因为大多是公司内部各部门调，所以只是想做一个简单的接口加密,也就没有使用<a href="http://oauth.net/2/" target="_blank" rel="external">OAuth2.0</a><br><a id="more"></a></p>
+<h3 id="请求端生成签名，并请求"><a href="#请求端生成签名，并请求" class="headerlink" title="请求端生成签名，并请求"></a>请求端生成签名，并请求</h3><pre><code>&lt;?php
+$timestamp = time();
+$noncestr = generateNonceStr();
+$app_key = &apos;6ba895293c27f610&apos;;
+$param1 = &apos;xxx&apos;;
+$param2 = &apos;129423&apos;;
+$signature = getSignature(compact(&apos;timestamp&apos;,&apos;noncestr&apos;,&apos;param1&apos;,&apos;param2&apos;),$app_key);
+$api_url = &quot;http://apiurl.com?app_key={$app_key}&amp;param1={$param1}&amp;param2={$param2}&amp;timestamp={$timestamp}&amp;noncestr={$noncestr}&amp;signature={$signature}&amp;return=json&amp;encode=utf-8&quot;;
+
+//get or post api_url to get data
+
+//获取签名
+function getSignature($arrdata,$app_key=&apos;&apos;,$method=&quot;sha1&quot;) {
+    if (!function_exists($method)) return false;
+    $newArray = array();
+    foreach($arrdata as $key =&gt; $value)
+    {
+        array_push($newArray,(string)$value);
+    }
+    sort($newArray,SORT_STRING);//value值进行字符串的字典序排序
+    ksort($arrdata);//按照键值排序
+    $paramstring = &quot;&quot;;
+    foreach($arrdata as $key =&gt; $value)
+    {
+        if(strlen($paramstring) == 0)
+            $paramstring .= $key . &quot;=&quot; . $value;
+        else
+            $paramstring .= &quot;&amp;&quot; . $key . &quot;=&quot; . $value;
+    }
+    $Sign = $method($paramstring.$app_key.implode($newArray));
+    return $Sign;
+}
+
+//获取随机字符串
+function generateNonceStr($length=16){
+    // 密码字符集，可任意添加你需要的字符
+    $chars = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;
+    $str = &quot;&quot;;
+    for($i = 0; $i &lt; $length; $i++)
+    {
+        $str .= $chars[mt_rand(0, strlen($chars) - 1)];
+    }
+    return $str;
+}  
+</code></pre><h3 id="服务端检验签名-并返回相关数据"><a href="#服务端检验签名-并返回相关数据" class="headerlink" title="服务端检验签名,并返回相关数据"></a>服务端检验签名,并返回相关数据</h3><pre><code>&lt;?php
+//检验签名
+function checkSignature($arrdata=array(),$app_key=&apos;&apos;,$signature=&apos;&apos;,$method=&quot;sha1&quot;)
+{
+    if (!function_exists($method)) return false;
+    $newArray = array();
+    foreach($arrdata as $key =&gt; $value)
+    {
+        array_push($newArray,(string)$value);
+    }
+    sort($newArray,SORT_STRING);//value值进行字符串的字典序排序
+    ksort($arrdata);//按照键值排序
+    $paramstring = &quot;&quot;;
+    foreach($arrdata as $key =&gt; $value)
+    {
+        if(strlen($paramstring) == 0)
+            $paramstring .= $key . &quot;=&quot; . $value;
+        else
+            $paramstring .= &quot;&amp;&quot; . $key . &quot;=&quot; . $value;
+    }
+    $Sign = $method($paramstring.$app_key.implode($newArray));
+    if( $Sign == $signature ){
+        return true;
+    }else{
+        return false;
+    }
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+
+  
+  <!-- social-share Button BEGIN -->
+<div class="social-share" style="margin-left: 30px;"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.13/js/social-share.min.js"></script>
+<!-- social-share Button END -->
+  
+  
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/30/blog-wordpress-to-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客从WordPress迁移到Hexo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="simple-encrypt-api" data-title="简单的接口加密" data-url="http://jayzchen.com/2016/05/14/simple-encrypt-api/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"jsyzchen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -267,10 +386,10 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false
 	}
 </script>
