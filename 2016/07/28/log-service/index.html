@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>日志系统 | 雨泪漂古 | 过往云烟</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#一、SocketLog 
+##前言
+
+前言：ThinkPHP框架的页面Trace 
+
+###配置：
+&amp;#39;SHOW_PAGE_TRACE&amp;#39;=&amp;gt;1
+在页面的右下角能够看到新版的页面Trace的默认显示区域（其中默认会显示当前页面的执行时间）。点击该区域，就会弹出详细的页面Trace信息，如图：  
+
+默认情况下，会包含基本、文件、流程、错误、SQL和调试 几个选项卡，点击不同的选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日志系统">
+<meta property="og:url" content="http://jayzchen.com/2016/07/28/log-service/index.html">
+<meta property="og:site_name" content="雨泪漂古 | 过往云烟">
+<meta property="og:description" content="#一、SocketLog 
+##前言
+
+前言：ThinkPHP框架的页面Trace 
+
+###配置：
+&amp;#39;SHOW_PAGE_TRACE&amp;#39;=&amp;gt;1
+在页面的右下角能够看到新版的页面Trace的默认显示区域（其中默认会显示当前页面的执行时间）。点击该区域，就会弹出详细的页面Trace信息，如图：  
+
+默认情况下，会包含基本、文件、流程、错误、SQL和调试 几个选项卡，点击不同的选">
+<meta property="og:image" content="http://img.jsyzchen.com/log-service/504081c68b491.jpg">
+<meta property="og:image" content="http://img.jsyzchen.com/log-service/504082cb60725.jpg">
+<meta property="og:image" content="http://img.jsyzchen.com/log-service/5040833cd3456.jpg">
+<meta property="og:image" content="http://img.jsyzchen.com/log-service/5040840ae7b61.jpg">
+<meta property="og:image" content="http://img.jsyzchen.com/log-service/50408438d13fa.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/luofei614/SocketLog/master/screenshots/weixin.png">
+<meta property="og:image" content="https://github.com/luofei614/SocketLog/raw/master/screenshots/socketlog.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Neeke/SeasLog/master/tests/SeasLogVSlog4php.png">
+<meta property="og:image" content="http://img.jsyzchen.com/log-service/lianjia-log.png">
+<meta property="og:image" content="http://img.jsyzchen.com/log-service/Monolog.png">
+<meta property="og:updated_time" content="2016-07-28T14:38:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日志系统">
+<meta name="twitter:description" content="#一、SocketLog 
+##前言
+
+前言：ThinkPHP框架的页面Trace 
+
+###配置：
+&amp;#39;SHOW_PAGE_TRACE&amp;#39;=&amp;gt;1
+在页面的右下角能够看到新版的页面Trace的默认显示区域（其中默认会显示当前页面的执行时间）。点击该区域，就会弹出详细的页面Trace信息，如图：  
+
+默认情况下，会包含基本、文件、流程、错误、SQL和调试 几个选项卡，点击不同的选">
+<meta name="twitter:image" content="http://img.jsyzchen.com/log-service/504081c68b491.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://static.jsyzchen.com/favicon.ico">
+  
+  <link rel="stylesheet" href="http://static.jsyzchen.com/css/style.css">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.13/css/share.min.css">
+  
+  
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://static.jsyzchen.com/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Jsyz Chen</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook">facebook</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Makedown/" style="font-size: 10px;">Makedown</a> <a href="/tags/Monolog/" style="font-size: 10px;">Monolog</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/PHP/" style="font-size: 16.67px;">PHP</a> <a href="/tags/ScoketLog/" style="font-size: 10px;">ScoketLog</a> <a href="/tags/SeasLog/" style="font-size: 10px;">SeasLog</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/coreseek/" style="font-size: 10px;">coreseek</a> <a href="/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/tags/encrypt/" style="font-size: 10px;">encrypt</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/inotify/" style="font-size: 10px;">inotify</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sphinx/" style="font-size: 10px;">sphinx</a> <a href="/tags/yar/" style="font-size: 13.33px;">yar</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/抽奖算法/" style="font-size: 10px;">抽奖算法</a> <a href="/tags/点赞功能/" style="font-size: 10px;">点赞功能</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io/">Hexo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">陈晨，PHP开发工程师，现就职于新浪乐居。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Jsyz Chen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://static.jsyzchen.com/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Jsyz Chen</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook">facebook</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-log-service" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/28/log-service/" class="article-date">
+  	<time datetime="2016-07-28T14:38:00.000Z" itemprop="datePublished">2016-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      日志系统
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Log/">Log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Monolog/">Monolog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ScoketLog/">ScoketLog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SeasLog/">SeasLog</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/php/">php</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#一、SocketLog </p>
+<p>##前言</p>
+<blockquote>
+<p>前言：ThinkPHP框架的页面Trace </p>
+</blockquote>
+<p>###配置：</p>
+<p><code>&#39;SHOW_PAGE_TRACE&#39;=&gt;1</code></p>
+<p>在页面的右下角能够看到新版的页面Trace的默认显示区域（其中默认会显示当前页面的执行时间）。<br><img src="http://img.jsyzchen.com/log-service/504081c68b491.jpg" alt="trace-click-img"><br>点击该区域，就会弹出详细的页面Trace信息，如图：<br><img src="http://img.jsyzchen.com/log-service/504082cb60725.jpg" alt="base">  </p>
+<ul>
+<li>默认情况下，会包含基本、文件、流程、错误、SQL和调试 几个选项卡，点击不同的选项卡会切换显示不同的页面Trace信息。 </li>
+<li>文件选项卡会列出当前页面加载的文件信息，并且会列出文件的大小。 <ul>
+<li><img src="http://img.jsyzchen.com/log-service/5040833cd3456.jpg" alt="file">  </li>
+</ul>
+</li>
+<li>流程选项卡是当前页面执行的行为信息记录  </li>
+<li>错误选项卡是当前页面所有的错误信息记录，为了方便，该示例模拟了一些错误信息。</li>
+</ul>
+<ul>
+<li>SQL选项卡则显示了当前页面所有执行过的sql语句 <ul>
+<li><img src="http://img.jsyzchen.com/log-service/5040840ae7b61.jpg" alt="sql"> </li>
+</ul>
+</li>
+<li>调试选项卡则显示当前页面的调试信息，主要是通过trace方法来进行调试输出的。  <ul>
+<li><img src="http://img.jsyzchen.com/log-service/50408438d13fa.jpg" alt="debug"></li>
+</ul>
+</li>
+</ul>
+<p>##SocketLog简介</p>
+<blockquote>
+<p>Author:ThinkPHP框架核心开发者-罗飞<br>项目Github url：<a href="https://github.com/luofei614/SocketLog" target="_blank" rel="external">https://github.com/luofei614/SocketLog</a></p>
+</blockquote>
+<ul>
+<li><p>SocketLog适合Ajax调试和API调试， 举一个常见的场景，用SocketLog来做微信调试， 我们在做微信API开发的时候，如果API有bug，微信只提示“改公众账号暂时无法提供服务，请稍候再试” ，我们根本不知道API出来什么问题。 有了SocketLog就不一样了， 我们可以知道微信给API传递了哪些参数， 程序有错误我们也能看见错误信息<br><img src="https://raw.githubusercontent.com/luofei614/SocketLog/master/screenshots/weixin.png" alt="socket-api"></p>
+</li>
+<li><p>正在运行的API有bug，不能var_dump进行调试，因为会影响client的调用。 将日志写到文件，查看也不方便，特别是带调用栈或大数据结构的文件日志，查看日志十分困难。 这时候用SocketLog最好，SocketLog通过websocket将调试日志打印到浏览器的console中。你还可以用它来分析开源程序，分析SQL性能，结合taint分析程序漏洞。</p>
+</li>
+</ul>
+<p>##使用方法</p>
+<ul>
+<li>首先，请在chrome浏览器上安装好插件。 <a href="https://chrome.google.com/webstore/detail/socketlog/apkmbfpihjhongonfcgdagliaglghcod" target="_blank" rel="external">https://chrome.google.com/webstore/detail/socketlog/apkmbfpihjhongonfcgdagliaglghcod</a> </li>
+<li>安装服务端<code>npm install -g socketlog-server</code> , 运行命令 <code>socketlog-server</code> 即可启动服务。 将会在本地起一个websocket服务 ，监听端口是1229 。 如果想服务后台运行： <code>socketlog-server &gt; /dev/null &amp;</code> 我们提供公用的服务端，需要去申请client_id : <a href="http://111.202.76.133/" target="_blank" rel="external">http://111.202.76.133/</a></li>
+<li>如果你的服务器有防火墙，请开启1229和1116两个端口，这两个端口是socketlog要使用的。</li>
+<li><p>在自己的程序中发送日志：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./php/slog.function.php'</span>;</span><br><span class="line">slog(<span class="string">'hello world'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用slog函数发送日志， 支持多种日志类型： </p>
+<pre><code>* slog(&apos;msg&apos;,&apos;log&apos;);  //一般日志
+* slog(&apos;msg&apos;,&apos;error&apos;); //错误日志
+* slog(&apos;msg&apos;,&apos;info&apos;); //信息日志
+* slog(&apos;msg&apos;,&apos;warn&apos;); //警告日志
+* slog(&apos;msg&apos;,&apos;trace&apos;);// 输入日志同时会打出调用栈
+* slog(&apos;msg&apos;,&apos;alert&apos;);//将日志以alert方式弹出
+* slog(&apos;msg&apos;,&apos;log&apos;,&apos;color:red;font-size:20px;&apos;);//自定义日志的样式，第三个参数为css样式
+</code></pre></li>
+<li>通过上面例子可以看出， slog函数支持三个参数：</li>
+<li>第一个参数是日志内容，日志内容不光能支持字符串哟，大家如果传递数组,对象等一样可以打印到console中。</li>
+<li>第二个参数是日志类型，可选，如果没有指定日志类型默认类型为log， 第三个参数是自定样式，在这里写上你自定义css样式即可。</li>
+</ul>
+<p>##配置</p>
+<ul>
+<li>在载入slog.function.php文件后，还可以对SocketLog进行一些配置。 </li>
+<li><p>例如：我们如果想将程序的报错信息页输出到console，可以配置</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./php/slog.function.php'</span>;</span><br><span class="line">slog(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'error_handler'</span>=&gt;<span class="keyword">true</span></span><br><span class="line">),<span class="string">'config'</span>);</span><br><span class="line"><span class="keyword">echo</span> notice;<span class="comment">//制造一个notice报错</span></span><br><span class="line">slog(<span class="string">'这里是输出的一般日志'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置SocketLog也是用slog函数， 第一个参数传递配置项的数组，第二个参数设置为config</p>
+</li>
+<li><p>还支持其他配置项</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./php/slog.function.php'</span>;</span><br><span class="line">slog(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'enable'</span>=&gt;<span class="keyword">true</span>,<span class="comment">//是否打印日志的开关</span></span><br><span class="line">    <span class="string">'host'</span>=&gt;<span class="string">'localhost'</span>,<span class="comment">//websocket服务器地址，默认localhost</span></span><br><span class="line">    <span class="string">'optimize'</span>=&gt;<span class="keyword">false</span>,<span class="comment">//是否显示利于优化的参数，如果运行时间，消耗内存等，默认为false</span></span><br><span class="line">    <span class="string">'show_included_files'</span>=&gt;<span class="keyword">false</span>,<span class="comment">//是否显示本次程序运行加载了哪些文件，默认为false</span></span><br><span class="line">    <span class="string">'error_handler'</span>=&gt;<span class="keyword">false</span>,<span class="comment">//是否接管程序错误，将程序错误显示在console中，默认为false</span></span><br><span class="line">    <span class="string">'force_client_id'</span>=&gt;<span class="string">''</span>,<span class="comment">//日志强制记录到配置的client_id,默认为空</span></span><br><span class="line">    <span class="string">'allow_client_ids'</span>=&gt;<span class="keyword">array</span>()<span class="comment">////限制允许读取日志的client_id，默认为空,表示所有人都可以获得日志。</span></span><br><span class="line">),<span class="string">'config'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>optimize 参数如果设置为true， 可以在日志中看见利于优化参数，如：<code>[运行时间：0.081346035003662s][吞吐率：12.29req/s][内存消耗：346,910.45kb]</code>  </p>
+</li>
+<li>show_included_files 设置为true，能显示出程序运行时加载了哪些文件，比如我们在分析开源程序时，如果不知道模板文件在那里， 往往看一下加载文件列表就知道模板文件在哪里了。</li>
+<li>error_handler 设置为true，能接管报错，将错误信息显示到浏览器console， 在开发程序时notice报错能让我们快速发现bug，但是有些notice报错是不可避免的，如果让他们显示在页面中会影响网页的正常布局，那么就设置error_handler,让它显示在浏览器console中吧。  另外此功能结合php taint也是极佳的。 taint能自动检测出xss，sql注入， 如果只用php taint， 它warning报错只告诉了变量输出的地方，并不知道变量在那里赋值、怎么传递。通过SocketLog， 能看到调用栈，轻松对有问题变量进行跟踪。 更多taint的信息：<a href="http://www.laruence.com/2012/02/14/2544.html" target="_blank" rel="external">http://www.laruence.com/2012/02/14/2544.html</a> </li>
+</ul>
+<p>###error_handler 原理<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 接管报错</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">registerErrorHandler</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">self</span>::check())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    set_error_handler(<span class="keyword">array</span>(<span class="keyword">__CLASS__</span>,<span class="string">'error_handler'</span>));</span><br><span class="line">    register_shutdown_function(<span class="keyword">array</span>(<span class="keyword">__CLASS__</span>,<span class="string">'fatalError'</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">fatalError</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">// 保存日志记录</span></span><br><span class="line">    <span class="keyword">if</span> ($e = error_get_last())</span><br><span class="line">    &#123;</span><br><span class="line">            <span class="keyword">self</span>::error_handler($e[<span class="string">'type'</span>],$e[<span class="string">'message'</span>],$e[<span class="string">'file'</span>],$e[<span class="string">'line'</span>]);</span><br><span class="line">            <span class="keyword">self</span>::sendLog();<span class="comment">//此类终止不会调用类的 __destruct 方法，所以此处手动sendLog</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">error_handler</span><span class="params">($errno, $errstr, $errfile, $errline)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>($errno)&#123;</span><br><span class="line">        <span class="keyword">case</span> E_WARNING: $severity = <span class="string">'E_WARNING'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_NOTICE: $severity = <span class="string">'E_NOTICE'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_USER_ERROR: $severity = <span class="string">'E_USER_ERROR'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_USER_WARNING: $severity = <span class="string">'E_USER_WARNING'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_USER_NOTICE: $severity = <span class="string">'E_USER_NOTICE'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_STRICT: $severity = <span class="string">'E_STRICT'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_RECOVERABLE_ERROR: $severity = <span class="string">'E_RECOVERABLE_ERROR'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_DEPRECATED: $severity = <span class="string">'E_DEPRECATED'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_USER_DEPRECATED: $severity = <span class="string">'E_USER_DEPRECATED'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_ERROR: $severity = <span class="string">'E_ERR'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_PARSE: $severity = <span class="string">'E_PARSE'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_CORE_ERROR: $severity = <span class="string">'E_CORE_ERROR'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_COMPILE_ERROR: $severity = <span class="string">'E_COMPILE_ERROR'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> E_USER_ERROR: $severity = <span class="string">'E_USER_ERROR'</span>; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>: $severity= <span class="string">'E_UNKNOWN_ERROR_'</span>.$errno; <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    $msg=<span class="string">"&#123;$severity&#125;: &#123;$errstr&#125; in &#123;$errfile&#125; on line &#123;$errline&#125; -- SocketLog error handler"</span>;</span><br><span class="line">    <span class="keyword">self</span>::trace($msg,<span class="number">2</span>,<span class="keyword">self</span>::$css[<span class="string">'error_handler'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>设置client_id:  在chrome浏览器中，可以设置插件的Client_ID ，Client_ID是你任意指定的字符串。<br>  <img src="https://github.com/luofei614/SocketLog/raw/master/screenshots/socketlog.png" alt="socketlog-client_id"></li>
+<li><p>设置client_id后能实现以下功能：</p>
+<ul>
+<li><p>1，配置allow_client_ids 配置项，让指定的浏览器才能获得日志，这样就可以把调试代码带上线。  普通用户访问不会触发调试，不会发送日志。  开发人员访问就能看的调试日志， 这样利于找线上bug。 Client_ID 建议设置为姓名拼命加上随机字符串，这样如果有员工离职可以将其对应的client_id从配置项allow_client_ids中移除。 client_id除了姓名拼音，加上随机字符串的目的，以防别人根据你公司员工姓名猜测出client_id,获取线上的调试日志。 </p>
+<ul>
+<li>设置allow_client_ids示例代码：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">slog(<span class="keyword">array</span>(</span><br><span class="line"><span class="string">'allow_client_ids'</span>=&gt;<span class="keyword">array</span>(<span class="string">'luofei_zfH5NbLn'</span>,<span class="string">'easy_DJq0z80H'</span>)</span><br><span class="line">),<span class="string">'set_config'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>2, 设置force_client_id配置项，让后台脚本也能输出日志到chrome。 网站有可能用了队列，一些业务逻辑通过后台脚本处理， 如果后台脚本需要调试，你也可以将日志打印到浏览器的console中， 当然后台脚本不和浏览器接触，不知道当前触发程序的是哪个浏览器，所以我们需要强制将日志打印到指定client_id的浏览器上面。 我们在后台脚本中使用SocketLog时设置force_client_id 配置项指定要强制输出浏览器的client_id 即可。</p>
+</li>
+<li>示例代码:<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'./php/slog.function.php'</span>;</span><br><span class="line">slog(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'force_client_id'</span>=&gt;<span class="string">'luofei_zfH5NbLn'</span></span><br><span class="line">),<span class="string">'config'</span>);</span><br><span class="line">slog(<span class="string">'test'</span>); </span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">##对数据库进行调试</span></span><br><span class="line">  * SocketLog还能对sql语句进行调试，自动对sql语句进行explain分析，显示出有性能问题的sql语句。 </span><br><span class="line">![SocketLog-sql](https:<span class="comment">//github.com/luofei614/SocketLog/raw/master/screenshots/sql.png)</span></span><br><span class="line">  * sql语句字体较大，是因为它有性能问题， 在sql语句的后台已经标注Using filesort。 我们还可以点击某个sql语句看到sql执行的调用栈，清楚的知道sql语句是如何被执行的，方便我们分析程序、方便做开源程序的二次开发。</span><br><span class="line">  * 用slog函数打印sql语句是，第二个参数传递为mysql或mysqli的对象即可。 示例代码：</span><br><span class="line">  ```php</span><br><span class="line">$link=mysql_connect( <span class="string">'localhost:3306'</span> , <span class="string">'root'</span> , <span class="string">'123456'</span> , <span class="keyword">true</span> ) ;</span><br><span class="line">mysql_select_db(<span class="string">'kuaijianli'</span>,$link);</span><br><span class="line">$sql=<span class="string">"SELECT * FROM `user`"</span>;</span><br><span class="line">slog($sql,$link);</span><br><span class="line"> ```      </span><br><span class="line">  通过上面的方法，socketlog还能自动为你检测没有where语句的sql操作，然后自动提示你。</span><br><span class="line"></span><br><span class="line">  * 注意，有时候在数据比较少的情况下，mysql查询不会使用索引，explain也会提示Using filesort等性能问题， 其实这时候并不是真正有性能问题， 你需要自行进行判断，或者增加更多的数据再测试。</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">##对API进行调试 </span></span><br><span class="line">* 网站调用了API ，如何将API程序的调试信息也打印到浏览器的console中？ 前面我们讲了一个配置 force_client_id， 能将日志强制记录到指定的浏览器。 用这种方式也可以将API的调试信息打印到console中，但是force_client_id 只能指定一个client_id， 如果我们的开发环境是多人共用，这种方式就不方便了。</span><br><span class="line">  </span><br><span class="line">* 其实只要将浏览器传递给网站的User-Agent 再传递给API， API程序中不用配置force_client_id， 也能识别当前访问程序的浏览器， 将日志打印到当前访问程序的浏览器， 我们需要将SDK代码稍微做一下修改。 调用API的SDK，一般是用curl写的，增加下面代码可以将浏览器的User-Agent传递到API 。 </span><br><span class="line"></span><br><span class="line">```php</span><br><span class="line">$headers=<span class="keyword">array</span>();</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_SERVER[<span class="string">'HTTP_USER_AGENT'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    $headers[]=<span class="string">'User-Agent: '</span>.$_SERVER[<span class="string">'HTTP_USER_AGENT'</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_SERVER[<span class="string">'HTTP_SOCKETLOG'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    $headers[]=<span class="string">'Socketlog: '</span>.$_SERVER[<span class="string">'HTTP_SOCKETLOG'</span>];</span><br><span class="line">&#125;</span><br><span class="line">curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>#二、SeasLog  </p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="为什么使用SeasLog"><a href="#为什么使用SeasLog" class="headerlink" title="为什么使用SeasLog"></a>为什么使用SeasLog</h3><p>log日志，通常是系统或软件、应用的运行记录。通过log的分析，可以方便用户了解系统或软件、应用的运行情况；如果你的应用log足够丰富，也可以分析以往用户的操作行为、类型喜好、地域分布或其他更多信息；如果一个应用的log同时也分了多个级别，那么可以很轻易地分析得到该应用的健康状况，及时发现问题并快速定位、解决问题，补救损失。<br>php内置error_log、syslog函数功能强大且性能极好，但由于各种缺陷(error_log无错误级别、无固定格式，syslog不分模块、与系统日志混合)，灵活度降低了很多，不能满足应用需求。</p>
+<p>好消息是，有不少第三方的log类库弥补了上述缺陷，如log4php、plog、Analog等(当然也有很多应用在项目中自己开发的log类)。其中以<a href="http://logging.apache.org/log4php/" target="_blank" rel="external">log4php</a>最为著名，设计精良、格式完美、文档完善、功能强大。推荐。<br>不过log4php在性能方面表现非常差,下图是SeasLog与log4php的ab并发性能测试( 测试环境:Ubuntu12.04单机,CPU I3,内存 16G,硬盘 SATA 7200):<br><img src="https://raw.githubusercontent.com/Neeke/SeasLog/master/tests/SeasLogVSlog4php.png" alt="SeasLogVSlog4php"></p>
+<p>那么有没有一种log类库满足以下需求呢： </p>
+<ul>
+<li>分模块、分级别 </li>
+<li>配置简单(最好是勿须配置)</li>
+<li>日志格式清晰易读</li>
+<li>应用简单、性能很棒</li>
+</ul>
+<h3 id="目前提供了什么"><a href="#目前提供了什么" class="headerlink" title="目前提供了什么"></a>目前提供了什么</h3><ul>
+<li>在PHP项目中便捷、规范地记录log  </li>
+<li>可配置的默认log目录与模块</li>
+<li>指定log目录与获取当前配置</li>
+<li>初步的分析预警框架</li>
+<li>高效的日志缓冲、便捷的缓冲debug</li>
+<li>遵循 <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md" target="_blank" rel="external">PSR-3</a> 日志接口规范</li>
+<li>自动记录错误信息</li>
+<li>自动记录异常信息</li>
+<li>连接TCP端口发送</li>
+<li>连接UDP端口发送</li>
+</ul>
+<h3 id="目标是怎样的"><a href="#目标是怎样的" class="headerlink" title="目标是怎样的"></a>目标是怎样的</h3><ul>
+<li>便捷、规范的log记录 </li>
+<li>高效的海量log分析</li>
+<li>可配置、多途径的log预警</li>
+</ul>
+<p>##安装 </p>
+<h3 id="编译安装-SeasLog"><a href="#编译安装-SeasLog" class="headerlink" title="编译安装 SeasLog"></a>编译安装 SeasLog</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /path/to/phpize</span><br><span class="line">$ ./configure --with-php-config=/path/to/php-config</span><br><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="PECL安装SeasLog"><a href="#PECL安装SeasLog" class="headerlink" title="PECL安装SeasLog"></a>PECL安装SeasLog</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pecl install seaslog</span><br></pre></td></tr></table></figure>
+<h3 id="Windows环境中使用SeasLog"><a href="#Windows环境中使用SeasLog" class="headerlink" title="Windows环境中使用SeasLog"></a>Windows环境中使用SeasLog</h3><p>到PECL/SeasLog主页找到对应的dll进行安装 <a href="http://pecl.php.net/package/SeasLog/1.6.0/windows" target="_blank" rel="external">PECL/SeasLog Windows Dll</a> </p>
+<h3 id="seaslog-ini的配置"><a href="#seaslog-ini的配置" class="headerlink" title="seaslog.ini的配置"></a>seaslog.ini的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">; configuration for php SeasLog module</span><br><span class="line">extension = seaslog.so</span><br><span class="line">seaslog.default_basepath = /log/seaslog-test            ;默认log根目录</span><br><span class="line">seaslog.default_logger = default                        ;默认logger目录</span><br><span class="line">seaslog.disting_type = 1                                ;是否以type分文件 1是 0否(默认)</span><br><span class="line">seaslog.disting_by_hour = 1                             ;是否每小时划分一个文件 1是 0否(默认)</span><br><span class="line">seaslog.use_buffer = 1                                  ;是否启用buffer 1是 0否(默认)</span><br><span class="line">seaslog.buffer_size = 100                               ;buffer中缓冲数量 默认0(不使用buffer_size)</span><br><span class="line">seaslog.level = 0                                       ;记录日志级别 默认0(所有日志)</span><br><span class="line">seaslog.trace_error = 1                                 ;自动记录错误 默认1(开启)</span><br><span class="line">seaslog.trace_exception = 0                             ;自动记录异常信息 默认0(关闭)</span><br><span class="line">seaslog.default_datetime_format = &quot;Y:m:d H:i:s&quot;         ;日期格式配置 默认&quot;Y:m:d H:i:s&quot;</span><br><span class="line">seaslog.appender = 1                                    ;日志存储介质 1File 2TCP 3UDP (默认为1)</span><br><span class="line">seaslog.remote_host = 127.0.0.1                         ;接收ip 默认127.0.0.1 (当使用TCP或UDP时必填)</span><br><span class="line">seaslog.remote_port = 514                               ;接收端口 默认514 (当使用TCP或UDP时必填)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>seaslog.disting_type = 1</code> 开启以type分文件，即log文件区分info\warn\erro </li>
+<li><code>seaslog.disting_by_hour = 1</code> 开启每小时划分一个文件</li>
+<li><code>seaslog.use_buffer = 1</code> 开启buffer。默认关闭。当开启此项时，日志预存于内存，当请求结束时(或异常退出时)一次写入文件。</li>
+<li><code>seaslog.buffer_size = 100</code> 设置缓冲数量为100. 默认为0,即无缓冲数量限制.当buffer_size大于0时,缓冲量达到该值则写一次文件.</li>
+<li><code>seaslog.level = 3</code> 记录的日志级别.默认为0,即所有日志均记录。当level为1时,关注debug以上级别(包括debug)，以此类推。level大于8时，所有日志均不记录。</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="常量与函数"><a href="#常量与函数" class="headerlink" title="常量与函数"></a>常量与函数</h3><h4 id="常量列表"><a href="#常量列表" class="headerlink" title="常量列表"></a>常量列表</h4><p><code>SeasLog 共将日志分成8个级别</code></p>
+<ul>
+<li>SEASLOG_DEBUG                       “debug” </li>
+<li>SEASLOG_INFO                        “info”</li>
+<li>SEASLOG_NOTICE                      “notice”</li>
+<li>SEASLOG_WARNING                     “warning”</li>
+<li>SEASLOG_ERROR                       “error”</li>
+<li>SEASLOG_CRITICAL                    “critical”</li>
+<li>SEASLOG_ALERT                       “alert”</li>
+<li>SEASLOG_EMERGENCY                   “emergency”<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var_dump(SEASLOG_DEBUG,SEASLOG_INFO,SEASLOG_NOTICE);</span><br><span class="line"><span class="comment">/*</span><br><span class="line">string('debug') debug级别</span><br><span class="line">string('info')  info级别</span><br><span class="line">string('notice') notice级别</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="函数列表"><a href="#函数列表" class="headerlink" title="函数列表"></a>函数列表</h4><p><code>SeasLog</code> 提供了这样一组函数，可以方便地获取与设置根目录、模块目录、快速写入与统计log。<br>相信从下述伪代码的注释中，您可以快速获取函数信息，具体使用将紧接其后：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * <span class="doctag">@author</span> neeke<span class="doctag">@php</span>.net</span><br><span class="line"> * Date: 14-1-27 下午4:47</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SeasLog</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#SeasLog init</span></span><br><span class="line">    &#125;  </span><br><span class="line">     </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#SeasLog distroy</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 设置basePath</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> $basePath</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> bool</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setBasePath</span><span class="params">($basePath)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">TRUE</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 获取basePath</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> string</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getBasePath</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'the base_path'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 设置模块目录</span><br><span class="line">     * <span class="doctag">@param</span> $module</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> bool</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setLogger</span><span class="params">($module)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">TRUE</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 获取最后一次设置的模块目录</span><br><span class="line">     * <span class="doctag">@return</span> string</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLastLogger</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'the lastLogger'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 设置DatetimeFormat配置</span><br><span class="line">     * <span class="doctag">@param</span> $format</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> bool</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setDatetimeFormat</span><span class="params">($format)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">TRUE</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 返回当前DatetimeFormat配置格式</span><br><span class="line">     * <span class="doctag">@return</span> string</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getDatetimeFormat</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'the datetimeFormat'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 统计所有类型（或单个类型）行数</span><br><span class="line">     * <span class="doctag">@param</span> string $level</span><br><span class="line">     * <span class="doctag">@param</span> string $log_path</span><br><span class="line">     * <span class="doctag">@param</span> null   $key_word</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> array | long</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">analyzerCount</span><span class="params">($level = <span class="string">'all'</span>, $log_path = <span class="string">'*'</span>, $key_word = NULL)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 以数组形式，快速取出某类型log的各行详情</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $level</span><br><span class="line">     * <span class="doctag">@param</span> string $log_path</span><br><span class="line">     * <span class="doctag">@param</span> null   $key_word</span><br><span class="line">     * <span class="doctag">@param</span> int    $start</span><br><span class="line">     * <span class="doctag">@param</span> int    $limit</span><br><span class="line">     * <span class="doctag">@param</span>        $order 默认为正序 SEASLOG_DETAIL_ORDER_ASC，可选倒序 SEASLOG_DETAIL_ORDER_DESC</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> array</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">analyzerDetail</span><span class="params">($level = SEASLOG_INFO, $log_path = <span class="string">'*'</span>, $key_word = NULL, $start = <span class="number">1</span>, $limit = <span class="number">20</span>, $order = SEASLOG_DETAIL_ORDER_ASC)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 获得当前日志buffer中的内容</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> array</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getBuffer</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 将buffer中的日志立刻刷到硬盘</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@return</span> bool</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">flushBuffer</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">TRUE</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录debug日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">debug</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_DEBUG</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录info日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">info</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_INFO</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录notice日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">notice</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_NOTICE</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录warning日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">warning</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_WARNING</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录error日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">error</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_ERROR</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录critical日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">critical</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_CRITICAL</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录alert日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">alert</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_ALERT</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 记录emergency日志</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">emergency</span><span class="params">($message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">#$level = SEASLOG_EMERGENCY</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 通用日志方法</span><br><span class="line">     * <span class="doctag">@param</span>        $level</span><br><span class="line">     * <span class="doctag">@param</span>        $message</span><br><span class="line">     * <span class="doctag">@param</span> array  $content</span><br><span class="line">     * <span class="doctag">@param</span> string $module</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">($level, $message, array $content = array<span class="params">()</span>, $module = <span class="string">''</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="SeasLog-Logger的使用"><a href="#SeasLog-Logger的使用" class="headerlink" title="SeasLog Logger的使用"></a>SeasLog Logger的使用</h3><h4 id="获取与设置basePath"><a href="#获取与设置basePath" class="headerlink" title="获取与设置basePath"></a>获取与设置basePath</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$basePath_1 = SeasLog::getBasePath();</span><br><span class="line"></span><br><span class="line">SeasLog::setBasePath(<span class="string">'/log/base_test'</span>);</span><br><span class="line">$basePath_2 = SeasLog::getBasePath();</span><br><span class="line"></span><br><span class="line">var_dump($basePath_1,$basePath_2);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">string(19) "/log/seaslog-ciogao"</span><br><span class="line">string(14) "/log/base_test"</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>直接使用 <code>SeasLog::getBasePath()</code>，将获取php.ini(seaslog.ini)中设置的 <code>seaslog.default_basepath</code> 的值。</p>
+<p>使用 <code>SeasLog::setBasePath()</code> 函数，将改变 <code>SeasLog::getBasePath()</code> 的取值。</p>
+</blockquote>
+<h4 id="设置logger与获取lastLogger"><a href="#设置logger与获取lastLogger" class="headerlink" title="设置logger与获取lastLogger"></a>设置logger与获取lastLogger</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$lastLogger_1 = SeasLog::getLastLogger();</span><br><span class="line"></span><br><span class="line">SeasLog::setLogger(<span class="string">'testModule/app1'</span>);</span><br><span class="line">$lastLogger_2 = SeasLog::getLastLogger();</span><br><span class="line"></span><br><span class="line">var_dump($lastLogger_1,$lastLogger_2);</span><br><span class="line"><span class="comment">/*</span><br><span class="line">string(7) "default"</span><br><span class="line">string(15) "testModule/app1"</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>与basePath相类似的，</p>
+<p>直接使用 <code>SeasLog::getLastLogger()</code>，将获取php.ini(seaslog.ini)中设置的 <code>seaslog.default_logger</code> 的值。</p>
+<p>使用 <code>SeasLog::setLogger()</code> 函数，将改变 <code>SeasLog::getLastLogger()</code> 的取值。</p>
+</blockquote>
+<h4 id="快速写入log"><a href="#快速写入log" class="headerlink" title="快速写入log"></a>快速写入log</h4><p>上面已经设置过了basePath与logger，于是log记录的目录已经产生了，</p>
+<blockquote>
+<p>log记录目录 = basePath / logger / {fileName}.log<br>log文件名，以 <code>年月日</code> 分文件，如今天是2014年02月18日期，那么 <code>{fileName}</code> = <code>20140218</code>;</p>
+</blockquote>
+<p>还记得 <code>php.ini</code> 中设置的 <code>seaslog.disting_type</code> 吗？</p>
+<p>默认的 <code>seaslog.disting_type = 0</code>，如果今天我使用了 <code>SeasLog</code> ，那么将产生最终的log文件：</p>
+<ul>
+<li>LogFile = basePath / logger / 20140218.log</li>
+</ul>
+<p>如果 <code>seaslog.disting_type = 1</code>，则最终的log文件将是这样的三个文件</p>
+<ul>
+<li><p>infoLogFile = basePath / logger / INFO.20140218.log</p>
+</li>
+<li><p>warnLogFile = basePath / logger / WARN.20140218.log</p>
+</li>
+<li><p>erroLogFile = basePath / logger / ERRO.20140218.log</p>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">SeasLog::log(SEASLOG_ERROR,<span class="string">'this is a error test by ::log'</span>);</span><br><span class="line"></span><br><span class="line">SeasLog::debug(<span class="string">'this is a &#123;userName&#125; debug'</span>,<span class="keyword">array</span>(<span class="string">'&#123;userName&#125;'</span> =&gt; <span class="string">'neeke'</span>));</span><br><span class="line"></span><br><span class="line">SeasLog::info(<span class="string">'this is a info log'</span>);</span><br><span class="line"></span><br><span class="line">SeasLog::notice(<span class="string">'this is a notice log'</span>);</span><br><span class="line"></span><br><span class="line">SeasLog::warning(<span class="string">'your &#123;website&#125; was down,please &#123;action&#125; it ASAP!'</span>,<span class="keyword">array</span>(<span class="string">'&#123;website&#125;'</span> =&gt; <span class="string">'github.com'</span>,<span class="string">'&#123;action&#125;'</span> =&gt; <span class="string">'rboot'</span>));</span><br><span class="line"></span><br><span class="line">SeasLog::error(<span class="string">'a error log'</span>);</span><br><span class="line"></span><br><span class="line">SeasLog::critical(<span class="string">'some thing was critical'</span>);</span><br><span class="line"></span><br><span class="line">SeasLog::alert(<span class="string">'yes this is a &#123;messageName&#125;'</span>,<span class="keyword">array</span>(<span class="string">'&#123;messageName&#125;'</span> =&gt; <span class="string">'alertMSG'</span>));</span><br><span class="line"></span><br><span class="line">SeasLog::emergency(<span class="string">'Just now, the house next door was completely burnt out! &#123;note&#125;'</span>,<span class="keyword">array</span>(<span class="string">'&#123;note&#125;'</span> =&gt; <span class="string">'it`s a joke'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">这些函数同时也接受第3个参数为logger的设置项</span><br><span class="line">注意，当last_logger == 'default'时等同于:</span><br><span class="line">SeasLog::setLogger('test/new/path');</span><br><span class="line">SeasLog::error('test error 3');</span><br><span class="line">如果已经在前文使用过SeasLog::setLogger()函数，第3个参数的log只在此处临时使用，不影响下文。</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>log格式统一为： <code>{type} | {pid} | {timeStamp} |{dateTime} | {logInfo}</code></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">error | 23625 | 1406422432.786 | 2014:07:27 08:53:52 | this is a error <span class="built_in">test</span> by <span class="built_in">log</span></span><br><span class="line">debug | 23625 | 1406422432.786 | 2014:07:27 08:53:52 | this is a neeke debug</span><br><span class="line">info | 23625 | 1406422432.787 | 2014:07:27 08:53:52 | this is a info <span class="built_in">log</span></span><br><span class="line">notice | 23625 | 1406422432.787 | 2014:07:27 08:53:52 | this is a notice <span class="built_in">log</span></span><br><span class="line">warning | 23625 | 1406422432.787 | 2014:07:27 08:53:52 | your github.com was down,please rboot it ASAP!</span><br><span class="line">error | 23625 | 1406422432.787 | 2014:07:27 08:53:52 | a error <span class="built_in">log</span></span><br><span class="line">critical | 23625 | 1406422432.787 | 2014:07:27 08:53:52 | some thing was critical</span><br><span class="line">emergency | 23625 | 1406422432.787 | 2014:07:27 08:53:52 | Just now, the house next door was completely burnt out! it is a joke</span><br></pre></td></tr></table></figure>
+<h4 id="当seaslog-appender配置为-2（TCP）-或-3（UDP）-时，日志将推送至remote-host-remote-port的TCP或UDP端口"><a href="#当seaslog-appender配置为-2（TCP）-或-3（UDP）-时，日志将推送至remote-host-remote-port的TCP或UDP端口" class="headerlink" title="当seaslog.appender配置为 2（TCP） 或 3（UDP） 时，日志将推送至remote_host:remote_port的TCP或UDP端口"></a>当<code>seaslog.appender</code>配置为 <code>2（TCP）</code> 或 <code>3（UDP）</code> 时，日志将推送至remote_host:remote_port的TCP或UDP端口</h4><blockquote>
+<p>此时log格式统一为 <code>{hostName} | {loggerName} | {type} | {pid} | {timeStamp} |{dateTime} | {logInfo}</code></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | error | 21423 | 1466787583.321 | 2016:06:25 00:59:43 | this is a error <span class="built_in">test</span> by ::<span class="built_in">log</span> </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | debug | 21423 | 1466787583.322 | 2016:06:25 00:59:43 | this is a neeke debug </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | info | 21423 | 1466787583.323 | 2016:06:25 00:59:43 | this is a info <span class="built_in">log</span> </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | notice | 21423 | 1466787583.324 | 2016:06:25 00:59:43 | this is a notice <span class="built_in">log</span> </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | warning | 21423 | 1466787583.325 | 2016:06:25 00:59:43 | your github.com was down,please rboot it ASAP! </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | error | 21423 | 1466787583.326 | 2016:06:25 00:59:43 | a error <span class="built_in">log</span> </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | critical | 21423 | 1466787583.327 | 2016:06:25 00:59:43 | some thing was critical </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | alert | 21423 | 1466787583.328 | 2016:06:25 00:59:43 | yes this is a alertMSG </span><br><span class="line">vagrant-ubuntu-trusty | <span class="built_in">test</span>/logger | emergency | 21423 | 1466787583.329 | 2016:06:25 00:59:43 | Just now, the house next door was completely burnt out! it`s a joke</span><br></pre></td></tr></table></figure>
+<h3 id="SeasLog-Analyzer的使用"><a href="#SeasLog-Analyzer的使用" class="headerlink" title="SeasLog Analyzer的使用"></a>SeasLog Analyzer的使用</h3><h4 id="快速统计某类型log的count值"><a href="#快速统计某类型log的count值" class="headerlink" title="快速统计某类型log的count值"></a>快速统计某类型log的count值</h4><p><code>SeasLog</code>在扩展中使用管道调用shell命令 <code>grep -wc</code>快速地取得count值，并返回值(array || int)给PHP。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$countResult_1 = SeasLog::analyzerCount();</span><br><span class="line">$countResult_2 = SeasLog::analyzerCount(SEASLOG_WARNING);</span><br><span class="line">$countResult_3 = SeasLog::analyzerCount(SEASLOG_ERROR,date(<span class="string">'Ymd'</span>,time()));</span><br><span class="line">var_dump($countResult_1,$countResult_2,$countResult_3);</span><br><span class="line"><span class="comment">/*</span><br><span class="line">array(8) &#123;</span><br><span class="line">  ["debug"]=&gt;</span><br><span class="line">  int(3)</span><br><span class="line">  ["info"]=&gt;</span><br><span class="line">  int(3)</span><br><span class="line">  ["notice"]=&gt;</span><br><span class="line">  int(3)</span><br><span class="line">  ["warning"]=&gt;</span><br><span class="line">  int(3)</span><br><span class="line">  ["error"]=&gt;</span><br><span class="line">  int(6)</span><br><span class="line">  ["critical"]=&gt;</span><br><span class="line">  int(3)</span><br><span class="line">  ["alert"]=&gt;</span><br><span class="line">  int(3)</span><br><span class="line">  ["emergency"]=&gt;</span><br><span class="line">  int(3)</span><br><span class="line">&#125;</span><br><span class="line">int(7)</span><br><span class="line">int(1)</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="获取某类型log列表"><a href="#获取某类型log列表" class="headerlink" title="获取某类型log列表"></a>获取某类型log列表</h4><p><code>SeasLog</code>在扩展中使用管道调用shell命令 <code>grep -w</code>快速地取得列表，并返回array给PHP。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$detailErrorArray_inAll   = SeasLog::analyzerDetail(SEASLOG_ERROR);</span><br><span class="line">$detailErrorArray_today   = SeasLog::analyzerDetail(SEASLOG_ERROR,date(<span class="string">'Ymd'</span>,time()));</span><br><span class="line">var_dump($detailErrorArray_inAll,$detailErrorArray_today);</span><br><span class="line"><span class="comment">/*</span><br><span class="line">SeasLog::analyzerDetail(SEASLOG_ERROR) == SeasLog::analyzerDetail(SEASLOG_ERROR,'*');</span><br><span class="line">取当前模块下所有level为 SEASLOG_ERROR 的信息列表:</span><br><span class="line">array(6) &#123;</span><br><span class="line"> [0] =&gt;</span><br><span class="line">  string(66) "error | 8568 | 1393172042.717 | 2014:02:24 00:14:02 | test error 3 "</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(66) "error | 8594 | 1393172044.104 | 2014:02:24 00:14:04 | test error 3 "</span><br><span class="line">  [2] =&gt;</span><br><span class="line">  string(66) "error | 8620 | 1393172044.862 | 2014:02:24 00:14:04 | test error 3 "</span><br><span class="line">  [3] =&gt;</span><br><span class="line">  string(66) "error | 8646 | 1393172045.989 | 2014:02:24 00:14:05 | test error 3 "</span><br><span class="line">  [4] =&gt;</span><br><span class="line">  string(66) "error | 8672 | 1393172047.882 | 2014:02:24 00:14:07 | test error 3 "</span><br><span class="line">  [5] =&gt;</span><br><span class="line">  string(66) "error | 8698 | 1393172048.736 | 2014:02:24 00:14:08 | test error 3 "</span><br><span class="line">&#125;</span><br><span class="line">SeasLog::analyzerDetail(SEASLOG_ERROR,date('Ymd',time()));</span><br><span class="line">只取得当前模块下，当前一天内,level为SEASLOG_ERROR 的信息列表:</span><br><span class="line">array(2) &#123;</span><br><span class="line">  [0] =&gt;</span><br><span class="line">  string(66) "error | 8568 | 1393172042.717 | 2014:02:24 00:14:02 | test error 3 "</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(66) "error | 8594 | 1393172044.104 | 2014:02:24 00:14:04 | test error 3 "</span><br><span class="line">&#125;</span><br><span class="line">同理，取当月</span><br><span class="line">$detailErrorArray_mouth = SeasLog::analyzerDetail(SEASLOG_ERROR,date('Ym',time()));</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用SeasLog进行健康预警"><a href="#使用SeasLog进行健康预警" class="headerlink" title="使用SeasLog进行健康预警"></a>使用SeasLog进行健康预警</h3><h4 id="预警的配置"><a href="#预警的配置" class="headerlink" title="预警的配置"></a>预警的配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[base]</span><br><span class="line">wait_analyz_log_path = /log/base_test</span><br><span class="line"></span><br><span class="line">[fork]</span><br><span class="line">;是否开启多线程 1开启 0关闭</span><br><span class="line">fork_open = 1</span><br><span class="line"></span><br><span class="line">;线程个数</span><br><span class="line">fork_count = 3</span><br><span class="line"></span><br><span class="line">[warning]</span><br><span class="line">email[smtp_host] = smtp.163.com</span><br><span class="line">email[smtp_port] = 25</span><br><span class="line">email[subject_pre] = 预警邮件 -</span><br><span class="line">email[smtp_user] = seaslogdemo@163.com</span><br><span class="line">email[smtp_pwd] = seaslog#demo</span><br><span class="line">email[mail_from] = seaslogdemo@163.com</span><br><span class="line">email[mail_to] = gaochitao@weiboyi.com</span><br><span class="line">email[mail_cc] = ciogao@gmail.com</span><br><span class="line">email[mail_bcc] =</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[analyz]</span><br><span class="line">; enum</span><br><span class="line">; SEASLOG_DEBUG      &quot;debug&quot;</span><br><span class="line">; SEASLOG_INFO       &quot;info&quot;</span><br><span class="line">; SEASLOG_NOTICE     &quot;notice&quot;</span><br><span class="line">; SEASLOG_WARNING    &quot;warning&quot;</span><br><span class="line">; SEASLOG_ERROR      &quot;error&quot;</span><br><span class="line">; SEASLOG_CRITICAL   &quot;critical&quot;</span><br><span class="line">; SEASLOG_ALERT      &quot;alert&quot;</span><br><span class="line">; SEASLOG_EMERGENCY  &quot;emergency&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">test1[module] = test/bb</span><br><span class="line">test1[level] = SEASLOG_ERROR</span><br><span class="line">test1[bar] = 1</span><br><span class="line">test1[mail_to] = gaochitao@weiboyi.com</span><br><span class="line"></span><br><span class="line">test2[module] = 222</span><br><span class="line">test2[level] = SEASLOG_WARNING</span><br><span class="line"></span><br><span class="line">test3[module] = 333</span><br><span class="line">test3[level] = SEASLOG_CRITICAL</span><br><span class="line"></span><br><span class="line">test4[module] = 444</span><br><span class="line">test4[level] = SEASLOG_EMERGENCY</span><br><span class="line"></span><br><span class="line">test5[module] = 555</span><br><span class="line">test5[level] = SEASLOG_DEBUG</span><br></pre></td></tr></table></figure>
+<h4 id="crontab配置"><a href="#crontab配置" class="headerlink" title="crontab配置"></a>crontab配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">;每天凌晨3点执行</span><br><span class="line">0 3 * * * /path/to/php /path/to/SeasLog/Analyzer/SeasLogAnalyzer.php</span><br></pre></td></tr></table></figure>
+<p>###扩展</p>
+<ul>
+<li>默认SeasLog会将日志记录到文件，但是现在大多数应用都是集群，记录到文件就不太合适了（有种方法，将日志存储的硬盘挂载到多个服务器上面）。如果需要将日志记录到更多存储介质，可以用rsyslog或ELK（Elasticsearch + Logstash + Kibana）搭建接口服务器，然后用TCP或UDP发送过去。</li>
+<li>FaceBook的Scribe  </li>
+<li>链家日志系统架构<br><img src="http://img.jsyzchen.com/log-service/lianjia-log.png" alt="lianjia-log"></li>
+</ul>
+<p>#三、Monolog<br>Monolog是PHP的一个日志类库。相比于其他的日志类库，它有以下的特点：</p>
+<ul>
+<li>功能强大。可以把日志发送到文件、socket、邮箱、数据库和各种web services。 </li>
+<li>遵循PSR3的接口规范。可以很轻易的替换成其他遵循同一规范的日志类库。</li>
+<li>良好的扩展性。通过Handler、Formatter和Processor这几个接口，可以对Monolog类库进行各种扩展和自定义。</li>
+</ul>
+<p>###框架集成</p>
+<ul>
+<li>Frameworks and libraries using <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md" target="_blank" rel="external">PSR-3</a><br>can be used very easily with Monolog since it implements the interface.</li>
+<li><a href="http://symfony.com" target="_blank" rel="external">Symfony2</a> comes out of the box with Monolog.</li>
+<li><a href="http://silex.sensiolabs.org/" target="_blank" rel="external">Silex</a> comes out of the box with Monolog.</li>
+<li><a href="http://laravel.com/" target="_blank" rel="external">Laravel 4 &amp; 5</a> come out of the box with Monolog.</li>
+<li><a href="http://lumen.laravel.com/" target="_blank" rel="external">Lumen</a> comes out of the box with Monolog.</li>
+<li><a href="http://www.ppi.io/" target="_blank" rel="external">PPI</a> comes out of the box with Monolog.</li>
+<li><a href="http://cakephp.org/" target="_blank" rel="external">CakePHP</a> is usable with Monolog via the <a href="https://github.com/jadb/cakephp-monolog" target="_blank" rel="external">cakephp-monolog</a> plugin.</li>
+<li><a href="http://www.slimframework.com/" target="_blank" rel="external">Slim</a> is usable with Monolog via the <a href="https://github.com/Flynsarmy/Slim-Monolog" target="_blank" rel="external">Slim-Monolog</a> log writer.</li>
+<li><a href="http://xoops.org/" target="_blank" rel="external">XOOPS 2.6</a> comes out of the box with Monolog.</li>
+<li><a href="https://github.com/auraphp/Aura.Web_Project" target="_blank" rel="external">Aura.Web_Project</a> comes out of the box with Monolog.</li>
+<li><a href="http://nette.org/en/" target="_blank" rel="external">Nette Framework</a> can be used with Monolog via <a href="https://github.com/Kdyby/Monolog" target="_blank" rel="external">Kdyby/Monolog</a> extension.</li>
+<li><a href="https://github.com/alexbilbie/Proton" target="_blank" rel="external">Proton Micro Framework</a> comes out of the box with Monolog.</li>
+</ul>
+<p>###基本用法<br>安装最新版本：<br><code>composer require monolog/monolog</code><br>要求PHP版本为5.3以上。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建日志频道</span></span><br><span class="line">$log = <span class="keyword">new</span> Logger(<span class="string">'name'</span>);</span><br><span class="line">$log-&gt;pushHandler(<span class="keyword">new</span> StreamHandler(<span class="string">'path/to/your.log'</span>, Logger::WARNING));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加日志记录</span></span><br><span class="line">$log-&gt;addWarning(<span class="string">'Foo'</span>);</span><br><span class="line">$log-&gt;addError(<span class="string">'Bar'</span>);</span><br></pre></td></tr></table></figure>
+<p>###Monolog图解<br><img src="http://img.jsyzchen.com/log-service/Monolog.png" alt="Monolog"></p>
+<p>###核心概念</p>
+<ul>
+<li>每一个Logger实例都包含一个频道名(channel)和handler的堆栈。当你添加一条记录时，记录会依次通过handler堆栈的处理。而每个handler也可以决定是否把记录传递到下一个堆栈里的下一个handler。 </li>
+<li><p>通过handler，我们可以实现一些复杂的日志操作。例如我们把StreamHandler放在堆栈的最下面，那么所有的日志记录最终都会写到硬盘文件里。同时我们把MailHandler放在堆栈的最上面，通过设置日志等级把错误日志通过邮件发送出去。Handler里有个$bubble属性，这个属性定义了handler是否拦截记录不让它流到下一个handler。所以如果我们把MailHandler的$bubble参数设置为false，则出现错误日志时，日志会通过MailHandler发送出去，而不会经过StreamHandler写到硬盘上。</p>
+</li>
+<li><p>Logger可以创建多个，每个都可以定义自己的频道名和handler堆栈。handler可以在多个Logger中共享。频道名会反映在日志里，方便我们查看和过滤日志记录。  </p>
+</li>
+<li>如果没有指定日志格式（Formatter），Handler会使用默认的Formatter。 </li>
+<li>日志的等级不能自定义，目前使用的是RFC 5424里定义的8个等级：debug、info、notice、warning、error、critical、alert和emergency。如果对日志记录有其他的需求，可以通过Processo对日志记录添加内容。</li>
+</ul>
+<p>###日志等级</p>
+<ul>
+<li>DEBUG (100): 详细的debug信息。 </li>
+<li>INFO (200): 关键事件。</li>
+<li>NOTICE (250): 普通但是重要的事件。</li>
+<li>WARNING (300): 出现非错误的异常。</li>
+<li>ERROR (400): 运行时错误，但是不需要立刻处理。</li>
+<li>CRITICA (500): 严重错误。</li>
+<li>EMERGENCY (600): 系统不可用。</li>
+</ul>
+<p>###用法详解</p>
+<p>####多个handler<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">FirePHPHandler</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建Logger实例</span></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'my_logger'</span>);</span><br><span class="line"><span class="comment">// 添加handler</span></span><br><span class="line">$logger-&gt;pushHandler(<span class="keyword">new</span> StreamHandler(<span class="keyword">__DIR__</span>.<span class="string">'/my_app.log'</span>, Logger::DEBUG));</span><br><span class="line">$logger-&gt;pushHandler(<span class="keyword">new</span> FirePHPHandler());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始使用</span></span><br><span class="line">$logger-&gt;addInfo(<span class="string">'My logger is now ready'</span>);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>第一步我们先创建一个Logger实例，传入的是频道名，这个频道名可以用于区分多个Logger实例。 </p>
+</li>
+<li><p>实例本身并不知道如何处理日志记录，它是通过handler进行处理的。handler可以设置多个，例如上面的例子设置了两个handler，可以对日志记录进行两种不同方式的处理。</p>
+</li>
+<li><p>需要注意的是，由于handler是采用堆栈的方式保存，所以后面添加的handler位于栈顶，会首先被调用。</p>
+</li>
+</ul>
+<p>###添加额外的数据<br>Monolog有两种方式对日志添加额外的信息。</p>
+<p>####使用上下文</p>
+<p>第一个方法是使用$context参数，传入一个数组：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$logger-&gt;addInfo(<span class="string">'Adding a new user'</span>, <span class="keyword">array</span>(<span class="string">'username'</span> =&gt; <span class="string">'Seldaek'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>####使用processor</p>
+<p>第二个方法是使用processor。processor可以是任何可调用的方法，这些方法把日志记录作为参数，然后经过处理修改extra部分后返回。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$logger-&gt;pushProcessor(<span class="function"><span class="keyword">function</span> <span class="params">($record)</span> </span>&#123;</span><br><span class="line">    $record[<span class="string">'extra'</span>][<span class="string">'dummy'</span>] = <span class="string">'Hello world!'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $record;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Processor不一定要绑定在Logger实例上，也可以绑定到某个具体的handler上。使用handler实例的pushProcessor方法进行绑定。</p>
+<p>###频道的使用<br>使用频道名可以对日志进行分类，这在大型的应用上是很有用的。通过频道名，可以很容易的对日志记录进行刷选。</p>
+<p>例如我们想在同一个日志文件里记录不同模块的日志，我们可以把相同的handler绑定到不同的Logger实例上，这些实例使用不同的频道名：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">FirePHPHandler</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建handler</span></span><br><span class="line">$stream = <span class="keyword">new</span> StreamHandler(<span class="keyword">__DIR__</span>.<span class="string">'/my_app.log'</span>, Logger::DEBUG);</span><br><span class="line">$firephp = <span class="keyword">new</span> FirePHPHandler();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建应用的主要logger</span></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'my_logger'</span>);</span><br><span class="line">$logger-&gt;pushHandler($stream);</span><br><span class="line">$logger-&gt;pushHandler($firephp);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过不同的频道名创建一个用于安全相关的logger</span></span><br><span class="line">$securityLogger = <span class="keyword">new</span> Logger(<span class="string">'security'</span>);</span><br><span class="line">$securityLogger-&gt;pushHandler($stream);</span><br><span class="line">$securityLogger-&gt;pushHandler($firephp);</span><br></pre></td></tr></table></figure></p>
+<p>###Handler<br>Monolog内置很多很实用的handler，它们几乎囊括了各种的使用场景，这里介绍一些使用的：</p>
+<ul>
+<li>StreamHandler：把记录写进PHP流，主要用于日志文件。   </li>
+<li>SyslogHandler：把记录写进syslog。</li>
+<li>ErrorLogHandler：把记录写进PHP错误日志。</li>
+<li>NativeMailerHandler：使用PHP的mail()函数发送日志记录。</li>
+<li>SocketHandler：通过socket写日志。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">SocketHandler</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the logger</span></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'my_logger'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the handler</span></span><br><span class="line">$handler = <span class="keyword">new</span> SocketHandler(<span class="string">'unix:///var/log/httpd_app_log.socket'</span>);</span><br><span class="line">$handler-&gt;setPersistent(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Now add the handler</span></span><br><span class="line">$logger-&gt;pushHandler($handler, Logger::DEBUG);</span><br><span class="line"></span><br><span class="line"><span class="comment">// You can now use your logger</span></span><br><span class="line">$logger-&gt;addInfo(<span class="string">'My logger is now ready'</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li>AmqpHandler：把记录写进兼容amqp协议的服务。 </li>
+<li>BrowserConsoleHandler：把日志记录写到浏览器的控制台。由于是使用浏览器的console对象，需要看浏览器是否支持。</li>
+<li>RedisHandler：把记录写进Redis。</li>
+<li>MongoDBHandler：把记录写进Mongo。</li>
+<li>ElasticSearchHandler：把记录写到ElasticSearch服务。</li>
+<li>BufferHandler：允许我们把日志记录缓存起来一次性进行处理。<br>更多的Handler请看 <a href="https://github.com/Seldaek/monolog#handlers。" target="_blank" rel="external">https://github.com/Seldaek/monolog#handlers。</a></li>
+</ul>
+<p>###Formatter<br>同样的，这里介绍几个自带的Formatter：</p>
+<ul>
+<li>LineFormatter：把日志记录格式化成一行字符串。  </li>
+<li>HtmlFormatter：把日志记录格式化成HTML表格，主要用于邮件。</li>
+<li>JsonFormatter：把日志记录编码成JSON格式。</li>
+<li>LogstashFormatter：把日志记录格式化成logstash的事件JSON格式。</li>
+<li>ElasticaFormatter：把日志记录格式化成ElasticSearch使用的数据格式。<br>更多的Formatter请看 <a href="https://github.com/Seldaek/monolog#formatters。" target="_blank" rel="external">https://github.com/Seldaek/monolog#formatters。</a></li>
+</ul>
+<p>###Processor<br>前面说过，Processor可以为日志记录添加额外的信息，Monolog也提供了一些很实用的processor：</p>
+<ul>
+<li>IntrospectionProcessor：增加当前脚本的文件名和类名等信息。 </li>
+<li>WebProcessor：增加当前请求的URI、请求方法和访问IP等信息。</li>
+<li>MemoryUsageProcessor：增加当前内存使用情况信息。</li>
+<li>MemoryPeakUsageProcessor：增加内存使用高峰时的信息。<br>更多的Processor请看 <a href="https://github.com/Seldaek/monolog#processors。" target="_blank" rel="external">https://github.com/Seldaek/monolog#processors。</a></li>
+</ul>
+<h3 id="使用MongoDBHandler"><a href="#使用MongoDBHandler" class="headerlink" title="使用MongoDBHandler"></a>使用MongoDBHandler</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span>.<span class="string">'/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">MongoDBHandler</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the logger                                                                             </span></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'channel'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Now add some handlers</span></span><br><span class="line">$mongo = <span class="keyword">new</span> MongoClient();</span><br><span class="line">$database = <span class="string">'test'</span>;<span class="comment">//相当于数据库</span></span><br><span class="line">$collection = <span class="string">'cron_log'</span>;<span class="comment">//相当于一张表</span></span><br><span class="line">$logger-&gt;pushHandler(<span class="keyword">new</span> MongoDBHandler($mongo, $database, $collection));</span><br><span class="line"></span><br><span class="line"><span class="comment">// You can now use your logger</span></span><br><span class="line">$log_info = <span class="keyword">array</span>();</span><br><span class="line">$log_info[<span class="string">'run_time'</span>] = <span class="number">11</span>;</span><br><span class="line">$log_info[<span class="string">'msg'</span>] = <span class="string">'success'</span>;</span><br><span class="line">$logger-&gt;addError(<span class="string">'Adding a new user'</span>, <span class="keyword">array</span>(<span class="string">'username'</span> =&gt; <span class="string">'Seldaek'</span>));</span><br></pre></td></tr></table></figure>
+<p>###扩展handler<br>Monolog内置了很多handler，但是并不是所有场景都能覆盖到，有时需要自己去定制handler。写一个handler并不难，只需要实现Monolog\Handler\HandlerInterface这个接口即可。<br>下面这个例子实现了把日志记录写到数据库里。我们不需要把接口里的方法全部实现一次，可以直接使用Monolog提供的抽象类AbstractProcessingHandler进行继承，实现里面的write方法即可。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">AbstractProcessingHandler</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PDOHandler</span> <span class="keyword">extends</span> <span class="title">AbstractProcessingHandler</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $initialized = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">private</span> $pdo;</span><br><span class="line">    <span class="keyword">private</span> $statement;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(PDO $pdo, $level = Logger::DEBUG, $bubble = true)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $this-&gt;pdo = $pdo;</span><br><span class="line">        <span class="keyword">parent</span>::__construct($level, $bubble);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span><span class="params">(array $record)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!$this-&gt;initialized) &#123;</span><br><span class="line">            $this-&gt;initialize();</span><br><span class="line">        &#125;</span><br><span class="line">        $this-&gt;statement-&gt;execute(<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'channel'</span> =&gt; $record[<span class="string">'channel'</span>],</span><br><span class="line">            <span class="string">'level'</span> =&gt; $record[<span class="string">'level'</span>],</span><br><span class="line">            <span class="string">'message'</span> =&gt; $record[<span class="string">'formatted'</span>],</span><br><span class="line">            <span class="string">'time'</span> =&gt; $record[<span class="string">'datetime'</span>]-&gt;format(<span class="string">'U'</span>),</span><br><span class="line">        ));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">initialize</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        $this-&gt;pdo-&gt;exec(</span><br><span class="line">            <span class="string">'CREATE TABLE IF NOT EXISTS monolog '</span></span><br><span class="line">            .<span class="string">'(channel VARCHAR(255), level INTEGER, message LONGTEXT, time INTEGER UNSIGNED)'</span></span><br><span class="line">        );</span><br><span class="line">        $this-&gt;statement = $this-&gt;pdo-&gt;prepare(</span><br><span class="line">            <span class="string">'INSERT INTO monolog (channel, level, message, time) VALUES (:channel, :level, :message, :time)'</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们就可以使用它了：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$logger-&gt;pushHandler(<span class="keyword">new</span> PDOHandler(<span class="keyword">new</span> PDO(<span class="string">'sqlite:logs.sqlite'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// You can now use your logger</span></span><br><span class="line">$logger-&gt;addInfo(<span class="string">'My logger is now ready'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>#扩展 </p>
+<ul>
+<li>可以将Socketlog对于错误的处理应用到Monolog </li>
+<li>尝试使用Monolog的ChromePHPHandler和FirePHPHandler完成SocketLog的功能</li>
+</ul>
+<p>#总结 </p>
+<ul>
+<li>SocketLog适合Ajax调试和API调试 </li>
+<li>SeasLog适合单机应用的日志系统</li>
+<li>Monolog适合将日志记录到多种存储介质的日志系统</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+
+  
+  <!-- social-share Button BEGIN -->
+<div class="social-share" style="margin-left: 30px;"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.13/js/social-share.min.js"></script>
+<!-- social-share Button END -->
+  
+  
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/14/simple-encrypt-api/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">简单的接口加密</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'jsyzchen'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Jsyz Chen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="http://static.jsyzchen.com/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="//cdn.bootcss.com/require.js/2.1.6/require.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="http://static.jsyzchen.com/js/main.js"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77516546-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="返回顶部"><img src="http://static.jsyzchen.com/img/scrollup.png"/></a>
+</div>
+<script src="http://static.jsyzchen.com/js/totop.js"></script>
+  </div>
+</body>
+</html>
