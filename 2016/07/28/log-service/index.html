@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Neeke/SeasLog/master/tests/SeasLogVSlog4php.png">
 <meta property="og:image" content="http://img.jsyzchen.com/log-service/lianjia-log.png">
 <meta property="og:image" content="http://img.jsyzchen.com/log-service/Monolog.png">
-<meta property="og:updated_time" content="2016-07-28T15:51:43.000Z">
+<meta property="og:updated_time" content="2016-07-28T15:53:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日志系统">
 <meta name="twitter:description" content="一、SocketLog前言
@@ -421,7 +421,7 @@
 <h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><ul>
 <li>默认SeasLog会将日志记录到文件，但是现在大多数应用都是集群，记录到文件就不太合适了（有种方法，将日志存储的硬盘挂载到多个服务器上面）。如果需要将日志记录到更多存储介质，可以用rsyslog或ELK（Elasticsearch + Logstash + Kibana）搭建接口服务器，然后用TCP或UDP发送过去。</li>
 <li>FaceBook的Scribe  </li>
-<li>链家日志系统架构<br><img src="http://img.jsyzchen.com/log-service/lianjia-log.png" alt="lianjia-log"></li>
+<li>链家日志系统架构-Kafka<br><img src="http://img.jsyzchen.com/log-service/lianjia-log.png" alt="lianjia-log"></li>
 </ul>
 <h1 id="三、Monolog"><a href="#三、Monolog" class="headerlink" title="三、Monolog"></a>三、Monolog</h1><p>Monolog是PHP的一个日志类库。相比于其他的日志类库，它有以下的特点：</p>
 <ul>
