@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://jayzchen.com/2016/05/14/simple-encrypt-api/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="之前的接口只会给不同的应用分配app_key,其实这样很容易让别人破解获取我们的接口信息,所以就想着能做一个接口加密。因为大多是公司内部各部门调，所以只是想做一个简单的接口加密,也就没有使用OAuth2.0">
-<meta property="og:updated_time" content="2016-05-14T16:04:59.000Z">
+<meta property="og:updated_time" content="2016-08-05T09:48:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的接口加密">
 <meta name="twitter:description" content="之前的接口只会给不同的应用分配app_key,其实这样很容易让别人破解获取我们的接口信息,所以就想着能做一个接口加密。因为大多是公司内部各部门调，所以只是想做一个简单的接口加密,也就没有使用OAuth2.0">
@@ -234,78 +234,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>之前的接口只会给不同的应用分配app_key,其实这样很容易让别人破解获取我们的接口信息,所以就想着能做一个接口加密。因为大多是公司内部各部门调，所以只是想做一个简单的接口加密,也就没有使用<a href="http://oauth.net/2/" target="_blank" rel="external">OAuth2.0</a><br><a id="more"></a></p>
-<h3 id="请求端生成签名，并请求"><a href="#请求端生成签名，并请求" class="headerlink" title="请求端生成签名，并请求"></a>请求端生成签名，并请求</h3><pre><code>&lt;?php
-$timestamp = time();
-$noncestr = generateNonceStr();
-$app_key = &apos;6ba895293c27f610&apos;;
-$param1 = &apos;xxx&apos;;
-$param2 = &apos;129423&apos;;
-$signature = getSignature(compact(&apos;timestamp&apos;,&apos;noncestr&apos;,&apos;param1&apos;,&apos;param2&apos;),$app_key);
-$api_url = &quot;http://apiurl.com?app_key={$app_key}&amp;param1={$param1}&amp;param2={$param2}&amp;timestamp={$timestamp}&amp;noncestr={$noncestr}&amp;signature={$signature}&amp;return=json&amp;encode=utf-8&quot;;
-
-//get or post api_url to get data
-
-//获取签名
-function getSignature($arrdata,$app_key=&apos;&apos;,$method=&quot;sha1&quot;) {
-    if (!function_exists($method)) return false;
-    $newArray = array();
-    foreach($arrdata as $key =&gt; $value)
-    {
-        array_push($newArray,(string)$value);
-    }
-    sort($newArray,SORT_STRING);//value值进行字符串的字典序排序
-    ksort($arrdata);//按照键值排序
-    $paramstring = &quot;&quot;;
-    foreach($arrdata as $key =&gt; $value)
-    {
-        if(strlen($paramstring) == 0)
-            $paramstring .= $key . &quot;=&quot; . $value;
-        else
-            $paramstring .= &quot;&amp;&quot; . $key . &quot;=&quot; . $value;
-    }
-    $Sign = $method($paramstring.$app_key.implode($newArray));
-    return $Sign;
-}
-
-//获取随机字符串
-function generateNonceStr($length=16){
-    // 密码字符集，可任意添加你需要的字符
-    $chars = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;
-    $str = &quot;&quot;;
-    for($i = 0; $i &lt; $length; $i++)
-    {
-        $str .= $chars[mt_rand(0, strlen($chars) - 1)];
-    }
-    return $str;
-}  
-</code></pre><h3 id="服务端检验签名-并返回相关数据"><a href="#服务端检验签名-并返回相关数据" class="headerlink" title="服务端检验签名,并返回相关数据"></a>服务端检验签名,并返回相关数据</h3><pre><code>&lt;?php
-//检验签名
-function checkSignature($arrdata=array(),$app_key=&apos;&apos;,$signature=&apos;&apos;,$method=&quot;sha1&quot;)
-{
-    if (!function_exists($method)) return false;
-    $newArray = array();
-    foreach($arrdata as $key =&gt; $value)
-    {
-        array_push($newArray,(string)$value);
-    }
-    sort($newArray,SORT_STRING);//value值进行字符串的字典序排序
-    ksort($arrdata);//按照键值排序
-    $paramstring = &quot;&quot;;
-    foreach($arrdata as $key =&gt; $value)
-    {
-        if(strlen($paramstring) == 0)
-            $paramstring .= $key . &quot;=&quot; . $value;
-        else
-            $paramstring .= &quot;&amp;&quot; . $key . &quot;=&quot; . $value;
-    }
-    $Sign = $method($paramstring.$app_key.implode($newArray));
-    if( $Sign == $signature ){
-        return true;
-    }else{
-        return false;
-    }
-}
-</code></pre>
+<h3 id="请求端生成签名，并请求"><a href="#请求端生成签名，并请求" class="headerlink" title="请求端生成签名，并请求"></a>请求端生成签名，并请求</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$timestamp = time();</span><br><span class="line">$noncestr = generateNonceStr();</span><br><span class="line">$app_key = <span class="string">'6ba895293c27f610'</span>;</span><br><span class="line">$param1 = <span class="string">'xxx'</span>;</span><br><span class="line">$param2 = <span class="string">'129423'</span>;</span><br><span class="line">$signature = getSignature(compact(<span class="string">'timestamp'</span>,<span class="string">'noncestr'</span>,<span class="string">'param1'</span>,<span class="string">'param2'</span>),$app_key);</span><br><span class="line">$api_url = <span class="string">"http://apiurl.com?app_key=&#123;$app_key&#125;&amp;param1=&#123;$param1&#125;&amp;param2=&#123;$param2&#125;&amp;timestamp=&#123;$timestamp&#125;&amp;noncestr=&#123;$noncestr&#125;&amp;signature=&#123;$signature&#125;&amp;return=json&amp;encode=utf-8"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//get or post api_url to get data</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取签名</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSignature</span><span class="params">($arrdata,$app_key=<span class="string">''</span>,$method=<span class="string">"sha1"</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!function_exists($method)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	$newArray = <span class="keyword">array</span>();</span><br><span class="line">	<span class="keyword">foreach</span>($arrdata <span class="keyword">as</span> $key =&gt; $value)</span><br><span class="line">	&#123;</span><br><span class="line">		array_push($newArray,(string)$value);</span><br><span class="line">	&#125;</span><br><span class="line">	sort($newArray,SORT_STRING);<span class="comment">//value值进行字符串的字典序排序</span></span><br><span class="line">	ksort($arrdata);<span class="comment">//按照键值排序</span></span><br><span class="line">	$paramstring = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">foreach</span>($arrdata <span class="keyword">as</span> $key =&gt; $value)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(strlen($paramstring) == <span class="number">0</span>)</span><br><span class="line">			$paramstring .= $key . <span class="string">"="</span> . $value;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			$paramstring .= <span class="string">"&amp;"</span> . $key . <span class="string">"="</span> . $value;</span><br><span class="line">	&#125;</span><br><span class="line">	$Sign = $method($paramstring.$app_key.implode($newArray));</span><br><span class="line">	<span class="keyword">return</span> $Sign;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取随机字符串</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateNonceStr</span><span class="params">($length=<span class="number">16</span>)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 密码字符集，可任意添加你需要的字符</span></span><br><span class="line">	$chars = <span class="string">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"</span>;</span><br><span class="line">	$str = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">for</span>($i = <span class="number">0</span>; $i &lt; $length; $i++)</span><br><span class="line">	&#123;</span><br><span class="line">		$str .= $chars[mt_rand(<span class="number">0</span>, strlen($chars) - <span class="number">1</span>)];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> $str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="服务端检验签名-并返回相关数据"><a href="#服务端检验签名-并返回相关数据" class="headerlink" title="服务端检验签名,并返回相关数据"></a>服务端检验签名,并返回相关数据</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//检验签名</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSignature</span><span class="params">($arrdata=array<span class="params">()</span>,$app_key=<span class="string">''</span>,$signature=<span class="string">''</span>,$method=<span class="string">"sha1"</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!function_exists($method)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	$newArray = <span class="keyword">array</span>();</span><br><span class="line">	<span class="keyword">foreach</span>($arrdata <span class="keyword">as</span> $key =&gt; $value)</span><br><span class="line">	&#123;</span><br><span class="line">		array_push($newArray,(string)$value);</span><br><span class="line">	&#125;</span><br><span class="line">	sort($newArray,SORT_STRING);<span class="comment">//value值进行字符串的字典序排序</span></span><br><span class="line">	ksort($arrdata);<span class="comment">//按照键值排序</span></span><br><span class="line">	$paramstring = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">foreach</span>($arrdata <span class="keyword">as</span> $key =&gt; $value)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(strlen($paramstring) == <span class="number">0</span>)</span><br><span class="line">			$paramstring .= $key . <span class="string">"="</span> . $value;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			$paramstring .= <span class="string">"&amp;"</span> . $key . <span class="string">"="</span> . $value;</span><br><span class="line">	&#125;</span><br><span class="line">	$Sign = $method($paramstring.$app_key.implode($newArray));</span><br><span class="line">	<span class="keyword">if</span>( $Sign == $signature )&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
