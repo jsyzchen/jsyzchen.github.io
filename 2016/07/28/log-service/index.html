@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Neeke/SeasLog/master/tests/SeasLogVSlog4php.png">
 <meta property="og:image" content="http://img.jsyzchen.com/log-service/lianjia-log.png">
 <meta property="og:image" content="http://img.jsyzchen.com/log-service/Monolog.png">
-<meta property="og:updated_time" content="2016-08-02T09:32:33.000Z">
+<meta property="og:updated_time" content="2016-10-14T11:37:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日志系统">
 <meta name="twitter:description" content="一、SocketLog前言
@@ -457,11 +457,12 @@
 </ul>
 <h3 id="日志等级"><a href="#日志等级" class="headerlink" title="日志等级"></a>日志等级</h3><ul>
 <li>DEBUG (100): 详细的debug信息。 </li>
-<li>INFO (200): 关键事件。</li>
-<li>NOTICE (250): 普通但是重要的事件。</li>
-<li>WARNING (300): 出现非错误的异常。</li>
-<li>ERROR (400): 运行时错误，但是不需要立刻处理。</li>
-<li>CRITICA (500): 严重错误。</li>
+<li>INFO (200): 关键事件,例如：用户登录和SQL记录。</li>
+<li>NOTICE (250): 一般性重要的事件。</li>
+<li>WARNING (300): 出现非错误的异常,例如：使用了被弃用的API、错误地使用了API或者非预想的不必要错误。</li>
+<li>ERROR (400): 运行时错误,不需要立刻处理,但必须记录下来以备检测。</li>
+<li>CRITICA (500): 严重错误,例如：程序组件不可用或者出现非预期的异常。</li>
+<li>ALERT (550): <strong>必须</strong>立刻采取行动,例如：在整个网站都垮掉了、数据库不可用了或者其他的情况下， <strong>应该</strong> 发送一条警报短信把你叫醒。。</li>
 <li>EMERGENCY (600): 系统不可用。</li>
 </ul>
 <h3 id="用法详解"><a href="#用法详解" class="headerlink" title="用法详解"></a>用法详解</h3><h4 id="多个handler"><a href="#多个handler" class="headerlink" title="多个handler"></a>多个handler</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">FirePHPHandler</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建Logger实例</span></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'my_logger'</span>);</span><br><span class="line"><span class="comment">// 添加handler</span></span><br><span class="line">$logger-&gt;pushHandler(<span class="keyword">new</span> StreamHandler(<span class="keyword">__DIR__</span>.<span class="string">'/my_app.log'</span>, Logger::DEBUG));</span><br><span class="line">$logger-&gt;pushHandler(<span class="keyword">new</span> FirePHPHandler());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始使用</span></span><br><span class="line">$logger-&gt;addInfo(<span class="string">'My logger is now ready'</span>);</span><br></pre></td></tr></table></figure>
