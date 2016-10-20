@@ -23,7 +23,7 @@ wget http://cn2.php.net/distributions/php-7.0.12.tar.gz
 tar zxvf php-7.0.0.tar.gz
 cd php-7.0.0">
 <meta property="og:image" content="http://img.jsyzchen.com/2015/12/php7-v.jpg">
-<meta property="og:updated_time" content="2016-10-19T15:03:09.000Z">
+<meta property="og:updated_time" content="2016-10-20T15:20:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译安装PHP7">
 <meta name="twitter:description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 
@@ -263,40 +263,39 @@ cd php-7.0.0</pre>
 <pre class="bash">yum install -y gcc gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers
 </pre>
 
-<p>4、/alidata/server/php-7.0/ 为我的PHP安装目录，一般是在/usr/local下，大家按照自己的习惯替换</p>
-<pre class="bash">./configure --prefix=/alidata/server/php-7.0 
-\ --with-config-file-path=/alidata/server/php-7.0/etc 
-\ --with-mysql=mysqlnd 
-\ --with-pdo-mysql=mysqlnd 
-\ --with-mysqli=mysqlnd 
-\ --with-gd 
-\ --with-iconv 
-\ --with-zlib 
-\ --enable-xml 
-\ --enable-bcmath 
-\ --enable-shmop 
-\ --enable-sysvsem 
-\ --enable-inline-optimization 
-\ --enable-mbregex 
-\ --enable-fpm 
-\ --enable-mbstring 
-\ --enable-ftp 
-\ --enable-gd-native-ttf 
-\ --with-openssl 
-\ --enable-pcntl 
-\ --enable-sockets 
-\ --with-xmlrpc 
-\ --enable-zip 
-\ --enable-soap 
-\ --without-pear 
-\ --with-gettext 
-\ --enable-session 
-\ --with-mcrypt 
-\ --with-curl 
-\ --with-jpeg-dir 
-\ --with-freetype-dir 
-\ --with-xpm-dir=/usr 
-\ --with-bz2</pre>
+<p>4、/alidata/server/php-7.0/ 为我的PHP安装目录，一般是在/usr/local/php下，大家按照自己的习惯替换</p>
+<pre class="bash">./configure --prefix=/alidata/server/php-7.0 --with-mysql=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--with-gd \
+--with-iconv \
+--with-zlib \
+--enable-xml \
+--enable-bcmath \
+--enable-shmop \
+--enable-sysvsem \
+--enable-inline-optimization \
+--enable-mbregex \
+--enable-fpm \
+--enable-mbstring \
+--enable-ftp \
+--enable-gd-native-ttf \
+--enable-opcache \
+--with-openssl \
+--enable-pcntl \
+--enable-sockets \
+--with-xmlrpc \
+--enable-zip \
+--enable-soap \
+--without-pear \
+--with-gettext \
+--enable-session \
+--with-mcrypt \
+--with-curl \
+--with-jpeg-dir \
+--with-freetype-dir \
+--with-xpm-dir=/usr \ 
+--with-bz2</pre>
 
 <p>5、</p>
 <pre class="bash">make &amp;&amp; make install</pre>
