@@ -6,32 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>编译安装PHP7 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 
-1、下载php7包
-wget http://cn2.php.net/distributions/php-7.0.12.tar.gz
-2、解压，进入PHP目录
-tar zxvf php-7.0.0.tar.gz
-cd php-7.0.0">
+  <meta name="description" content="1、下载php7包1wget http://cn2.php.net/distributions/php-7.0.12.tar.gz
+2、解压，进入PHP目录12tar zxvf php-7.0.12.tar.gzcd php-7.0.12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译安装PHP7">
 <meta property="og:url" content="http://jayzchen.com/2015/12/14/install-php7/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 
-1、下载php7包
-wget http://cn2.php.net/distributions/php-7.0.12.tar.gz
-2、解压，进入PHP目录
-tar zxvf php-7.0.0.tar.gz
-cd php-7.0.0">
+<meta property="og:description" content="1、下载php7包1wget http://cn2.php.net/distributions/php-7.0.12.tar.gz
+2、解压，进入PHP目录12tar zxvf php-7.0.12.tar.gzcd php-7.0.12">
 <meta property="og:image" content="http://img.jsyzchen.com/2015/12/php7-v.jpg">
-<meta property="og:updated_time" content="2016-10-20T15:20:01.000Z">
+<meta property="og:updated_time" content="2016-10-21T02:34:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译安装PHP7">
-<meta name="twitter:description" content="期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 
-1、下载php7包
-wget http://cn2.php.net/distributions/php-7.0.12.tar.gz
-2、解压，进入PHP目录
-tar zxvf php-7.0.0.tar.gz
-cd php-7.0.0">
+<meta name="twitter:description" content="1、下载php7包1wget http://cn2.php.net/distributions/php-7.0.12.tar.gz
+2、解压，进入PHP目录12tar zxvf php-7.0.12.tar.gzcd php-7.0.12">
 <meta name="twitter:image" content="http://img.jsyzchen.com/2015/12/php7-v.jpg">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
@@ -250,69 +238,18 @@ cd php-7.0.0">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>期待已久的PHP7终于来了，迫不及待的安装在自己博客用的服务器上了，嘿嘿。。 </p>
-<p>1、下载php7包</p>
-<p>wget <a href="http://cn2.php.net/distributions/php-7.0.12.tar.gz" target="_blank" rel="external">http://cn2.php.net/distributions/php-7.0.12.tar.gz</a></p>
-<p>2、解压，进入PHP目录</p>
-<pre class="bash">tar zxvf php-7.0.0.tar.gz
-cd php-7.0.0</pre>
+        <p>1、下载php7包<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn2.php.net/distributions/php-7.0.12.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>2、解压，进入PHP目录<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf php-7.0.12.tar.gz</span><br><span class="line"><span class="built_in">cd</span> php-7.0.12</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a> 
-
-3、安装依赖包，我用的centos,偷下懒，直接yum安装
-
-<pre class="bash">yum install -y gcc gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers
-</pre>
-
+<p>3、安装依赖包，我用的centos,偷下懒，直接yum安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers</span><br></pre></td></tr></table></figure>
 <p>4、/alidata/server/php-7.0/ 为我的PHP安装目录，一般是在/usr/local/php下，大家按照自己的习惯替换</p>
-<pre class="bash">./configure --prefix=/alidata/server/php-7.0 --with-mysql=mysqlnd \
---with-pdo-mysql=mysqlnd \
---with-mysqli=mysqlnd \
---with-gd \
---with-iconv \
---with-zlib \
---enable-xml \
---enable-bcmath \
---enable-shmop \
---enable-sysvsem \
---enable-inline-optimization \
---enable-mbregex \
---enable-fpm \
---enable-mbstring \
---enable-ftp \
---enable-gd-native-ttf \
---enable-opcache \
---with-openssl \
---enable-pcntl \
---enable-sockets \
---with-xmlrpc \
---enable-zip \
---enable-soap \
---without-pear \
---with-gettext \
---enable-session \
---with-mcrypt \
---with-curl \
---with-jpeg-dir \
---with-freetype-dir \
---with-xpm-dir=/usr \ 
---with-bz2</pre>
-
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/alidata/server/php-7.0  \</span><br><span class="line">--with-config-file-path=/alidata/server/php-7.0/etc \</span><br><span class="line">--with-config-file-scan-dir=/alidata/server/php-7.0/etc/php.d \</span><br><span class="line">--enable-mysqlnd \</span><br><span class="line">--with-mysqli \</span><br><span class="line">--with-pdo-mysql \</span><br><span class="line">--with-gd \</span><br><span class="line">--with-iconv \</span><br><span class="line">--with-zlib \</span><br><span class="line">--enable-xml \</span><br><span class="line">--enable-bcmath \</span><br><span class="line">--enable-shmop \</span><br><span class="line">--enable-sysvsem \</span><br><span class="line">--enable-fpm \</span><br><span class="line">--enable-inline-optimization \</span><br><span class="line">--enable-mbregex \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--enable-ftp \</span><br><span class="line">--enable-gd-native-ttf \</span><br><span class="line">--enable-opcache \</span><br><span class="line">--with-openssl \</span><br><span class="line">--enable-pcntl \</span><br><span class="line">--enable-sockets \</span><br><span class="line">--with-xmlrpc \</span><br><span class="line">--enable-zip \</span><br><span class="line">--enable-soap \</span><br><span class="line">--without-pear \</span><br><span class="line">--with-gettext \</span><br><span class="line">--enable-session \</span><br><span class="line">--with-mcrypt \</span><br><span class="line">--with-curl \</span><br><span class="line">--with-jpeg-dir \</span><br><span class="line">--with-freetype-dir</span><br></pre></td></tr></table></figure>
 <p>5、</p>
-<pre class="bash">make &amp;&amp; make install</pre>
-
-<p>6、安装完成后</p>
-<pre class="bash">cp php.ini-production /alidata/server/php-7.0/etc/php.ini
-cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
-cp php-fpm.conf.default php-fpm.conf
-cp www.conf.default www.conf</pre>
-
-<p>7、建立软链接</p>
-<pre class="bash">ln -s /alidata/server/php-7.0/bin/php /usr/bin/php
-ln -s /alidata/server/php-7.0/sbin/php-fpm /usr/bin/php-fpm</pre>
-
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>6、安装完成后<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cp php.ini-production /alidata/server/php-7.0/etc/php.ini</span><br><span class="line">cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span><br><span class="line">cp php-fpm.conf.default php-fpm.conf</span><br><span class="line">cp www.conf.default www.conf</span><br><span class="line">```sh </span><br><span class="line"></span><br><span class="line">7、建立软链接</span><br><span class="line">```sh </span><br><span class="line">ln <span class="_">-s</span> /alidata/server/php-7.0/bin/php /usr/bin/php</span><br><span class="line">ln <span class="_">-s</span> /alidata/server/php-7.0/sbin/php-fpm /usr/bin/php-fpm</span><br></pre></td></tr></table></figure></p>
 <p>8、查看效果</p>
-<pre class="bash">php -v</pre>
-
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
 <p><a href="http://www.jsyzchen.com/wp-content/uploads/2015/12/php7-v.jpg" target="_blank" rel="external"><img src="http://img.jsyzchen.com/2015/12/php7-v.jpg" alt="php7-v"></a></p>
 
       
