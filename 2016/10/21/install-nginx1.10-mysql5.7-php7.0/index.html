@@ -14,13 +14,11 @@
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="一、安装nginx1.101.安装编译工具和依赖包12yum -y install gcc gcc-c++ autoconf automake make cmakeyum -y install zlib zlib-devel openssl openssl-devel pcre-devel
 2.新建nginx用户和用户组12sudo groupadd -r nginxsudo useradd -s">
-<meta property="og:image" content="http://img.jsyzchen.com/2015/12/php7-v.jpg">
-<meta property="og:updated_time" content="2016-10-21T14:26:18.000Z">
+<meta property="og:updated_time" content="2016-10-21T14:40:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos下编译安装nginx1.10+php7.0+mysql5.7">
 <meta name="twitter:description" content="一、安装nginx1.101.安装编译工具和依赖包12yum -y install gcc gcc-c++ autoconf automake make cmakeyum -y install zlib zlib-devel openssl openssl-devel pcre-devel
 2.新建nginx用户和用户组12sudo groupadd -r nginxsudo useradd -s">
-<meta name="twitter:image" content="http://img.jsyzchen.com/2015/12/php7-v.jpg">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -314,9 +312,6 @@
 <p>7、将php相关命令加入$PATH<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure></p>
 <p>在末尾追加<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/php/bin:/usr/<span class="built_in">local</span>/php/sbin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
-<p>8、查看效果</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.jsyzchen.com/wp-content/uploads/2015/12/php7-v.jpg" target="_blank" rel="external"><img src="http://img.jsyzchen.com/2015/12/php7-v.jpg" alt="php7-v"></a></p>
 <h1 id="四、关闭防火墙"><a href="#四、关闭防火墙" class="headerlink" title="四、关闭防火墙"></a>四、关闭防火墙</h1><p>关闭80和3306端口的防火墙,我的是centos7系统，默认是firewall防火墙，关闭命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></p>
 
       
