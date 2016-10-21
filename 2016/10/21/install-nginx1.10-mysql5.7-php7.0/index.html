@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="一、安装nginx1.101.安装编译工具和依赖包12yum -y install gcc gcc-c++ autoconf automake make cmakeyum -y install zlib zlib-devel openssl openssl-devel pcre-devel
 2.新建nginx用户和用户组12sudo groupadd -r nginxsudo useradd -s">
-<meta property="og:updated_time" content="2016-10-21T14:40:31.000Z">
+<meta property="og:updated_time" content="2016-10-21T14:49:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos下编译安装nginx1.10+php7.0+mysql5.7">
 <meta name="twitter:description" content="一、安装nginx1.101.安装编译工具和依赖包12yum -y install gcc gcc-c++ autoconf automake make cmakeyum -y install zlib zlib-devel openssl openssl-devel pcre-devel
@@ -270,7 +270,7 @@
 <td>设置服务器的排序规则。</td>
 </tr>
 <tr>
-<td>-DWITH_INNOBASE_STORAGE_ENGINE=1  -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_PERFSCHEMA_STORAGE_ENGINE=1</td>
+<td>-DWITH_INNOBASE_STORAGE_ENGINE = 1</td>
 <td>存储引擎选项：MyISAM，MERGE，MEMORY，和CSV引擎是默认编译到服务器中，并不需要明确地安装。静态编译一个存储引擎到服务器，使用-DWITH_engine_STORAGE_ENGINE= 1 可用的存储引擎值有：ARCHIVE, BLACKHOLE, EXAMPLE, FEDERATED, INNOBASE (InnoDB), PARTITION (partitioning support), 和PERFSCHEMA (Performance Schema)</td>
 </tr>
 <tr>
