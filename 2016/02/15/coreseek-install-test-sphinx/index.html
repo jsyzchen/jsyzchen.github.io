@@ -7,27 +7,18 @@
   <title>Coreseek的安装测试 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Coreseek安装文档：http://www.coreseek.cn/products-install/
-1.设置路径和中文环境
-export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8">
+1.设置路径和中文环境123export PATH=/usr/local/bin:$PATHexport LC_ALL=zh_CN.UTF-8export LANG=zh_CN.UTF-8">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coreseek的安装测试">
 <meta property="og:url" content="http://jayzchen.com/2016/02/15/coreseek-install-test-sphinx/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="Coreseek安装文档：http://www.coreseek.cn/products-install/
-1.设置路径和中文环境
-export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8">
-<meta property="og:updated_time" content="2016-04-30T16:31:36.000Z">
+1.设置路径和中文环境123export PATH=/usr/local/bin:$PATHexport LC_ALL=zh_CN.UTF-8export LANG=zh_CN.UTF-8">
+<meta property="og:updated_time" content="2016-10-21T06:30:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coreseek的安装测试">
 <meta name="twitter:description" content="Coreseek安装文档：http://www.coreseek.cn/products-install/
-1.设置路径和中文环境
-export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8">
+1.设置路径和中文环境123export PATH=/usr/local/bin:$PATHexport LC_ALL=zh_CN.UTF-8export LANG=zh_CN.UTF-8">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -246,44 +237,13 @@ export LANG=zh_CN.UTF-8">
     <div class="article-entry" itemprop="articleBody">
       
         <p>Coreseek安装文档：<a href="http://www.coreseek.cn/products-install/" target="_blank" rel="external">http://www.coreseek.cn/products-install/</a></p>
-<p><strong>1.设置路径和中文环境</strong></p>
-<pre>export PATH=/usr/local/bin:$PATH
-export LC_ALL=zh_CN.UTF-8
-export LANG=zh_CN.UTF-8
-</pre>
+<p><strong>1.设置路径和中文环境</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LC_ALL=zh_CN.UTF-8</span><br><span class="line"><span class="built_in">export</span> LANG=zh_CN.UTF-8</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-**2.下载Coreseek**
-<pre>weget http://www.coreseek.cn/uploads/csft/3.2/coreseek-3.2.14.tar.gz
-tar xzvf coreseek-3.2.14.tar.gz
-cd coreseek-3.2.14
-</pre>
-
-<p><strong>3.安装mmseg</strong></p>
-<pre>cd mmseg-3.2.14
-./bootstrap
-./configure --prefix=/usr/local/mmseg3
-make &amp;&amp; make install
-</pre>
-
-<p>如果是Mac OS X:</p>
-<pre>wget https://raw.githubusercontent.com/Homebrew/homebrew/9c7802270aabf638654ea0bccecc592e04785f87/Library/Formula/mmseg.rb -O/usr/local/Library/Formula/mmseg.rb
-brew install mmseg
-</pre>
-
-<p><strong>4.安装coreseek</strong></p>
-<pre>cd csft-3.2.14
-sh buildconf.sh
-./configure --prefix=/usr/local/coreseek  --without-unixodbc --with-mmseg --with-mmseg-includes=/usr/local/mmseg3/include/mmseg/ --with-mmseg-libs=/usr/local/mmseg3/lib/ --with-mysql
-make &amp;&amp; make install
-</pre>
-
-<p><strong>4.测试mmseg分词，coreseek搜索</strong></p>
-<pre>cd testpack
-/usr/local/mmseg3/bin/mmseg -d /usr/local/mmseg3/etc var/test/test.xml
-/usr/local/coreseek/bin/indexer -c etc/csft.conf --all
-/usr/local/coreseek/bin/search -c etc/csft.conf 
-</pre>
-
+<p><strong>2.下载Coreseek</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">weget http://www.coreseek.cn/uploads/csft/3.2/coreseek-3.2.14.tar.gz</span><br><span class="line">tar xzvf coreseek-3.2.14.tar.gz</span><br><span class="line"><span class="built_in">cd</span> coreseek-3.2.14</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.安装mmseg</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mmseg-3.2.14</span><br><span class="line">./bootstrap</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/mmseg3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>如果是Mac OS X:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/Homebrew/homebrew/9c7802270aabf638654ea0bccecc592e04785f87/Library/Formula/mmseg.rb -O/usr/<span class="built_in">local</span>/Library/Formula/mmseg.rb</span><br><span class="line">brew install mmseg</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.安装coreseek</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> csft-3.2.14</span><br><span class="line">sh buildconf.sh</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/coreseek  --without-unixodbc --with-mmseg --with-mmseg-includes=/usr/<span class="built_in">local</span>/mmseg3/include/mmseg/ --with-mmseg-libs=/usr/<span class="built_in">local</span>/mmseg3/lib/ --with-mysql</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.测试mmseg分词，coreseek搜索</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> testpack</span><br><span class="line">/usr/<span class="built_in">local</span>/mmseg3/bin/mmseg <span class="_">-d</span> /usr/<span class="built_in">local</span>/mmseg3/etc var/<span class="built_in">test</span>/test.xml</span><br><span class="line">/usr/<span class="built_in">local</span>/coreseek/bin/indexer -c etc/csft.conf --all</span><br><span class="line">/usr/<span class="built_in">local</span>/coreseek/bin/search -c etc/csft.conf</span><br></pre></td></tr></table></figure></p>
 <p>测试效果可以参考：<a href="http://www.coreseek.cn/products/products-install/install_on_bsd_linux/" target="_blank" rel="external">http://www.coreseek.cn/products/products-install/install_on_bsd_linux/</a>第三点</p>
 
       
