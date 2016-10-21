@@ -219,68 +219,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#一、安装nginx1.10<br>1.安装编译工具和依赖包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake make cmake</span><br><span class="line">yum -y install zlib zlib-devel openssl openssl-devel pcre-devel</span><br></pre></td></tr></table></figure></p>
+        <h1 id="一、安装nginx1-10"><a href="#一、安装nginx1-10" class="headerlink" title="一、安装nginx1.10"></a>一、安装nginx1.10</h1><p>1.安装编译工具和依赖包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake make cmake</span><br><span class="line">yum -y install zlib zlib-devel openssl openssl-devel pcre-devel</span><br></pre></td></tr></table></figure></p>
 <p>2.新建匿名用户和用户组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd -r nginx</span><br><span class="line">sudo useradd <span class="_">-s</span> /sbin/nologin -g nginx -r nginx</span><br></pre></td></tr></table></figure></p>
-<p>3.编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.10.0.tar.gz</span><br><span class="line">tar -zxvf nginx-1.10.0.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>编译参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">./configure \</span><br><span class="line">--user=nginx \</span><br><span class="line">--group=nginx \</span><br><span class="line">--prefix=/usr/<span class="built_in">local</span>/nginx \</span><br><span class="line">--sbin-path=/usr/sbin/nginx \</span><br><span class="line">--conf-path=/usr/<span class="built_in">local</span>/etc/nginx/nginx.conf \</span><br><span class="line">--error-log-path=/var/nginx/<span class="built_in">log</span>/nginx/error.log \</span><br><span class="line">--http-log-path=/var/nginx/<span class="built_in">log</span>/nginx/access.log \</span><br><span class="line">--pid-path=/var/nginx/<span class="built_in">log</span>/run/nginx.pid \</span><br><span class="line">--lock-path=/var/nginx/<span class="built_in">log</span>/lock/subsys/nginx \</span><br><span class="line">--with-http_ssl_module \</span><br><span class="line">--with-http_realip_module \</span><br><span class="line">--with-http_addition_module \</span><br><span class="line">--with-http_sub_module \</span><br><span class="line">--with-http_dav_module \</span><br><span class="line">--with-http_flv_module \</span><br><span class="line">--with-http_gzip_static_module \</span><br><span class="line">--with-http_stub_status_module \</span><br><span class="line">--with-http_perl_module \</span><br><span class="line">--with-mail \</span><br><span class="line">--with-mail_ssl_module</span><br></pre></td></tr></table></figure></p>
-<p>安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
-<p>#二、安装mysql5.7<br><strong>注：cmake安装mysql5.7，机器要好一点，一开始我的机器是1核1G内存，跑得卡死，后来换成2核4G内存没问题</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make gcc-c++ cmake bison-devel ncurses-devel</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/src</span><br><span class="line">wget http://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.gz</span><br><span class="line">wget http://cdn.mysql.com/Downloads/MySQL-5.7/mysql-5.7.11.tar.gz</span><br><span class="line">tar zxvf boost_1_59_0.tar.gz</span><br><span class="line">tar zxvf mysql-5.7.11.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mysql-5.7.11.tar.gz</span><br></pre></td></tr></table></figure>
-<p>cmake 参数  </p>
-<table>
-<thead>
-<tr>
-<th>cmake 参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-DCMAKE_INSTALL_PREFIX=dir_name</td>
-<td>设置mysql安装目录</td>
-</tr>
-<tr>
-<td>-DMYSQL_UNIX_ADDR=file_name</td>
-<td>设置监听套接字路径，这必须是一个绝对路径名。默认为/tmp/mysql.sock</td>
-</tr>
-<tr>
-<td>-DDEFAULT_CHARSET=charset_name</td>
-<td>设置服务器的字符集。</td>
-</tr>
-<tr>
-<td>-DDEFAULT_COLLATION=collation_name</td>
-<td>设置服务器的排序规则。</td>
-</tr>
-<tr>
-<td>-DWITH_INNOBASE_STORAGE_ENGINE=1  -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_PERFSCHEMA_STORAGE_ENGINE=1</td>
-<td>存储引擎选项：MyISAM，MERGE，MEMORY，和CSV引擎是默认编译到服务器中，并不需要明确地安装。静态编译一个存储引擎到服务器，使用-DWITH_engine_STORAGE_ENGINE= 1 可用的存储引擎值有：ARCHIVE, BLACKHOLE, EXAMPLE, FEDERATED, INNOBASE (InnoDB), PARTITION (partitioning support), 和PERFSCHEMA (Performance Schema)</td>
-</tr>
-<tr>
-<td>-DMYSQL_DATADIR=dir_name</td>
-<td>设置mysql数据库文件目录</td>
-</tr>
-<tr>
-<td>-DMYSQL_TCP_PORT=port_num</td>
-<td>设置mysql服务器监听端口，默认为3306</td>
-</tr>
-<tr>
-<td>-DENABLE_DOWNLOADS=bool</td>
-<td>是否要下载可选的文件。例如，启用此选项（设置为1），cmake将下载谷歌所使用的测试套件运行单元测试。</td>
-</tr>
-<tr>
-<td>-DWITH_BOOST</td>
-<td>BOOST包的位置</td>
-</tr>
-</tbody>
-</table>
-<p>cmake执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cmake \</span><br><span class="line">-DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql \</span><br><span class="line">-DMYSQL_DATADIR=/data/mysql \</span><br><span class="line">-DSYSCONFDIR=/etc \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_MEMORY_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_READLINE=1 \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/var/lib/mysql/mysql.sock \</span><br><span class="line">-DMYSQL_TCP_PORT=3306 \</span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DEXTRA_CHARSETS=all \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \</span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \</span><br><span class="line">-DDOWNLOAD_BOOST=1 \</span><br><span class="line">-DWITH_BOOST=/root/src/boost_1_59_0</span><br></pre></td></tr></table></figure></p>
-<p>安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
-<p>添加mysql用户和用户组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line">useradd  <span class="_">-s</span> /sbin/nologin  -g mysql   mysql</span><br></pre></td></tr></table></figure></p>
-<p><strong>注：mysql_install_db 已经不再推荐使用了，建议改成 mysqld –initialize 完成实例初始化。需要先确保 datadir 目标目录下是空的，避免误操作破坏已有数据</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql --datadir=/data/mysql --initialize --initialize-insecure</span><br></pre></td></tr></table></figure></p>
-<p>添加服务，拷贝服务脚本到init.d目录，并设置开机启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line">chkconfig mysqld on</span><br><span class="line">service mysqld start</span><br></pre></td></tr></table></figure></p>
-<p>设置mysql密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line">use mysql </span><br><span class="line"><span class="built_in">set</span> password = password(<span class="string">'1234abcd'</span>);</span><br></pre></td></tr></table></figure></p>
-<p>#三、安装php7.0<br>1、下载php7包<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn2.php.net/distributions/php-7.0.12.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>2、解压，进入PHP目录<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf php-7.0.12.tar.gz</span><br><span class="line"><span class="built_in">cd</span> php-7.0.12</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
