@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://jayzchen.com/2015/05/10/rsync-linux-sync-file/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
-<meta property="og:updated_time" content="2016-04-26T14:13:50.000Z">
+<meta property="og:updated_time" content="2016-10-21T06:42:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rsync实现多台linux服务器的文件同步">
 <meta name="twitter:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
@@ -233,103 +233,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。<a id="more"></a> 目的是想从rsync服务端（10.171.88.115）的文件同步到rsync客户端(10.172.222.246),这里的ip地址是ECS的内网地址 <strong>(注：以下配置的时候有时会用到两个-，但由于看不大清，所以我在两个-中间加了空格，真正使用时请去掉中间空格，以防不能正确执行)</strong> 一、首先安装rsync,怎样安装都行，rpm,yum，还是你用源码安装都可以。因为我用的是阿里云的ESC，yum install rsync就ok了。 二、<strong>配置rsync服务</strong> 1.先建立个同步数据的帐号</p>
-<pre>groupadd rsync
-useradd -g rsync -s /sbin/nologin -d /home/rsync rsync
-passwd rsync</pre>
-
-<p>2.rsyncd.conf #vim /etc/rsyncd.conf</p>
-<pre>secrets file = /etc/rsyncd.secrets
-motd file = /etc/rsyncd.motd
-read only = yes
-list = yes
-uid = rsync /*同步用的帐号，此账户对模块要有相应的权限*/
-gid = rsync /*同步用的帐号组*/
-hosts allow = 10.172.222.246 #哪些电脑可以访问rsync服务，多个ip用空格隔开
-hosts deny = 192.168.100.0/24 #哪些电脑不可以访问rsync服务
-max connections = 0 /*最大连接数，0表示无限制*/
-log file = /var/log/rsyncd.log
-pid file = /var/run/rsyncd.pid
-lock file = /var/run/rsync.lock
-#再定义rsync目录
-[www]
-comment = www 's directory from 10.171.88.115
-path = /alidata/www /*模块的路径*/
-chroot = false
-authusers=rsync #不设置代表客户端同步无需密码</pre>
-
-<p><strong>（注：以上注释部分真实使用时请去掉，不去掉会有语法错误,下同！！！）</strong> 3.rsyncd.secrets</p>
-<pre>vi /etc/rsyncd.secrets</pre>
-
-<p>rsyncd.secrets是存储rsync服务的用户名和密码的，它是一个明文的文本文件，下面给出一个rsyncd.secrets文件的例子：</p>
-<pre>rsync:abcde</pre>
-
-<p>因为rsyncd.secrets存储了rsync服务的用户名和密码，所以非常重要，因此文件的属性必须设为600，只有所有者可以读写：</p>
-<pre>chmod 600 /etc/rsyncd.secrets</pre>
-
-<p>4.rsyncd.motd</p>
-<pre>vi /etc/rsyncd.motd</pre>
-
-<p>rsyncd.motd记录了rsync服务的欢迎信息，你可以在其中输入任何文本信息，如：</p>
-<pre>Welcome to use the rsync services!</pre>
-
-<p>5.services</p>
-<pre>vi /etc/services</pre>
-
-<p>services并不是rsync的配置文件，这一步也可以不做。而修改了services文件的好处就在于系统知道873端口对就的服务名为rsync。修改services的方法就是确保services中有如下两行，没有的话就自行加入：</p>
-<pre>rsync　　873/tcp　　# rsync
-rsync　　873/udp　　# rsync</pre>
-
-<p>6./etc/xinetd.d/rsync</p>
-<pre>vi /etc/xinetd.d/rsync</pre>
-
-<p>建立一个名为/etc/xinetd.d/rsync文件，输入以下内容：</p>
-<pre>service rsync
-{
-disable = no
-socket_type　　= stream
-wait　　　　　 = no
-user　　　　　 = root
-server　　　　 = /usr/local/rsync/bin/rsync #写你rsync的运行文件目录
-server_args　　= - -daemon
-log_on_failure += USERID
-}</pre>
-
-<p>保存后，就可以运行rsync服务了。 7.如果有防火墙 rsync服务器和防火墙，关掉对rsync的屏蔽</p>
-<pre>iptables -A INPUT -p tcp -m state - -state NEW -m tcp - -dport 873 -j ACCEPT</pre>
-
-<p>8.运行rsync 输入以下命令： （可能xinetd 没安装 yum安装一下就行）</p>
-<pre>/etc/rc.d/init.d/xinetd reload</pre>
-
-<p>这样rsync服务就在这台机器上(10.171.88.115)运行起来了，接下来就是如何来使用它了。 如果想开机自启动</p>
-<pre>vi /etc/rc.d/rc.local</pre>
-
-<p>将/etc/rc.d/init.d/xinetd reload或者service xinetd start加进去就可以了 三、rsync客户端配置 1.安装rsync，无需启动rsync服务，因为它又不当rsync服务器 2.</p>
-<pre>rsync -avz - -progress - -delete rsync@10.171.88.115::www /alidata/www</pre>
-
-<p>有设置权限（服务端目录设置时有authusers:xxxxx）的需要输入密码，如果没有就立即同步啦 如果嫌每次输入密码麻烦，新建一个密码文件，#touch /etc/rsync.secret 编辑</p>
-<pre>vim /etc/rsync.secret</pre><pre>abcde #里面写密码就行了</pre>
-
-<p>再</p>
-<pre>chmod 600 /etc/rsync.secret</pre>
-
-<p>然后同步时命令就可以这样写：</p>
-<pre>rsync -avz - -progress - -delete - -password-file=/etc/rsync.secret rsync@10.171.88.115::www /alidata/www</pre>
-
-<p>3.crontb实现自动同步 先新建一个sh文件</p>
-<pre>touch /root/rsync.sh</pre><pre>vim /root/rsync.sh</pre>
-
-<p>里面输入：</p>
-<pre>!/bin/bash
-rsync -avz - -progress - -delete - -password-file=/etc/rsync.secret rsync@10.171.88.115::www /alidata/www &gt;&gt; /root/rsync-crontablog.txt</pre>
-
-<p>（这里把输出的结果写到了一个txt文件里） ok!下面写crontb文件：</p>
-<pre>crontb -e</pre><pre>*/1 7-23 * * * /root/rsync.sh</pre>
-
-<p>让它7点到晚上23点每隔一分钟同步 修改文件权限：</p>
-<pre>chmod 755 /root/rsync.sh</pre>
-
-<p>大功告成！！！ <strong>(注：以上是客户端向服务端取文件，你也可以从客户端向SERVER端上传文件，那就要反过来，1个服务器做客户端，n台服务器做server端，也就是要配很多次server端的配置，有兴趣的同学可以尝试一下。另外我这里用的是crontab进行最快一分钟一次有点延时的实时同步，大家可以尝试rsync+inotify进行真正的实时同步，推荐博客：<a href="http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795" title="rsync+inotify" target="_blank" rel="external">http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795</a>)</strong></p>
+        <p>最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。</p>
+<a id="more"></a> 
+<p>目的是想从rsync服务端（10.171.88.115）的文件同步到rsync客户端(10.172.222.246),这里的ip地址是ECS的内网地址 **(注：以下配置的时候有时会用到两个-，但由于看不大清，所以我在两个-中间加了空格，真正使用时请去掉中间空格，以防不能正确执行)  </p>
+<p>一、首先安装rsync,怎样安装都行，rpm,yum，还是你用源码安装都可以。因为我用的是阿里云的ESC，yum install rsync就ok了。  </p>
+<p>二、配置rsync服务<br>1.先建立个同步数据的帐号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd rsync</span><br><span class="line">useradd -g rsync <span class="_">-s</span> /sbin/nologin <span class="_">-d</span> /home/rsync rsync</span><br><span class="line">passwd rsync</span><br></pre></td></tr></table></figure></p>
+<p>2.rsyncd.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsyncd.conf</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">secrets file = /etc/rsyncd.secrets</span><br><span class="line">motd file = /etc/rsyncd.motd</span><br><span class="line"><span class="built_in">read</span> only = yes</span><br><span class="line">list = yes</span><br><span class="line">uid = rsync /*同步用的帐号，此账户对模块要有相应的权限*/</span><br><span class="line">gid = rsync /*同步用的帐号组*/</span><br><span class="line">hosts allow = 10.172.222.246 <span class="comment">#哪些电脑可以访问rsync服务，多个ip用空格隔开</span></span><br><span class="line">hosts deny = 192.168.100.0/24 <span class="comment">#哪些电脑不可以访问rsync服务</span></span><br><span class="line">max connections = 0 /*最大连接数，0表示无限制*/</span><br><span class="line"><span class="built_in">log</span> file = /var/<span class="built_in">log</span>/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"><span class="comment">#再定义rsync目录</span></span><br><span class="line">[www]</span><br><span class="line">comment = www <span class="string">'s directory from 10.171.88.115</span><br><span class="line">path = /alidata/www /*模块的路径*/</span><br><span class="line">chroot = false</span><br><span class="line">authusers=rsync #不设置代表客户端同步无需密码&lt;/pre&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>（注：以上注释部分真实使用时请去掉，不去掉会有语法错误,下同！！！）</strong> </p>
+<p>3.rsyncd.secrets<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rsyncd.secrets</span><br></pre></td></tr></table></figure></p>
+<p>rsyncd.secrets是存储rsync服务的用户名和密码的，它是一个明文的文本文件，下面给出一个rsyncd.secrets文件的例子：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync:abcde</span><br></pre></td></tr></table></figure>
+<p>因为rsyncd.secrets存储了rsync服务的用户名和密码，所以非常重要，因此文件的属性必须设为600，只有所有者可以读写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/rsyncd.secrets</span><br></pre></td></tr></table></figure></p>
+<p>4.rsyncd.motd<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rsyncd.motd</span><br></pre></td></tr></table></figure></p>
+<p>rsyncd.motd记录了rsync服务的欢迎信息，你可以在其中输入任何文本信息，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Welcome to use the rsync services!</span><br></pre></td></tr></table></figure></p>
+<p>5.services<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/services</span><br></pre></td></tr></table></figure></p>
+<p>services并不是rsync的配置文件，这一步也可以不做。而修改了services文件的好处就在于系统知道873端口对就的服务名为rsync。修改services的方法就是确保services中有如下两行，没有的话就自行加入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync　　873/tcp　　<span class="comment"># rsync</span></span><br><span class="line">rsync　　873/udp　　<span class="comment"># rsync</span></span><br></pre></td></tr></table></figure></p>
+<p>6./etc/xinetd.d/rsync<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/xinetd.d/rsync</span><br></pre></td></tr></table></figure></p>
+<p>建立一个名为/etc/xinetd.d/rsync文件，输入以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">service rsync</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">disable</span> = no</span><br><span class="line">socket_<span class="built_in">type</span>　　= stream</span><br><span class="line"><span class="built_in">wait</span>　　　　　 = no</span><br><span class="line">user　　　　　 = root</span><br><span class="line">server　　　　 = /usr/<span class="built_in">local</span>/rsync/bin/rsync <span class="comment">#写你rsync的运行文件目录</span></span><br><span class="line">server_args　　= - -daemon</span><br><span class="line"><span class="built_in">log</span>_on_failure += USERID</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存后，就可以运行rsync服务了。   </p>
+<p>7.如果有防火墙 rsync服务器和防火墙，关掉对rsync的屏蔽<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp - -dport 873 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
+<p>8.运行rsync 输入以下命令： （可能xinetd 没安装 yum安装一下就行）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d/xinetd reload</span><br></pre></td></tr></table></figure></p>
+<p>这样rsync服务就在这台机器上(10.171.88.115)运行起来了，接下来就是如何来使用它了。 如果想开机自启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure></p>
+<p>将/etc/rc.d/init.d/xinetd reload或者service xinetd start加进去就可以了 </p>
+<p>三、rsync客户端配置<br>1.安装rsync，无需启动rsync服务，因为它又不当rsync服务器<br>2.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avz --progress --delete rsync@10.171.88.115::www /alidata/www</span><br></pre></td></tr></table></figure></p>
+<p>有设置权限（服务端目录设置时有authusers:xxxxx）的需要输入密码，如果没有就立即同步啦 如果嫌每次输入密码麻烦，新建一个密码文件，#touch /etc/rsync.secret 编辑<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsync.secret</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abcde <span class="comment">#里面写密码就行了</span></span><br></pre></td></tr></table></figure>
+<p>再<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/rsync.secret</span><br></pre></td></tr></table></figure></p>
+<p>然后同步时命令就可以这样写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avz --progress --delete --password-file=/etc/rsync.secret rsync@10.171.88.115::www /alidata/www</span><br></pre></td></tr></table></figure></p>
+<p>3.crontb实现自动同步 先新建一个sh文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">touch /root/rsync.sh</span><br><span class="line">vim /root/rsync.sh</span><br><span class="line">```bash</span><br><span class="line"></span><br><span class="line">里面输入：</span><br><span class="line">```bash</span><br><span class="line">!/bin/bash</span><br><span class="line">rsync -avz --progress --delete --password-file=/etc/rsync.secret rsync@10.171.88.115::www /alidata/www &gt;&gt; /root/rsync-crontablog.txt</span><br></pre></td></tr></table></figure></p>
+<p>（这里把输出的结果写到了一个txt文件里） </p>
+<p>ok!下面写crontb文件：<br><code>bash
+crontb -e 
+*/1 7-23 * * * /root/rsync.sh</code>bash</p>
+<p>让它7点到晚上23点每隔一分钟同步 修改文件权限：<br><code>bash
+chmod 755 /root/rsync.sh</code>bash</p>
+<p>大功告成！！！<br><strong>(注：以上是客户端向服务端取文件，你也可以从客户端向SERVER端上传文件，那就要反过来，1个服务器做客户端，n台服务器做server端，也就是要配很多次server端的配置，有兴趣的同学可以尝试一下。另外我这里用的是crontab进行最快一分钟一次有点延时的实时同步，大家可以尝试rsync+inotify进行真正的实时同步，推荐博客：<a href="http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795" target="_blank" rel="external">http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795</a>)</strong></p>
 
       
     </div>
