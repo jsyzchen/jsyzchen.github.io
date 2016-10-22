@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://jayzchen.com">
+  <title>rsync实现多台linux服务器的文件同步 | 雨泪漂古 | 过往云烟</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rsync实现多台linux服务器的文件同步">
+<meta property="og:url" content="http://jayzchen.com/2015/05/10/rsync-linux-sync-file/index.html">
+<meta property="og:site_name" content="雨泪漂古 | 过往云烟">
+<meta property="og:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
+<meta property="og:updated_time" content="2016-10-22T14:24:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rsync实现多台linux服务器的文件同步">
+<meta name="twitter:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
+  
+    <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/css/share.min.css">
+  
+  
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-77516546-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Jsyz Chen</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+		        
+					<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook">facebook</a>
+		        
+					<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Jsyz Chen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/avatar.png" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Jsyz Chen</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook">facebook</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-rsync-linux-sync-file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      rsync实现多台linux服务器的文件同步
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。</p>
+<a id="more"></a> 
+<p>目的是想从rsync服务端（10.171.88.115）的文件同步到rsync客户端(10.172.222.246),这里的ip地址是ECS的内网地址 </p>
+<p>一、首先安装rsync,怎样安装都行，rpm,yum，还是你用源码安装都可以。因为我用的是阿里云的ESC，yum install rsync就ok了。  </p>
+<p>二、配置rsync服务<br>1.先建立个同步数据的帐号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd rsync</span><br><span class="line">useradd -g rsync <span class="_">-s</span> /sbin/nologin <span class="_">-d</span> /home/rsync rsync</span><br><span class="line">passwd rsync</span><br></pre></td></tr></table></figure></p>
+<p>2.rsyncd.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsyncd.conf</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">secrets file = /etc/rsyncd.secrets</span><br><span class="line">motd file = /etc/rsyncd.motd</span><br><span class="line"><span class="built_in">read</span> only = yes</span><br><span class="line">list = yes</span><br><span class="line">uid = rsync /*同步用的帐号，此账户对模块要有相应的权限*/</span><br><span class="line">gid = rsync /*同步用的帐号组*/</span><br><span class="line">hosts allow = 10.172.222.246 <span class="comment">#哪些电脑可以访问rsync服务，多个ip用空格隔开</span></span><br><span class="line">hosts deny = 192.168.100.0/24 <span class="comment">#哪些电脑不可以访问rsync服务</span></span><br><span class="line">max connections = 0 /*最大连接数，0表示无限制*/</span><br><span class="line"><span class="built_in">log</span> file = /var/<span class="built_in">log</span>/rsyncd.log</span><br><span class="line">pid file = /var/run/rsyncd.pid</span><br><span class="line">lock file = /var/run/rsync.lock</span><br><span class="line"><span class="comment">#再定义rsync目录</span></span><br><span class="line">[www]</span><br><span class="line">comment = www <span class="string">'s directory from 10.171.88.115</span><br><span class="line">path = /alidata/www /*模块的路径*/</span><br><span class="line">chroot = false</span><br><span class="line">authusers=rsync #不设置代表客户端同步无需密码&lt;/pre&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>（注：以上注释部分真实使用时请去掉，不去掉会有语法错误,下同！！！）</strong> </p>
+<p>3.rsyncd.secrets<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rsyncd.secrets</span><br></pre></td></tr></table></figure></p>
+<p>rsyncd.secrets是存储rsync服务的用户名和密码的，它是一个明文的文本文件，下面给出一个rsyncd.secrets文件的例子：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync:abcde</span><br></pre></td></tr></table></figure>
+<p>因为rsyncd.secrets存储了rsync服务的用户名和密码，所以非常重要，因此文件的属性必须设为600，只有所有者可以读写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/rsyncd.secrets</span><br></pre></td></tr></table></figure></p>
+<p>4.rsyncd.motd<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rsyncd.motd</span><br></pre></td></tr></table></figure></p>
+<p>rsyncd.motd记录了rsync服务的欢迎信息，你可以在其中输入任何文本信息，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Welcome to use the rsync services!</span><br></pre></td></tr></table></figure></p>
+<p>5.services<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/services</span><br></pre></td></tr></table></figure></p>
+<p>services并不是rsync的配置文件，这一步也可以不做。而修改了services文件的好处就在于系统知道873端口对就的服务名为rsync。修改services的方法就是确保services中有如下两行，没有的话就自行加入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync　　873/tcp　　<span class="comment"># rsync</span></span><br><span class="line">rsync　　873/udp　　<span class="comment"># rsync</span></span><br></pre></td></tr></table></figure></p>
+<p>6./etc/xinetd.d/rsync<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/xinetd.d/rsync</span><br></pre></td></tr></table></figure></p>
+<p>建立一个名为/etc/xinetd.d/rsync文件，输入以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">service rsync</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">disable</span> = no</span><br><span class="line">socket_<span class="built_in">type</span>　　= stream</span><br><span class="line"><span class="built_in">wait</span>　　　　　 = no</span><br><span class="line">user　　　　　 = root</span><br><span class="line">server　　　　 = /usr/<span class="built_in">local</span>/rsync/bin/rsync <span class="comment">#写你rsync的运行文件目录</span></span><br><span class="line">server_args　　= - -daemon</span><br><span class="line"><span class="built_in">log</span>_on_failure += USERID</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存后，就可以运行rsync服务了。   </p>
+<p>7.如果有防火墙 rsync服务器和防火墙，关掉对rsync的屏蔽<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp - -dport 873 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
+<p>8.运行rsync 输入以下命令： （可能xinetd 没安装 yum安装一下就行）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d/xinetd reload</span><br></pre></td></tr></table></figure></p>
+<p>这样rsync服务就在这台机器上(10.171.88.115)运行起来了，接下来就是如何来使用它了。 如果想开机自启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure></p>
+<p>将/etc/rc.d/init.d/xinetd reload或者service xinetd start加进去就可以了 </p>
+<p>三、rsync客户端配置<br>1.安装rsync，无需启动rsync服务，因为它又不当rsync服务器<br>2.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avz --progress --delete rsync@10.171.88.115::www /alidata/www</span><br></pre></td></tr></table></figure></p>
+<p>有设置权限（服务端目录设置时有authusers:xxxxx）的需要输入密码，如果没有就立即同步啦 如果嫌每次输入密码麻烦，新建一个密码文件，#touch /etc/rsync.secret 编辑<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rsync.secret</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abcde <span class="comment">#里面写密码就行了</span></span><br></pre></td></tr></table></figure>
+<p>再<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 /etc/rsync.secret</span><br></pre></td></tr></table></figure></p>
+<p>然后同步时命令就可以这样写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avz --progress --delete --password-file=/etc/rsync.secret rsync@10.171.88.115::www /alidata/www</span><br></pre></td></tr></table></figure></p>
+<p>3.crontb实现自动同步 先新建一个sh文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch /root/rsync.sh</span><br><span class="line">vim /root/rsync.sh</span><br></pre></td></tr></table></figure></p>
+<p>里面输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!/bin/bash</span><br><span class="line">rsync -avz --progress --delete --password-file=/etc/rsync.secret rsync@10.171.88.115::www /alidata/www &gt;&gt; /root/rsync-crontablog.txt</span><br></pre></td></tr></table></figure></p>
+<p>（这里把输出的结果写到了一个txt文件里） </p>
+<p>ok!下面写crontb文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontb <span class="_">-e</span> </span><br><span class="line">*/1 7-23 * * * /root/rsync.sh</span><br></pre></td></tr></table></figure></p>
+<p>让它7点到晚上23点每隔一分钟同步 修改文件权限：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /root/rsync.sh</span><br></pre></td></tr></table></figure></p>
+<p>大功告成！！！<br><strong>(注：以上是客户端向服务端取文件，你也可以从客户端向SERVER端上传文件，那就要反过来，1个服务器做客户端，n台服务器做server端，也就是要配很多次server端的配置，有兴趣的同学可以尝试一下。另外我这里用的是crontab进行最快一分钟一次有点延时的实时同步，大家可以尝试rsync+inotify进行真正的实时同步，推荐博客：<a href="http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795" target="_blank" rel="external">http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795</a>)</strong></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/05/10/rsync-linux-sync-file/" class="archive-article-date">
+  	<time datetime="2015-05-10T15:44:34.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-05-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crontab/">crontab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inotify/">inotify</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/07/17/yar-first-use/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Yar初使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/27/lottery-draw-simple-algorithm/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">抽奖活动业务逻辑的处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
+
+<div style="padding:0 40px 20px;">
+	<!-- social-share Button BEGIN -->
+	<div class="social-share"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/js/social-share.min.js"></script>
+	<!-- social-share Button END -->
+</div>
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread" style="padding:0 40px;"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'jsyzchen'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Jsyz Chen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Monolog/" style="font-size: 10px;">Monolog</a> <a href="/tags/ScoketLog/" style="font-size: 10px;">ScoketLog</a> <a href="/tags/SeasLog/" style="font-size: 10px;">SeasLog</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/coreseek/" style="font-size: 10px;">coreseek</a> <a href="/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/inotify/" style="font-size: 10px;">inotify</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/sphinx/" style="font-size: 10px;">sphinx</a> <a href="/tags/yar/" style="font-size: 13.33px;">yar</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io/">Hexo</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://house.sina.com.cn">新浪乐居</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">陈晨，&lt;br /&gt;PHP开发工程师，&lt;br /&gt;现就职于新浪乐居。</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
