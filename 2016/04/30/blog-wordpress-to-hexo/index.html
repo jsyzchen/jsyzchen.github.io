@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://jayzchen.com">
   <title>博客从WordPress迁移到Hexo | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
+  <meta name="description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Markdown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客从WordPress迁移到Hexo">
 <meta property="og:url" content="http://jayzchen.com/2016/04/30/blog-wordpress-to-hexo/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
+<meta property="og:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Markdown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/hexo-default-web.png">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/duoshuo-domain.jpeg">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/my-duoshuo-domain.jpeg">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/wordpress-blog-pictures.jpg">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/hexo-blog-pictures.jpeg">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/custom-domain.jpeg">
-<meta property="og:updated_time" content="2016-11-12T08:01:32.000Z">
+<meta property="og:updated_time" content="2016-12-03T12:08:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客从WordPress迁移到Hexo">
-<meta name="twitter:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
+<meta name="twitter:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Markdown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
 <meta name="twitter:image" content="http://img.jsyzchen.com/2016/04/hexo-default-web.png">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
@@ -182,7 +182,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>偶然的机会看到了<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a>，就深深被吸引了，加载速度快，支持Makedown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说Node.js有多么多么好，要把PHP给替代掉什么的，虽然Node.js的作用只是用来生成静态页面的，但可以感觉到，生成速度的确快；第二，支持Makedown，早就想学习Makedown了，正好边写博客，边学Makedown；第三，支持部署到Github上，以前WordPress都是部署到阿里云的云服务器ECS上的，还单独买了一个云数据库RDS，一个月得一百多块的花销，现在可以免费地放在Github上，省了一百多块钱，何乐而不为呢，哈哈。。不罗嗦了，直接上步骤。。<br><a id="more"></a></p>
+        <p>偶然的机会看到了<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a>，就深深被吸引了，加载速度快，支持Markdown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说Node.js有多么多么好，要把PHP给替代掉什么的，虽然Node.js的作用只是用来生成静态页面的，但可以感觉到，生成速度的确快；第二，支持Makedown，早就想学习Makedown了，正好边写博客，边学Makedown；第三，支持部署到Github上，以前WordPress都是部署到阿里云的云服务器ECS上的，还单独买了一个云数据库RDS，一个月得一百多块的花销，现在可以免费地放在Github上，省了一百多块钱，何乐而不为呢，哈哈。。不罗嗦了，直接上步骤。。<br><a id="more"></a></p>
 <h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p><strong>1.安装Node.js</strong><br>Centos之类的,yum install nodejs &amp;&amp; sudo yum install npm<br>Mac OS X系统,使用brew install node 安装一下<br>如果需要源码安装，可以去<a href="https://nodejs.org" target="_blank" rel="external">Node官网</a>下载,然后编译安装<br><strong>2.安装git</strong><br>和上面一样，yum或brew或源码安装一下，这里就不再多说。可以参考此文档:<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="external">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> 进去可以选择中文,</p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli  </span><br><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></p>
 <h3 id="使用Hexo"><a href="#使用Hexo" class="headerlink" title="使用Hexo"></a>使用Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
