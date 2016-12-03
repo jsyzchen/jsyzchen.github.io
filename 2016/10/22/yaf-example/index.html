@@ -105,13 +105,13 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+					<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+					<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook">facebook</a>
+					<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook"><i class="icon-facebook"></i></a>
 		        
-					<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+					<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter"><i class="icon-twitter"></i></a>
 		        
 			</div>
 		</nav>
@@ -122,7 +122,7 @@ ga('send', 'pageview');
     <div class="mid-col">
       <nav id="mobile-nav">
   	<div class="overlay">
-  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
   		<h1 class="header-author js-mobile-header hide">Jsyz Chen</h1>
   	</div>
 	<div class="intrude-less">
@@ -146,13 +146,13 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook">facebook</a>
+						<a class="facebook" target="_blank" href="https://www.facebook.com/jsyzchen" title="facebook"><i class="icon-facebook"></i></a>
 			        
-						<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter">twitter</a>
+						<a class="twitter" target="_blank" href="https://twitter.com/jsyzchen" title="twitter"><i class="icon-twitter"></i></a>
 			        
 				</div>
 			</nav>
@@ -164,9 +164,6 @@ ga('send', 'pageview');
         <article id="post-yaf-example" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
       <header class="article-header">
         
   
@@ -175,6 +172,9 @@ ga('send', 'pageview');
     </h1>
   
 
+        <a href="/2016/10/22/yaf-example/" class="archive-article-date">
+  	<time datetime="2016-10-22T15:04:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-22</time>
+</a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -216,12 +216,11 @@ ga('send', 'pageview');
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><a href="https://github.com/jsyzchen/chen-yaf" target="_blank" rel="external">chen-yaf</a>只是一个很简单的yaf例子，加了Eloquent ORM和twig。实际项目中，还需要不断地往里面添加东西。既然我们使用了composer包，那么我们在做自己的项目时就可以很方便的使用第三方包，避免我们重复造轮子。<br>推荐一些第三方包吧，也是我们在重构项目里所用到的。<br>1.<a href="https://github.com/briannesbitt/Carbon" target="_blank" rel="external">carbon</a>:对于时间日期的操作。<br>2.<a href="https://github.com/chrisboulton/php-resque" target="_blank" rel="external">php-resque</a>:队列的操作。<br>3.<a href="https://github.com/sokil/php-mongo" target="_blank" rel="external">sokil/php-mongo</a>:mongodb的操作。<br>4.<a href="https://github.com/Seldaek/monolog" target="_blank" rel="external">monolog</a>:日志的操作。</p>
 
       
+
+      
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/22/yaf-example/" class="archive-article-date">
-  	<time datetime="2016-10-22T15:04:58.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-22</time>
-</a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
@@ -230,6 +229,9 @@ ga('send', 'pageview');
 
       
 
+      
+
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -251,8 +253,6 @@ ga('send', 'pageview');
 
 
 
-
-
 <div style="padding:0 40px 20px;">
 	<!-- social-share Button BEGIN -->
 	<div class="social-share"></div>
@@ -265,7 +265,7 @@ ga('send', 'pageview');
 
 
 <section id="comments">
-  <div id="disqus_thread" style="padding:0 40px;"></div>
+  <div id="disqus_thread"></div>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'jsyzchen'; // required: replace example with your forum shortname
@@ -297,7 +297,6 @@ ga('send', 'pageview');
     </div>
     <script>
 	var yiliaConfig = {
-		fancybox: true,
 		mathjax: false,
 		animate: true,
 		isHome: false,
@@ -305,7 +304,7 @@ ga('send', 'pageview');
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: true,
+		open_in_new: false,
 		root: "/",
 		innerArchive: true
 	}
