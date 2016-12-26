@@ -332,6 +332,62 @@ ga('send', 'pageview');
 
 
   
+    <article id="post-api-verify" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/14/api-verify/">接口验证</a>
+    </h1>
+  
+
+        <a href="/2016/05/14/api-verify/" class="archive-article-date">
+  	<time datetime="2016-05-14T15:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-14</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>权限验证在开发中是经常遇到的，通常也是封装好的模块，如果我们是使用者，通常指需要一个标记特性或者配置一下就可以完成，但实际里面还是有许多东西值得我们去探究。有时候我们也会用一些开源的权限验证框架，不过能自己实现一遍就更好，自己开发的东西成就感（逼格）会更高一些。进入主题，本篇主要是介绍接口端的权限验证，这个部分每个项目都会用到，所以最好就是也把它插件化，放在Common中，新的项目就可以直接使用了。<br>
+        <a class="article-more-a"  href="/2016/05/14/api-verify/#more">more >></a>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/05/14/api-verify/#more">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-blog-wordpress-to-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -733,7 +789,7 @@ ga('send', 'pageview');
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Monolog/" style="font-size: 10px;">Monolog</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/SeasLog/" style="font-size: 10px;">SeasLog</a> <a href="/tags/SocketLog/" style="font-size: 10px;">SocketLog</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/composer/" style="font-size: 10px;">composer</a> <a href="/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/inotify/" style="font-size: 10px;">inotify</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/twig/" style="font-size: 10px;">twig</a> <a href="/tags/yaf/" style="font-size: 10px;">yaf</a> <a href="/tags/yar/" style="font-size: 13.33px;">yar</a>
+    				<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Eloquent/" style="font-size: 10px;">Eloquent</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a> <a href="/tags/Monolog/" style="font-size: 10px;">Monolog</a> <a href="/tags/Node/" style="font-size: 10px;">Node</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/SeasLog/" style="font-size: 10px;">SeasLog</a> <a href="/tags/SocketLog/" style="font-size: 10px;">SocketLog</a> <a href="/tags/WordPress/" style="font-size: 10px;">WordPress</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/composer/" style="font-size: 10px;">composer</a> <a href="/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/inotify/" style="font-size: 10px;">inotify</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/twig/" style="font-size: 10px;">twig</a> <a href="/tags/yaf/" style="font-size: 10px;">yaf</a> <a href="/tags/yar/" style="font-size: 13.33px;">yar</a>
     			</div>
     	</section>
     
