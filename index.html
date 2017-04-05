@@ -233,8 +233,8 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、安装nginx1-10"><a href="#一、安装nginx1-10" class="headerlink" title="一、安装nginx1.10"></a>一、安装nginx1.10</h1><p>1.安装编译工具和依赖包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake make cmake</span><br><span class="line">yum -y install zlib zlib-devel openssl openssl-devel pcre-devel</span><br></pre></td></tr></table></figure></p>
-<p>2.新建nginx用户和用户组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd -r nginx</span><br><span class="line">sudo useradd <span class="_">-s</span> /sbin/nologin -g nginx -r nginx</span><br></pre></td></tr></table></figure></p>
+        <h1 id="一、安装nginx1-10"><a href="#一、安装nginx1-10" class="headerlink" title="一、安装nginx1.10"></a>一、安装nginx1.10</h1><p>##1.安装编译工具和依赖包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake make cmake</span><br><span class="line">yum -y install zlib zlib-devel openssl openssl-devel pcre-devel</span><br></pre></td></tr></table></figure></p>
+<p>##2.新建nginx用户和用户组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd -r nginx</span><br><span class="line">sudo useradd <span class="_">-s</span> /sbin/nologin -g nginx -r nginx</span><br></pre></td></tr></table></figure></p>
         <a class="article-more-a"  href="/2016/10/21/install-nginx1.10-mysql5.7-php7.0/#more">more >></a>
       
 
