@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/wordpress-blog-pictures.jpg">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/hexo-blog-pictures.jpeg">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/custom-domain.jpeg">
-<meta property="og:updated_time" content="2017-01-03T06:26:32.000Z">
+<meta property="og:updated_time" content="2017-04-07T01:08:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客从WordPress迁移到Hexo">
 <meta name="twitter:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Markdown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
@@ -219,7 +219,7 @@ ga('send', 'pageview');
     branch: master
 </code></pre><h3 id="部署代码到Github"><a href="#部署代码到Github" class="headerlink" title="部署代码到Github"></a>部署代码到Github</h3><p><strong>1.清除缓存文件 (db.json) 和已生成的静态文件 (public)。</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure></p>
 <p><strong>2.生成静态文件</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
-<p><strong>3.部署</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> hexo deploy</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">**上面2、3两个命令可以合起来**</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.部署</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> hexo deploy</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">**上面2、3两个命令可以合起来**</span><br><span class="line">```bash</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
 <p>如果你此时没有看到一大段执行代码，一般是SSH配置有误。<br>如果成功了，你进入Github repository,就是your_username.github.io是有代码的<br>此时，你在浏览器里输入<a href="http://your_username.github.io" target="_blank" rel="external">http://your_username.github.io</a> 就可以看到你的博客了  </p>
 <h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>我的WordPress和Hexo博客对比图:<br>1.原来的WordPress<br><img src="http://img.jsyzchen.com/2016/04/wordpress-blog-pictures.jpg" alt="wordpress-blog-pictures"><br>2.如今的Hexo<br><img src="http://img.jsyzchen.com/2016/04/hexo-blog-pictures.jpeg" alt="hexo-blog-pictures"><br>怎么感觉变丑了呢，没事，能省钱就好了，哈哈。。</p>
 <h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>虽然使用your_username.github.io可以直接访问博客，但如果你想用自己的域名打开博客。<br><strong>1.域名解析</strong></p>
