@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="一、准备编译环境关闭SELINUX修改配置文件，重启服务后永久生效1sed -i &apos;s/SELINUX=.*/SELINUX=disabled/g&apos; /etc/selinux/config
 命令行设置立即生效1setenforce 0">
-<meta property="og:updated_time" content="2017-04-08T09:57:10.000Z">
+<meta property="og:updated_time" content="2017-04-10T14:45:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos下编译安装nginx1.10+mysql5.7+php7.0">
 <meta name="twitter:description" content="一、准备编译环境关闭SELINUX修改配置文件，重启服务后永久生效1sed -i &apos;s/SELINUX=.*/SELINUX=disabled/g&apos; /etc/selinux/config
@@ -260,8 +260,6 @@ ga('send', 'pageview');
 <h2 id="8、添加php-fpm启动脚本"><a href="#8、添加php-fpm启动脚本" class="headerlink" title="8、添加php-fpm启动脚本"></a>8、添加php-fpm启动脚本</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /root/src/php-7.0.17/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span><br><span class="line">chmod +x /etc/init.d/php-fpm</span><br></pre></td></tr></table></figure>
 <h2 id="9、添加php-fpm至服务列表并设置开机自启"><a href="#9、添加php-fpm至服务列表并设置开机自启" class="headerlink" title="9、添加php-fpm至服务列表并设置开机自启"></a>9、添加php-fpm至服务列表并设置开机自启</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add php-fpm     </span><br><span class="line">chkconfig --list php-fpm     </span><br><span class="line">chkconfig php-fpm on</span><br></pre></td></tr></table></figure>
 <h2 id="10、启动服务"><a href="#10、启动服务" class="headerlink" title="10、启动服务"></a>10、启动服务</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm start</span><br></pre></td></tr></table></figure>
-<p><strong>码字不容易,转载请注明原地址,Jsyz Chen的文章:<a href="http://jsyzchen.com/2016/10/21/install-nginx1.10-mysql5.7-php7.0/" target="_blank" rel="external">http://jsyzchen.com/2016/10/21/install-nginx1.10-mysql5.7-php7.0/</a>谢谢！</strong></p>
-
       
 
       

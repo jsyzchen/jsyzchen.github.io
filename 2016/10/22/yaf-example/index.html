@@ -18,7 +18,7 @@
 <meta property="og:description" content="yaf是鸟哥用C语言编写的一个PHP框架，yaf文档地址：http://yaf.laruence.com/manual/
 
 其实很早之前就接触yaf了,但只是学习学习，没有深入的去了解和使用，但由于最近在重构一个项目，而重构所用到的框架就是yaf框架，正好趁此机会好好地使用了下yaf框架。本篇文章其实主要给一个yaf的例子,就是扩展了下yaf，因为yaf的东西本身就简单，所以快。鸟哥也给了两个例">
-<meta property="og:updated_time" content="2017-01-03T06:31:56.000Z">
+<meta property="og:updated_time" content="2017-04-10T14:44:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yaf-example">
 <meta name="twitter:description" content="yaf是鸟哥用C语言编写的一个PHP框架，yaf文档地址：http://yaf.laruence.com/manual/
@@ -214,7 +214,6 @@ ga('send', 'pageview');
 <p>然后就可以在Chrome里调试你的代码了。</p>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><a href="https://github.com/jsyzchen/chen-yaf" target="_blank" rel="external">chen-yaf</a>引入了一些函数，放在library/Common/functions.php里了，都是一些常用的函数，如果你的项目中有其他的函数往里面加就行了。编辑Bootstrap.php,添加_initFunction方法。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 公用函数载入</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_initFunction</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    \Yaf\Loader::import(<span class="string">'Common/functions.php'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><a href="https://github.com/jsyzchen/chen-yaf" target="_blank" rel="external">chen-yaf</a>只是一个很简单的yaf例子，加了Eloquent ORM和twig。实际项目中，还需要不断地往里面添加东西。既然我们使用了composer包，那么我们在做自己的项目时就可以很方便的使用第三方包，避免我们重复造轮子。<br>推荐一些第三方包吧，也是我们在重构项目里所用到的。<br>1.<a href="https://github.com/briannesbitt/Carbon" target="_blank" rel="external">carbon</a>:对于时间日期的操作。<br>2.<a href="https://github.com/chrisboulton/php-resque" target="_blank" rel="external">php-resque</a>:队列的操作。<br>3.<a href="https://github.com/sokil/php-mongo" target="_blank" rel="external">sokil/php-mongo</a>:mongodb的操作。<br>4.<a href="https://github.com/Seldaek/monolog" target="_blank" rel="external">monolog</a>:日志的操作。</p>
-<p><strong>码字不容易,转载请注明原地址,Jsyz Chen的文章:<a href="http://jsyzchen.com/2016/10/22/yaf-example/" target="_blank" rel="external">http://jsyzchen.com/2016/10/22/yaf-example/</a>谢谢！</strong></p>
 
       
 

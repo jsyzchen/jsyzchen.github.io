@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://jayzchen.com/2015/05/10/rsync-linux-sync-file/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
-<meta property="og:updated_time" content="2017-01-03T06:31:30.000Z">
+<meta property="og:updated_time" content="2017-04-10T14:46:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rsync实现多台linux服务器的文件同步">
 <meta name="twitter:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
@@ -207,7 +207,6 @@ ga('send', 'pageview');
 <p>ok!下面写crontb文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontb <span class="_">-e</span> </span><br><span class="line">*/1 7-23 * * * /root/rsync.sh</span><br></pre></td></tr></table></figure></p>
 <p>让它7点到晚上23点每隔一分钟同步 修改文件权限：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /root/rsync.sh</span><br></pre></td></tr></table></figure></p>
 <p>大功告成！！！<br><strong>(注：以上是客户端向服务端取文件，你也可以从客户端向SERVER端上传文件，那就要反过来，1个服务器做客户端，n台服务器做server端，也就是要配很多次server端的配置，有兴趣的同学可以尝试一下。另外我这里用的是crontab进行最快一分钟一次有点延时的实时同步，大家可以尝试rsync+inotify进行真正的实时同步，推荐博客：<a href="http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795" target="_blank" rel="external">http://blog.chinaunix.net/xmlrpc.php?r=blog/article&amp;uid=11840697&amp;id=3890795</a>)</strong></p>
-<p><strong>码字不容易,转载请注明原地址,Jsyz Chen的文章:<a href="http://jsyzchen.com/2015/05/10/rsync-linux-sync-file/" target="_blank" rel="external">http://jsyzchen.com/2015/05/10/rsync-linux-sync-file/</a>谢谢！</strong></p>
 
       
 
