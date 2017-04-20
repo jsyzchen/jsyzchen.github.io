@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/wordpress-blog-pictures.jpg">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/hexo-blog-pictures.jpeg">
 <meta property="og:image" content="http://img.jsyzchen.com/2016/04/custom-domain.jpeg">
-<meta property="og:updated_time" content="2017-04-10T14:45:00.000Z">
+<meta property="og:updated_time" content="2017-04-20T03:17:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客从WordPress迁移到Hexo">
 <meta name="twitter:description" content="偶然的机会看到了Hexo，就深深被吸引了，加载速度快，支持Markdown,还支持部署到Github上。作为一位PHP程序员，之前的博客用的是PHP开发的WordPress,其实感觉WordPress也不错，找了个漂亮的WordPress模板，加上七牛的CDN缓存，速度上，还算满意。既然对WordPress感觉不错，那为什么要把博客从WordPress迁移到Hexo上呢。第一，好奇，以前就经常听说">
@@ -65,7 +65,7 @@ ga('send', 'pageview');
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #fff"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -120,7 +120,7 @@ ga('send', 'pageview');
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #fff"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -209,8 +209,7 @@ ga('send', 'pageview');
 <p><a href="https://github.com/overtrue/share.js" target="_blank" rel="external">Share.js</a> 一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等</p>
 </blockquote>
 <p>编辑yilia目录下的_config.yml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#是否开启分享</span></span><br><span class="line">share_jia: <span class="literal">false</span></span><br><span class="line">share_addthis: <span class="literal">false</span></span><br><span class="line">share_social: <span class="literal">true</span>   <span class="comment">#这里添加Share.js的开关</span></span><br></pre></td></tr></table></figure></p>
-<p>编辑yilia/layout/_partial/head.ejs文件，加入代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">theme.share_social</span>)&#123; %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">css</span>('<span class="attr">https:</span>//<span class="attr">cdnjs.cloudflare.com</span>/<span class="attr">ajax</span>/<span class="attr">libs</span>/<span class="attr">social-share.js</span>/<span class="attr">1.0.13</span>/<span class="attr">css</span>/<span class="attr">share.min</span>') %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>进入yilia/layout/_partial/post目录，添加share_social.ejs文件,代码如下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding:0 40px 10px;"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- social-share Button BEGIN --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"social-share"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/js/social-share.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- social-share Button END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>进入yilia/layout/_partial/post目录，添加share_social.ejs文件,代码如下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- social-share Button BEGIN --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding:0 40px 20px;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"social-share"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!--  css &amp; js --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/css/share.min.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/js/social-share.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- social-share Button END --&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>编辑yilia/layout/_partial/article.ejs文件，找到theme.share_jia和share_addthis的位置，把加载social-share的代码放在与他们同级的位置<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (!<span class="attr">index</span> &amp;&amp; <span class="attr">theme.share_social</span>)&#123; %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">share_social</span>') %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="WordPress迁移"><a href="#WordPress迁移" class="headerlink" title="WordPress迁移"></a>WordPress迁移</h3><p>现在我们将WordPress的文章迁移到Hexo，如果你不需要迁移，跳过即可。<br>首先，安装 hexo-migrator-wordpress 插件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-migrator-wordpress --save</span><br></pre></td></tr></table></figure></p>
 <p>在 WordPress 仪表盘中导出数据(“Tools” → “Export” → “WordPress”)（详情参考<a href="https://en.support.wordpress.com/export/" target="_blank" rel="external">WP支持页面</a>）。<br>插件安装完成后，执行下列命令来迁移所有文章。source 可以是 WordPress 导出的文件路径或网址。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo migrate wordpress &lt;<span class="built_in">source</span>&gt;</span><br></pre></td></tr></table></figure></p>
@@ -272,11 +271,11 @@ ga('send', 'pageview');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MarkDown</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MarkDown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
@@ -380,7 +379,7 @@ ga('send', 'pageview');
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -552,6 +551,38 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Yar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Yaf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Twig</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Composer</a>
               </li>
             
             <div class="clearfix"></div>

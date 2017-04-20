@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://jayzchen.com/2015/05/10/rsync-linux-sync-file/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
-<meta property="og:updated_time" content="2017-04-10T14:46:35.000Z">
+<meta property="og:updated_time" content="2017-04-20T03:17:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rsync实现多台linux服务器的文件同步">
 <meta name="twitter:description" content="最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。">
@@ -56,7 +56,7 @@ ga('send', 'pageview');
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #fff"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -111,7 +111,7 @@ ga('send', 'pageview');
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #fff"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -232,10 +232,6 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rsync</a>
         		</li>
       		 
@@ -245,6 +241,10 @@ ga('send', 'pageview');
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">inotify</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -348,7 +348,7 @@ ga('send', 'pageview');
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -520,6 +520,38 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Yar</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Yaf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Twig</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Composer</a>
               </li>
             
             <div class="clearfix"></div>
