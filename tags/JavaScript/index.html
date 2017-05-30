@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jayzchen.com">
-  <title>centos下编译安装nginx1.10+mysql5.7+php7.0 | 雨泪漂古 | 过往云烟</title>
+  <title>Tag: JavaScript | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、准备编译环境关闭SELINUX修改配置文件，重启服务后永久生效1sed -i &apos;s/SELINUX=.*/SELINUX=disabled/g&apos; /etc/selinux/config
-命令行设置立即生效1setenforce 0">
-<meta property="og:type" content="article">
-<meta property="og:title" content="centos下编译安装nginx1.10+mysql5.7+php7.0">
-<meta property="og:url" content="http://jayzchen.com/2016/10/21/install-nginx1.10-mysql5.7-php7.0/index.html">
+  <meta name="description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="雨泪漂古 | 过往云烟">
+<meta property="og:url" content="http://jayzchen.com/tags/JavaScript/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="一、准备编译环境关闭SELINUX修改配置文件，重启服务后永久生效1sed -i &apos;s/SELINUX=.*/SELINUX=disabled/g&apos; /etc/selinux/config
-命令行设置立即生效1setenforce 0">
-<meta property="og:updated_time" content="2017-05-30T10:21:37.000Z">
+<meta property="og:description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos下编译安装nginx1.10+mysql5.7+php7.0">
-<meta name="twitter:description" content="一、准备编译环境关闭SELINUX修改配置文件，重启服务后永久生效1sed -i &apos;s/SELINUX=.*/SELINUX=disabled/g&apos; /etc/selinux/config
-命令行设置立即生效1setenforce 0">
+<meta name="twitter:title" content="雨泪漂古 | 过往云烟">
+<meta name="twitter:description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -192,117 +188,36 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-install-nginx1.10-mysql5.7-php7.0" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      centos下编译安装nginx1.10+mysql5.7+php7.0
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/07/21/angularjs-yar-email/" class="archive-article-date">
+  	<time datetime="2015-07-21T10:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/07/21/angularjs-yar-email/">AngularJs结合Yar构建一款email小应用</a>
     </h1>
   
 
-        
-        <a href="/2016/10/21/install-nginx1.10-mysql5.7-php7.0/" class="archive-article-date">
-  	<time datetime="2016-10-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、准备编译环境"><a href="#一、准备编译环境" class="headerlink" title="一、准备编译环境"></a>一、准备编译环境</h1><h2 id="关闭SELINUX"><a href="#关闭SELINUX" class="headerlink" title="关闭SELINUX"></a>关闭SELINUX</h2><p>修改配置文件，重启服务后永久生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'s/SELINUX=.*/SELINUX=disabled/g'</span> /etc/selinux/config</span><br></pre></td></tr></table></figure></p>
-<p>命令行设置立即生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h1 id="二、安装nginx1-10"><a href="#二、安装nginx1-10" class="headerlink" title="二、安装nginx1.10"></a>二、安装nginx1.10</h1><h2 id="1-安装编译工具和依赖包"><a href="#1-安装编译工具和依赖包" class="headerlink" title="1.安装编译工具和依赖包"></a>1.安装编译工具和依赖包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf automake make cmake</span><br><span class="line">yum -y install zlib zlib-devel openssl openssl-devel pcre-devel  perl perl-devel perl-ExtUtils-Embed perl-maExtUtils-Embed</span><br></pre></td></tr></table></figure>
-<h2 id="2-新建nginx用户和用户组"><a href="#2-新建nginx用户和用户组" class="headerlink" title="2.新建nginx用户和用户组"></a>2.新建nginx用户和用户组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd -r nginx</span><br><span class="line">sudo useradd <span class="_">-s</span> /sbin/nologin -g nginx -r nginx</span><br></pre></td></tr></table></figure>
-<h2 id="3-编译安装"><a href="#3-编译安装" class="headerlink" title="3.编译安装"></a>3.编译安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.10.2.tar.gz</span><br><span class="line">tar -zxvf nginx-1.10.2.tar.gz</span><br></pre></td></tr></table></figure>
-<p>编译参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">./configure \</span><br><span class="line">--user=nginx \</span><br><span class="line">--group=nginx \</span><br><span class="line">--prefix=/usr/<span class="built_in">local</span>/nginx \</span><br><span class="line">--sbin-path=/usr/sbin/nginx \</span><br><span class="line">--conf-path=/etc/nginx/nginx.conf \</span><br><span class="line">--error-log-path=/var/<span class="built_in">log</span>/nginx/error.log \</span><br><span class="line">--http-log-path=/var/<span class="built_in">log</span>/nginx/access.log \</span><br><span class="line">--pid-path=/var/run/nginx.pid \</span><br><span class="line">--lock-path=/var/run/nginx.lock \</span><br><span class="line">--with-http_ssl_module \</span><br><span class="line">--with-http_realip_module \</span><br><span class="line">--with-http_addition_module \</span><br><span class="line">--with-http_sub_module \</span><br><span class="line">--with-http_dav_module \</span><br><span class="line">--with-http_flv_module \</span><br><span class="line">--with-http_gzip_static_module \</span><br><span class="line">--with-http_stub_status_module \</span><br><span class="line">--with-http_perl_module \</span><br><span class="line">--with-mail \</span><br><span class="line">--with-mail_ssl_module</span><br></pre></td></tr></table></figure></p>
-<p>安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
-<h2 id="添加SysV启动脚本。"><a href="#添加SysV启动脚本。" class="headerlink" title="添加SysV启动脚本。"></a>添加SysV启动脚本。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/init.d/nginx</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh </span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># nginx - this script starts and stops the nginx daemon </span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># chkconfig:   - 85 15 </span></span><br><span class="line"><span class="comment"># description: Nginx is an HTTP(S) server, HTTP(S) reverse \ </span></span><br><span class="line"><span class="comment">#               proxy and IMAP/POP3 proxy server </span></span><br><span class="line"><span class="comment"># processname: nginx </span></span><br><span class="line"><span class="comment"># config:      /etc/nginx/nginx.conf </span></span><br><span class="line"><span class="comment"># config:      /etc/sysconfig/nginx </span></span><br><span class="line"><span class="comment"># pidfile:     /var/run/nginx.pid </span></span><br><span class="line"><span class="comment"># Source function library. </span></span><br><span class="line">. /etc/rc.d/init.d/<span class="built_in">functions</span></span><br><span class="line"><span class="comment"># Source networking configuration. </span></span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"><span class="comment"># Check that networking is up. </span></span><br><span class="line">[ <span class="string">"<span class="variable">$NETWORKING</span>"</span> = <span class="string">"no"</span> ] &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">nginx=<span class="string">"/usr/sbin/nginx"</span></span><br><span class="line">prog=$(basename <span class="variable">$nginx</span>)</span><br><span class="line">NGINX_CONF_FILE=<span class="string">"/etc/nginx/nginx.conf"</span></span><br><span class="line">[ <span class="_">-f</span> /etc/sysconfig/nginx ] &amp;&amp; . /etc/sysconfig/nginx</span><br><span class="line">lockfile=/var/lock/subsys/nginx</span><br><span class="line"><span class="function"><span class="title">start</span></span>() &#123;</span><br><span class="line">    [ -x <span class="variable">$nginx</span> ] || <span class="built_in">exit</span> 5</span><br><span class="line">    [ <span class="_">-f</span> <span class="variable">$NGINX_CONF_FILE</span> ] || <span class="built_in">exit</span> 6</span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">"Starting <span class="variable">$prog</span>: "</span> </span><br><span class="line">    daemon <span class="variable">$nginx</span> -c <span class="variable">$NGINX_CONF_FILE</span></span><br><span class="line">    retval=$?</span><br><span class="line">    <span class="built_in">echo</span> </span><br><span class="line">    [ <span class="variable">$retval</span> <span class="_">-eq</span> 0 ] &amp;&amp; touch <span class="variable">$lockfile</span></span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$retval</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>() &#123;</span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">"Stopping <span class="variable">$prog</span>: "</span> </span><br><span class="line">    killproc <span class="variable">$prog</span> -QUIT</span><br><span class="line">    retval=$?</span><br><span class="line">    <span class="built_in">echo</span> </span><br><span class="line">    [ <span class="variable">$retval</span> <span class="_">-eq</span> 0 ] &amp;&amp; rm <span class="_">-f</span> <span class="variable">$lockfile</span></span><br><span class="line">    <span class="built_in">return</span> <span class="variable">$retval</span></span><br><span class="line">killall -9 nginx</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">restart</span></span>() &#123;</span><br><span class="line">    configtest || <span class="built_in">return</span> $?</span><br><span class="line">    stop</span><br><span class="line">    sleep 1</span><br><span class="line">    start</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">reload</span></span>() &#123;</span><br><span class="line">    configtest || <span class="built_in">return</span> $?</span><br><span class="line">    <span class="built_in">echo</span> -n $<span class="string">"Reloading <span class="variable">$prog</span>: "</span> </span><br><span class="line">    killproc <span class="variable">$nginx</span> -HUP</span><br><span class="line">RETVAL=$?</span><br><span class="line">    <span class="built_in">echo</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">force_reload</span></span>() &#123;</span><br><span class="line">    restart</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">configtest</span></span>() &#123;</span><br><span class="line"><span class="variable">$nginx</span> -t -c <span class="variable">$NGINX_CONF_FILE</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">rh_status</span></span>() &#123;</span><br><span class="line">    status <span class="variable">$prog</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">rh_status_q</span></span>() &#123;</span><br><span class="line">    rh_status &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        rh_status_q &amp;&amp; <span class="built_in">exit</span> 0</span><br><span class="line">    <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        rh_status_q || <span class="built_in">exit</span> 0</span><br><span class="line">        <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    restart|configtest)</span><br><span class="line">        <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    reload)</span><br><span class="line">        rh_status_q || <span class="built_in">exit</span> 7</span><br><span class="line">        <span class="variable">$1</span></span><br><span class="line">        ;;</span><br><span class="line">    force-reload)</span><br><span class="line">        force_reload</span><br><span class="line">        ;;</span><br><span class="line">    status)</span><br><span class="line">        rh_status</span><br><span class="line">        ;;</span><br><span class="line">    condrestart|try-restart)</span><br><span class="line">        rh_status_q || <span class="built_in">exit</span> 0</span><br><span class="line">            ;;</span><br><span class="line">    *)</span><br><span class="line">      <span class="built_in">echo</span> $<span class="string">"Usage: <span class="variable">$0</span> &#123;start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest&#125;"</span> </span><br><span class="line">        <span class="built_in">exit</span> 2</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
-<h2 id="赋予脚本执行权限"><a href="#赋予脚本执行权限" class="headerlink" title="赋予脚本执行权限"></a>赋予脚本执行权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /etc/init.d/nginx</span><br></pre></td></tr></table></figure>
-<h2 id="添加至服务管理列表，设置开机自启。"><a href="#添加至服务管理列表，设置开机自启。" class="headerlink" title="添加至服务管理列表，设置开机自启。"></a>添加至服务管理列表，设置开机自启。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add nginx</span><br><span class="line">chkconfig  nginx on</span><br></pre></td></tr></table></figure>
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
-<h1 id="三、安装mysql5-7"><a href="#三、安装mysql5-7" class="headerlink" title="三、安装mysql5.7"></a>三、安装mysql5.7</h1><p><strong>注：cmake安装mysql5.7，机器要好一点，一开始我的机器是1核1G内存，跑得卡死，后来换成2核4G内存没问题</strong><br><strong>注：在CentOS 7.0版操作系统的最小安装完成后，在/etc目录下会存在一个my.cnf，需要将此文件更名为其他的名字，如：/etc/my.cnf.bak，否则，该文件会干扰源码安装的MySQL的正确配置，造成无法启动。</strong></p>
-<h2 id="安装编译工具和依赖包"><a href="#安装编译工具和依赖包" class="headerlink" title="安装编译工具和依赖包"></a>安装编译工具和依赖包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make gcc-c++ cmake bison-devel ncurses-devel</span><br></pre></td></tr></table></figure>
-<h2 id="添加mysql用户和用户组"><a href="#添加mysql用户和用户组" class="headerlink" title="添加mysql用户和用户组"></a>添加mysql用户和用户组</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line">useradd  <span class="_">-s</span> /sbin/nologin  -g mysql   mysql</span><br><span class="line">id mysql</span><br></pre></td></tr></table></figure>
-<h2 id="下载mysql"><a href="#下载mysql" class="headerlink" title="下载mysql"></a>下载mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/src</span><br><span class="line">wget http://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.gz</span><br><span class="line">wget http://dev.mysql.com/Downloads/MySQL-5.7/mysql-5.7.11.tar.gz</span><br><span class="line">tar zxvf boost_1_59_0.tar.gz</span><br><span class="line">tar zxvf mysql-5.7.11.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mysql-5.7.11</span><br></pre></td></tr></table></figure>
-<h2 id="cmake-参数"><a href="#cmake-参数" class="headerlink" title="cmake 参数"></a>cmake 参数</h2><table>
-<thead>
-<tr>
-<th>cmake 参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-DCMAKE_INSTALL_PREFIX=dir_name</td>
-<td>设置mysql安装目录</td>
-</tr>
-<tr>
-<td>-DMYSQL_UNIX_ADDR=file_name</td>
-<td>设置监听套接字路径，这必须是一个绝对路径名。默认为/tmp/mysql.sock</td>
-</tr>
-<tr>
-<td>-DDEFAULT_CHARSET=charset_name</td>
-<td>设置服务器的字符集。</td>
-</tr>
-<tr>
-<td>-DDEFAULT_COLLATION=collation_name</td>
-<td>设置服务器的排序规则。</td>
-</tr>
-<tr>
-<td>-DWITH_INNOBASE_STORAGE_ENGINE = 1</td>
-<td>存储引擎选项：MyISAM，MERGE，MEMORY，和CSV引擎是默认编译到服务器中，并不需要明确地安装。静态编译一个存储引擎到服务器，使用-DWITH_engine_STORAGE_ENGINE= 1 可用的存储引擎值有：ARCHIVE, BLACKHOLE, EXAMPLE, FEDERATED, INNOBASE (InnoDB), PARTITION (partitioning support), 和PERFSCHEMA (Performance Schema)</td>
-</tr>
-<tr>
-<td>-DMYSQL_DATADIR=dir_name</td>
-<td>设置mysql数据库文件目录</td>
-</tr>
-<tr>
-<td>-DMYSQL_TCP_PORT=port_num</td>
-<td>设置mysql服务器监听端口，默认为3306</td>
-</tr>
-<tr>
-<td>-DENABLE_DOWNLOADS=bool</td>
-<td>是否要下载可选的文件。例如，启用此选项（设置为1），cmake将下载谷歌所使用的测试套件运行单元测试。</td>
-</tr>
-<tr>
-<td>-DWITH_BOOST</td>
-<td>BOOST包的位置</td>
-</tr>
-</tbody>
-</table>
-<h2 id="cmake执行"><a href="#cmake执行" class="headerlink" title="cmake执行"></a>cmake执行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cmake \</span><br><span class="line">-DCMAKE_INSTALL_PREFIX=/usr/<span class="built_in">local</span>/mysql \</span><br><span class="line">-DMYSQL_DATADIR=/usr/<span class="built_in">local</span>/mysql/data \</span><br><span class="line">-DSYSCONFDIR=/etc \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_MEMORY_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_READLINE=1 \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/tmp/mysql.sock \</span><br><span class="line">-DMYSQL_TCP_PORT=3306 \</span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DWITH_PARTITION_STORAGE_ENGINE=1 \</span><br><span class="line">-DEXTRA_CHARSETS=all \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \</span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \</span><br><span class="line">-DDOWNLOAD_BOOST=1 \</span><br><span class="line">-DWITH_BOOST=/root/src/boost_1_59_0</span><br></pre></td></tr></table></figure>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<h2 id="修改安装目录的属组为mysql"><a href="#修改安装目录的属组为mysql" class="headerlink" title="修改安装目录的属组为mysql"></a>修改安装目录的属组为mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql:mysql /usr/<span class="built_in">local</span>/mysql/</span><br></pre></td></tr></table></figure>
-<h2 id="拷贝配置文件和启动脚本"><a href="#拷贝配置文件和启动脚本" class="headerlink" title="拷贝配置文件和启动脚本"></a>拷贝配置文件和启动脚本</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/<span class="built_in">local</span>/mysql/support-files/my-default.cnf /etc/my.cnf</span><br><span class="line">cp /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line">chmod +x /etc/init.d/mysqld</span><br></pre></td></tr></table></figure>
-<h2 id="设置开机自动启动"><a href="#设置开机自动启动" class="headerlink" title="设置开机自动启动"></a>设置开机自动启动</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig mysqld  on </span><br><span class="line">chkconfig --add mysqld</span><br></pre></td></tr></table></figure>
-<h2 id="修改配置文件中的安装路径及数据目录存放路径"><a href="#修改配置文件中的安装路径及数据目录存放路径" class="headerlink" title="修改配置文件中的安装路径及数据目录存放路径"></a>修改配置文件中的安装路径及数据目录存放路径</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"basedir = /usr/local/mysql\ndatadir =  /usr/local/mysql/data\n"</span> &gt;&gt; /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<h2 id="设置PATH环境变量"><a href="#设置PATH环境变量" class="headerlink" title="设置PATH环境变量"></a>设置PATH环境变量</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"export PATH=<span class="variable">$PATH</span>:/usr/local/mysql/bin"</span> &gt; /etc/profile.d/mysql.sh      </span><br><span class="line"><span class="built_in">source</span> /etc/profile.d/mysql.sh</span><br></pre></td></tr></table></figure>
-<h2 id="初始化数据"><a href="#初始化数据" class="headerlink" title="初始化数据"></a>初始化数据</h2><p><strong>注：mysql7里mysql_install_db 已经不再推荐使用了，建议改成 mysqld –initialize 完成实例初始化。需要先确保 datadir 目标目录下是空的，避免误操作破坏已有数据</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql --datadir=/usr/<span class="built_in">local</span>/mysql/data --initialize --initialize-insecure</span><br></pre></td></tr></table></figure></p>
-<h2 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
-<h2 id="设置mysql密码"><a href="#设置mysql密码" class="headerlink" title="设置mysql密码"></a>设置mysql密码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line">use mysql </span><br><span class="line"><span class="built_in">set</span> password = password(<span class="string">'1234abcd'</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="四、安装php7-0"><a href="#四、安装php7-0" class="headerlink" title="四、安装php7.0"></a>四、安装php7.0</h1><h2 id="1、安装依赖包，我用的centos-偷下懒，直接yum安装"><a href="#1、安装依赖包，我用的centos-偷下懒，直接yum安装" class="headerlink" title="1、安装依赖包，我用的centos,偷下懒，直接yum安装"></a>1、安装依赖包，我用的centos,偷下懒，直接yum安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers libmcrypt libmcrypt-devel mhash mhash-devel</span><br></pre></td></tr></table></figure>
-<h2 id="2、下载php7包"><a href="#2、下载php7包" class="headerlink" title="2、下载php7包"></a>2、下载php7包</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn2.php.net/distributions/php-7.0.19.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="3、解压，进入PHP目录"><a href="#3、解压，进入PHP目录" class="headerlink" title="3、解压，进入PHP目录"></a>3、解压，进入PHP目录</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf php-7.0.19.tar.gz</span><br><span class="line"><span class="built_in">cd</span> php-7.0.19</span><br></pre></td></tr></table></figure>
-<h2 id="4、配置"><a href="#4、配置" class="headerlink" title="4、配置"></a>4、配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php  \</span><br><span class="line">--with-config-file-path=/usr/<span class="built_in">local</span>/php/etc \</span><br><span class="line">--with-config-file-scan-dir=/usr/<span class="built_in">local</span>/php/etc/conf.d \</span><br><span class="line">--enable-mysqlnd \</span><br><span class="line">--with-mysqli \</span><br><span class="line">--with-pdo-mysql \</span><br><span class="line">--with-gd \</span><br><span class="line">--with-iconv \</span><br><span class="line">--with-zlib \</span><br><span class="line">--enable-xml \</span><br><span class="line">--enable-bcmath \</span><br><span class="line">--enable-shmop \</span><br><span class="line">--enable-sysvsem \</span><br><span class="line">--enable-fpm \</span><br><span class="line">--enable-inline-optimization \</span><br><span class="line">--enable-mbregex \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--enable-ftp \</span><br><span class="line">--enable-gd-native-ttf \</span><br><span class="line">--enable-opcache \</span><br><span class="line">--with-openssl \</span><br><span class="line">--enable-pcntl \</span><br><span class="line">--enable-sockets \</span><br><span class="line">--with-xmlrpc \</span><br><span class="line">--enable-zip \</span><br><span class="line">--enable-soap \</span><br><span class="line">--without-pear \</span><br><span class="line">--with-gettext \</span><br><span class="line">--enable-session \</span><br><span class="line">--with-mcrypt \</span><br><span class="line">--with-curl \</span><br><span class="line">--with-jpeg-dir \</span><br><span class="line">--with-freetype-dir</span><br></pre></td></tr></table></figure>
-<h2 id="5、安装"><a href="#5、安装" class="headerlink" title="5、安装"></a>5、安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<h2 id="6、添加php和php-fpm配置文件"><a href="#6、添加php和php-fpm配置文件" class="headerlink" title="6、添加php和php-fpm配置文件"></a>6、添加php和php-fpm配置文件</h2><p>进入源码安装包<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /root/src/php-7.0.19/php.ini-production /usr/<span class="built_in">local</span>/php/etc/php.ini</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/php/etc</span><br><span class="line">cp php-fpm.conf.default  php-fpm.conf</span><br><span class="line">cp php-fpm.d/www.conf.default  php-fpm.d/www.conf</span><br><span class="line">sed -i <span class="string">'s@;pid = run/php-fpm.pid@pid = /usr/local/php/var/run/php-fpm.pid@'</span> php-fpm.conf</span><br></pre></td></tr></table></figure>
-<h2 id="7、设置PATH环境变量"><a href="#7、设置PATH环境变量" class="headerlink" title="7、设置PATH环境变量"></a>7、设置PATH环境变量</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"export PATH=<span class="variable">$PATH</span>:/usr/local/php/bin"</span> &gt; /etc/profile.d/php.sh</span><br><span class="line"><span class="built_in">source</span> /etc/profile.d/php.sh</span><br></pre></td></tr></table></figure>
-<h2 id="8、添加php-fpm启动脚本"><a href="#8、添加php-fpm启动脚本" class="headerlink" title="8、添加php-fpm启动脚本"></a>8、添加php-fpm启动脚本</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /root/src/php-7.0.19/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span><br><span class="line">chmod +x /etc/init.d/php-fpm</span><br></pre></td></tr></table></figure>
-<h2 id="9、添加php-fpm至服务列表并设置开机自启"><a href="#9、添加php-fpm至服务列表并设置开机自启" class="headerlink" title="9、添加php-fpm至服务列表并设置开机自启"></a>9、添加php-fpm至服务列表并设置开机自启</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add php-fpm     </span><br><span class="line">chkconfig --list php-fpm     </span><br><span class="line">chkconfig php-fpm on</span><br></pre></td></tr></table></figure>
-<h2 id="10、启动服务"><a href="#10、启动服务" class="headerlink" title="10、启动服务"></a>10、启动服务</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm start</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -312,82 +227,33 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Yar</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/10/22/yaf-example/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          yaf-example
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/07/28/log-service/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日志服务</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-<!-- social-share Button BEGIN -->
-<div style="padding:0 40px 20px;">
-	<div class="social-share"></div>
-
-	<!--  css & js -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/css/share.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/js/social-share.min.js"></script>
-</div>
-<!-- social-share Button END -->
-
-      
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="install-nginx1.10-mysql5.7-php7.0" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = "cysXoDVxd"; 
-var conf = "c3f12ee7963447656f468a9bbd28308a"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-  
-
-  
+    
 
 
           </div>
@@ -410,9 +276,9 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
