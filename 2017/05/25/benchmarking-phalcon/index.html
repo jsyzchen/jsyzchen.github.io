@@ -6,28 +6,49 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jayzchen.com">
-  <title>「 记住我」功能的实现 | 雨泪漂古 | 过往云烟</title>
+  <title>Phalcon基准测试 | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+  <meta name="description" content="title: [译]Phalcon基准测试tags:
 
-距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalco">
+PHP
+Phalcondate: 2017-06-21
+
+
+
+本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+
+距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「 记住我」功能的实现">
+<meta property="og:title" content="Phalcon基准测试">
 <meta property="og:url" content="http://jayzchen.com/2017/05/25/benchmarking-phalcon/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+<meta property="og:description" content="title: [译]Phalcon基准测试tags:
 
-距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalco">
+PHP
+Phalcondate: 2017-06-21
+
+
+
+本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+
+距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-files-per-request.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-memory-per-request.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-requests-per-second.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-requests-time.png">
-<meta property="og:updated_time" content="2017-06-23T08:17:45.000Z">
+<meta property="og:updated_time" content="2017-06-23T08:20:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「 记住我」功能的实现">
-<meta name="twitter:description" content="本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+<meta name="twitter:title" content="Phalcon基准测试">
+<meta name="twitter:description" content="title: [译]Phalcon基准测试tags:
 
-距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalco">
+PHP
+Phalcondate: 2017-06-21
+
+
+
+本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+
+距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在">
 <meta name="twitter:image" content="https://blog.phalconphp.com/files/2017-04-13-files-per-request.png">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
@@ -207,7 +228,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      「 记住我」功能的实现
+      Phalcon基准测试
     </h1>
   
 
@@ -220,7 +241,14 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>title: [译]Phalcon基准测试<br>tags:</p>
+<ul>
+<li>PHP</li>
+<li>Phalcon<br>date: 2017-06-21</li>
+</ul>
+<hr>
+<blockquote>
 <p>本文由<a href="http://coffeephp.com" target="_blank" rel="external">CoffeePHP社区</a> <a href="http://jsyzchen.com" target="_blank" rel="external">JsyzChen</a>翻译，未经许可，禁止转载！<br>英文出处：<a href="https://blog.phalconphp.com/post/benchmarking-phalcon" target="_blank" rel="external">Benchmarking Phalcon</a>  </p>
 </blockquote>
 <p>距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。<br>希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalcon可以进一步推动你的应用程序性能。<br><a id="more"></a></p>
