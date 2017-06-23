@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-memory-per-request.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-requests-per-second.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-requests-time.png">
-<meta property="og:updated_time" content="2017-06-23T09:23:26.000Z">
+<meta property="og:updated_time" content="2017-06-23T12:36:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phalcon基准测试">
 <meta name="twitter:description" content="本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
@@ -230,7 +230,7 @@ var _hmt = _hmt || [];
 <h3 id="内存使用-KB"><a href="#内存使用-KB" class="headerlink" title="内存使用 (KB)"></a>内存使用 (KB)</h3><p>我们使用<a href="http://php.net/manual/zh/function.memory-get-usage.php" target="_blank" rel="external">memory_get_usage()</a>函数来计算出每次请求使用的内存。这个函数在入口文件的结束位置调用，这个入口文件通常是<code>index.php</code>。（越低越好）。<br><img src="https://blog.phalconphp.com/files/2017-04-13-memory-per-request.png" alt="Memory used"></p>
 <h3 id="每秒请求量-平均值"><a href="#每秒请求量-平均值" class="headerlink" title="每秒请求量 (平均值)"></a>每秒请求量 (平均值)</h3><p>通过ab压测工具，我们测量出每个框架每秒能处理的请求量。（越高越好）。<br><img src="https://blog.phalconphp.com/files/2017-04-13-requests-per-second.png" alt="Requests per Second"></p>
 <h3 id="完成一千次请求的时间"><a href="#完成一千次请求的时间" class="headerlink" title="完成一千次请求的时间"></a>完成一千次请求的时间</h3><p>同样我们使用ab压测工具，我们测量出完成一千次请求所需要的时间。（越低越好）。<br><img src="https://blog.phalconphp.com/files/2017-04-13-requests-time.png" alt="Requests per Second"></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在这次测试中可以看出Phalconm明显优于其他任何框架。<br>我们再次强调每个框架用的只是常用的应用。在你安装的基础上结果肯定不同。例如，开发人员可以从特定框架中删除服务，这将加速（至少包含的文件），但也可以添加更多的服务，这将减慢速度。没有什么比一个好的设计更好的了，但最好的设计也是为了应用程序服务的。但是，如果您可以通过使用Phalcon获得一些性能并降低内存消耗，那么如果您还没有这样做，这是值得一看的。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在这次测试中可以看出Phalcon明显优于其他任何框架。<br>我们再次强调每个框架用的只是常用的应用。在你安装的基础上结果肯定不同。例如，开发人员可以从特定框架中删除服务，这将加速（至少包含的文件），但也可以添加更多的服务，这将减慢速度。没有什么比一个好的设计更好的了，但最好的设计也是为了应用程序服务的。但是，如果您可以通过使用Phalcon获得一些性能并降低内存消耗，那么如果您还没有这样做，这是值得一看的。</p>
 <p><code>注意：如果我们的任何读者都有建议，我们可以实施，使这个基准尽可能现实，请随意在Github仓库发出请求提出您的建议</code></p>
 <p><code>可以找到的最后一个基准测试是从2016年11月16日进行的TechEmpower。根据他们的测试时间表，我们应该在今年2月份看到第14轮，但还没有发生。</code></p>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="Github仓库"><a href="#Github仓库" class="headerlink" title="Github仓库"></a>Github仓库</h3><p><a href="https://github.com/phalcon/framework-bench" target="_blank" rel="external">Framework Benchmarks</a></p>
