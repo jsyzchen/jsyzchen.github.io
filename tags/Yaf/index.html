@@ -6,24 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jayzchen.com">
-  <title>搭建Git服务器 | 雨泪漂古 | 过往云烟</title>
+  <title>Tag: Yaf | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭建Git服务器需要准备一台运行Linux的机器，我们这使用CentOS。
-安装git12$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel$ sudo yum install git
-创建一个git用户，用来运行git服务1$ sudo adduser git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="搭建Git服务器">
-<meta property="og:url" content="http://jayzchen.com/2017/04/08/set-up-git-server/index.html">
+  <meta name="description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="雨泪漂古 | 过往云烟">
+<meta property="og:url" content="http://jayzchen.com/tags/Yaf/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="搭建Git服务器需要准备一台运行Linux的机器，我们这使用CentOS。
-安装git12$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel$ sudo yum install git
-创建一个git用户，用来运行git服务1$ sudo adduser git">
-<meta property="og:updated_time" content="2017-06-25T12:59:17.000Z">
+<meta property="og:description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建Git服务器">
-<meta name="twitter:description" content="搭建Git服务器需要准备一台运行Linux的机器，我们这使用CentOS。
-安装git12$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel$ sudo yum install git
-创建一个git用户，用来运行git服务1$ sudo adduser git">
+<meta name="twitter:title" content="雨泪漂古 | 过往云烟">
+<meta name="twitter:description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -195,131 +188,76 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-set-up-git-server" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      搭建Git服务器
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/10/22/yaf-example/" class="archive-article-date">
+  	<time datetime="2016-10-22T15:04:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/10/22/yaf-example/">yaf-example</a>
     </h1>
   
 
-        
-        <a href="/2017/04/08/set-up-git-server/" class="archive-article-date">
-  	<time datetime="2017-04-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>搭建Git服务器需要准备一台运行Linux的机器，我们这使用CentOS。</p>
-<h1 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel</span><br><span class="line">$ sudo yum install git</span><br></pre></td></tr></table></figure>
-<h1 id="创建一个git用户，用来运行git服务"><a href="#创建一个git用户，用来运行git服务" class="headerlink" title="创建一个git用户，用来运行git服务"></a>创建一个git用户，用来运行git服务</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo adduser git</span><br></pre></td></tr></table></figure>
-<a id="more"></a> 
-<h1 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h1><p>我们需要为系统用户 git 的 authorized_keys 文件添加一些开发者 SSH 公钥。<br>收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个</p>
-<h2 id="创建authorized-keys文件"><a href="#创建authorized-keys文件" class="headerlink" title="创建authorized_keys文件"></a>创建authorized_keys文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /home/git</span><br><span class="line">$ mkdir .ssh &amp;&amp; chmod 700 .ssh</span><br><span class="line">$ touch .ssh/authorized_keys &amp;&amp; chmod 600 .ssh/authorized_keys</span><br><span class="line">$ sudo chown -R git:git .ssh</span><br></pre></td></tr></table></figure>
-<h2 id="客户端上生成密钥"><a href="#客户端上生成密钥" class="headerlink" title="客户端上生成密钥"></a>客户端上生成密钥</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
-<p>执行完后，会生成id_rsa、id_rsa.pub这两个文件，其中id_rsa.pub是公钥，id_rsa是密钥</p>
-<h2 id="导入公钥"><a href="#导入公钥" class="headerlink" title="导入公钥"></a>导入公钥</h2><p><strong>注意，要远程copy成authorized_keys文件</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp ~/.ssh/id_rsa.pub root@server_ip:/home/git/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
-<h1 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h1><p>新建一个裸仓库。一个远程仓库通常只是一个裸仓库（bare repository）— 即一个没有当前工作目录的仓库。 因为该仓库仅仅作为合作媒介，不需要从磁碟检查快照；存放的只有 Git 的资料。 简单的说，裸仓库就是你工程目录内的 .git 子目录内容，不包含其他资料。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /home/git/repo/</span><br><span class="line">$ sudo chown git:git /home/git/repo/</span><br><span class="line">$ <span class="built_in">cd</span> /home/git/repo/</span><br><span class="line">$ git init --bare sample.git</span><br><span class="line">$ sudo chown -R git:git sample.git</span><br></pre></td></tr></table></figure></p>
-<h1 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h1><p>借助一个名为 git-shell 的受限 shell 工具，你可以方便地将用户 git 的活动限制在与 Git 相关的范围内。该工具随 Git 软件包一同提供。 如果将 git-shell 设置为用户 git 的登录 shell（login shell），那么用户 git 便不能获得此服务器的普通 shell 访问权限。 若要使用 git-shell，需要用它替换掉 bash 或 csh，使其成为系统用户的登录 shell。 为进行上述操作，首先你必须确保 git-shell 已存在于 /etc/shells 文件中：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/shells   <span class="comment"># see if `git-shell` is already in there.  If not...</span></span><br><span class="line">$ <span class="built_in">which</span> git-shell   <span class="comment"># make sure git-shell is installed on your system.</span></span><br><span class="line">$ sudo vim /etc/shells  <span class="comment"># and add the path to git-shell from last command</span></span><br></pre></td></tr></table></figure></p>
-<p>使用 chsh <username> 命令修改任一系统用户的 shell<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chsh git  <span class="comment"># and enter the path to git-shell, usually: /usr/bin/git-shell</span></span><br></pre></td></tr></table></figure></username></p>
-<p>这样，用户 git 就只能利用 SSH 连接对 Git 仓库进行推送和拉取操作，而不能登录机器并取得普通 shell。 如果试图登录，你会发现尝试被拒绝，像这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ssh git@gitserver</span><br><span class="line">fatal: Interactive git shell is not enabled.</span><br><span class="line">hint: ~/git-shell-commands should exist and have <span class="built_in">read</span> and execute access.</span><br><span class="line">Connection to gitserver closed.</span><br></pre></td></tr></table></figure></p>
-<h1 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h1><p>现在，客户端可以通过git clone命令克隆远程仓库了，在各自的电脑上运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@server_ip:/home/git/repo/sample.git</span><br></pre></td></tr></table></figure></p>
-<p>然后就可以开始使用git服务器了,推送，别的用户可以拉取，协同工作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ touch index.html</span><br><span class="line">$ git add index.html</span><br><span class="line">$ git commit index.html -m <span class="string">'first commit'</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
-<h1 id="同步部署网站"><a href="#同步部署网站" class="headerlink" title="同步部署网站"></a>同步部署网站</h1><h2 id="创建网站的目录"><a href="#创建网站的目录" class="headerlink" title="创建网站的目录"></a>创建网站的目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mkdir /var/www/sample -p</span><br><span class="line">$ sudo chown -R git:git /var/www/sample</span><br></pre></td></tr></table></figure>
-<h2 id="设置git钩子"><a href="#设置git钩子" class="headerlink" title="设置git钩子"></a>设置git钩子</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /home/git/repo/sample.git/hooks</span><br><span class="line">$ sudo vim post-receive</span><br></pre></td></tr></table></figure>
-<p>写入以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">GIT_WORK_TREE=/var/www/sample git checkout -f</span><br></pre></td></tr></table></figure></p>
-<p>写入权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chmod +x post-receive</span><br></pre></td></tr></table></figure></p>
-<p>如果是要同步多台服务器，可以在钩子里添加rsync的脚本。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Eloquent</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Yaf</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Twig</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Composer</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/05/25/remember-me/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          「 记住我」功能的实现
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/10/22/yaf-example/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">yaf-example</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-<!-- social-share Button BEGIN -->
-<div style="padding:0 40px 20px;">
-	<div class="social-share"></div>
-
-	<!--  css & js -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/css/share.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.15/js/social-share.min.js"></script>
-</div>
-<!-- social-share Button END -->
-
-      
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="set-up-git-server" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = "cysXoDVxd"; 
-var conf = "c3f12ee7963447656f468a9bbd28308a"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-  
-
-  
+    
 
 
           </div>
@@ -342,9 +280,9 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
