@@ -6,28 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jayzchen.com">
-  <title>Phalcon基准测试 | 雨泪漂古 | 过往云烟</title>
+  <title>Phalcon基准测试（译） | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+  <meta name="description" content="英文出处：Benchmarking Phalcon  
 
-距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalco">
+距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalcon可以进一步推动你的应用程序性能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Phalcon基准测试">
+<meta property="og:title" content="Phalcon基准测试（译）">
 <meta property="og:url" content="http://jayzchen.com/2017/06/21/benchmarking-phalcon/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
-<meta property="og:description" content="本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+<meta property="og:description" content="英文出处：Benchmarking Phalcon  
 
-距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalco">
+距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalcon可以进一步推动你的应用程序性能。">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-files-per-request.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-memory-per-request.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-requests-per-second.png">
 <meta property="og:image" content="https://blog.phalconphp.com/files/2017-04-13-requests-time.png">
-<meta property="og:updated_time" content="2017-06-23T12:36:48.000Z">
+<meta property="og:updated_time" content="2017-08-06T09:40:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Phalcon基准测试">
-<meta name="twitter:description" content="本文由CoffeePHP社区 JsyzChen翻译，未经许可，禁止转载！英文出处：Benchmarking Phalcon  
+<meta name="twitter:title" content="Phalcon基准测试（译）">
+<meta name="twitter:description" content="英文出处：Benchmarking Phalcon  
 
-距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalco">
+距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalcon可以进一步推动你的应用程序性能。">
 <meta name="twitter:image" content="https://blog.phalconphp.com/files/2017-04-13-files-per-request.png">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Phalcon基准测试
+      Phalcon基准测试（译）
     </h1>
   
 
@@ -221,7 +221,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>本文由<a href="http://coffeephp.com" target="_blank" rel="external">CoffeePHP社区</a> <a href="http://jsyzchen.com" target="_blank" rel="external">JsyzChen</a>翻译，未经许可，禁止转载！<br>英文出处：<a href="https://blog.phalconphp.com/post/benchmarking-phalcon" target="_blank" rel="external">Benchmarking Phalcon</a>  </p>
+<p>英文出处：<a href="https://blog.phalconphp.com/post/benchmarking-phalcon" target="_blank" rel="external">Benchmarking Phalcon</a>  </p>
 </blockquote>
 <p>距离上一次对比其他框架做基准测试已经有一段时间了。 实际上，我们最后一次在文档中的基准是Phalcon 1.3！抱歉，是我们的疏忽。<br>希望这篇文章能够在对Phalcon和您的应用程序期望值上向您提供一些视角。 毋庸置疑，每个应用程序都需要最好的设计，但是使用Phalcon可以进一步推动你的应用程序性能。<br><a id="more"></a></p>
 <h2 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h2><p>我们已经为每一个框架安装了常备的应用。 我们相信有路由，控制器和视图去展示’hello’到显示器上。实际上这不是一个生动的例子，但是展示把字符串显示到屏幕上所需要加载的最小的资源。<br><code>注意：每个框架提供了常见应用，我们要做的事是把每个框架部署到生产模式中去。</code><br>这次基准测试只能测量出每个框架启动，执行每一个action，显示结果，然后请求结束释放资源需要的时间。任何一个基于上述框架的PHP应用都需要时间和资源。可以假定任何比这个更复杂的实现每次请求将会消耗更多额外的资源。<br>这次测试将使用Apache的ab压力测试工具，1000个请求数5个并发数。</p>
