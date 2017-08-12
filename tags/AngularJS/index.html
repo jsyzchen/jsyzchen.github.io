@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jayzchen.com">
-  <title>雨泪漂古 | 过往云烟</title>
+  <title>Tag: AngularJS | 雨泪漂古 | 过往云烟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="雨泪漂古 | 过往云烟">
-<meta property="og:url" content="http://jayzchen.com/page/2/index.html">
+<meta property="og:url" content="http://jayzchen.com/tags/AngularJS/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="陈晨，PHP开发工程师，现就职于新浪乐居。">
 <meta name="twitter:card" content="summary">
@@ -190,40 +190,34 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-yar-first-use" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/07/21/angularjs-yar-email/" class="archive-article-date">
+  	<time datetime="2015-07-21T10:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-21</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/17/yar-first-use/">Yar初使用</a>
+      <a class="archive-article-title" href="/2015/07/21/angularjs-yar-email/">AngularJs结合Yar构建一款email小应用</a>
     </h1>
   
 
-        
-        <a href="/2015/07/17/yar-first-use/" class="archive-article-date">
-  	<time datetime="2015-07-17T10:03:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：<a href="http://www.laruence.com/2012/09/15/2779.html" title="YAR">http://www.laruence.com/2012/09/15/2779.html</a><br>下面切入正题：</p>
-<p><strong>一、准备工作</strong></p>
-<p>1.安装msgpack扩展<br>下载：<a href="http://pecl.php.net/package/msgpack">http://pecl.php.net/package/msgpack</a>，然后上传到/usr/local目录下，安装完可以删了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">tar zxvf msgpack-x.x.x.tgz</span><br><span class="line"><span class="built_in">cd</span> msgpack-0.x.x</span><br><span class="line">phpize</span><br><span class="line">./configure - -with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config <span class="comment">#这里是你php的安装目录+/bin/php-config,下同</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
-<p>会在no-debug-non-zts-xxxxxxxx中生成msgpack.so<br>在php.ini中加入extension=/usr/local/php/lib/php/extensions/no-debug-non-zts-xxxxxxxx/msgback.so</p>
-        
-          <a class="article-more-a" href="/2015/07/17/yar-first-use/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -235,178 +229,31 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Yar</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/17/yar-first-use/">展开全文 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-      
-
-
-  
-    <article id="post-rsync-linux-sync-file" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/10/rsync-linux-sync-file/">rsync实现多台linux服务器的文件同步</a>
-    </h1>
-  
-
-        
-        <a href="/2015/05/10/rsync-linux-sync-file/" class="archive-article-date">
-  	<time datetime="2015-05-10T15:44:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在搞阿里云的SLB，但是阿里云没有提供WEB服务器的文件同步，还好rsync可以实现，但弄了好久，所以希望阿里云能够早日出想新浪SAE的自动同步功能，或者出一个针对ESC的rsync配置视频或文档也好啊，让我们这些小白少走些弯路。好了，废话少说，我们来学习一下rsync的配置。</p>
-        
-          <a class="article-more-a" href="/2015/05/10/rsync-linux-sync-file/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">rsync</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AngularJS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">crontab</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">inotify</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/05/10/rsync-linux-sync-file/">展开全文 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-      
-
-
   
-    <article id="post-lottery-draw-simple-algorithm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/27/lottery-draw-simple-algorithm/">抽奖活动业务逻辑的处理</a>
-    </h1>
-  
-
-        
-        <a href="/2015/03/27/lottery-draw-simple-algorithm/" class="archive-article-date">
-  	<time datetime="2015-03-27T04:17:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>注意：</strong>以下方法只适合低并发的抽奖活动，因为我们直接去操作了数据库，如果是高并发的活动可以尝试Redis。本例奖品是微信卡券，没限数量。<br>
-        
-          <a class="article-more-a" href="/2015/03/27/lottery-draw-simple-algorithm/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/03/27/lottery-draw-simple-algorithm/">展开全文 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-      
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -428,10 +275,10 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
