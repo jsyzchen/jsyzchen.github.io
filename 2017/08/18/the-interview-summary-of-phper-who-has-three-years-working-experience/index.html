@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://jayzchen.com/2017/08/18/the-interview-summary-of-phper-who-has-three-years-working-experience/index.html">
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="之前看到一篇文章《八年phper的高级工程师面试之路》，然后最近我也在面试，面了有百度、360、滴滴、小米、微博、58赶集、搜狗、瓜子二手车等公司，最后也进了心仪的公司，面试过程中学到了很多东西，所以也想和大家分享一下，虽然我的工作经验才3年左右。注：下面题目的答案只是我思考和查询资料的结果，并不代表完全准确，有错误的地方大家可以指正，有更好的方案可以提出，大家一起讨论。">
-<meta property="og:updated_time" content="2017-09-11T02:02:18.000Z">
+<meta property="og:updated_time" content="2017-09-11T05:07:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3年PHPer的面试总结">
 <meta name="twitter:description" content="之前看到一篇文章《八年phper的高级工程师面试之路》，然后最近我也在面试，面了有百度、360、滴滴、小米、微博、58赶集、搜狗、瓜子二手车等公司，最后也进了心仪的公司，面试过程中学到了很多东西，所以也想和大家分享一下，虽然我的工作经验才3年左右。注：下面题目的答案只是我思考和查询资料的结果，并不代表完全准确，有错误的地方大家可以指正，有更好的方案可以提出，大家一起讨论。">
@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
 <li>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</li>
 <li>GET请求只能进行url编码，而POST支持多种编码方式。</li>
 <li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</li>
-<li>GET请求在URL中传送的参数是有长度限制的，而POST么有。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST没有。</li>
 <li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
 <li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
 <li>GET参数通过URL传递，POST放在Request body中。</li>
@@ -304,7 +304,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ol>
-<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><h3 id="1-执行SQL语句：select-count-from-articles-时，MySIAM和InnoDB哪个快"><a href="#1-执行SQL语句：select-count-from-articles-时，MySIAM和InnoDB哪个快" class="headerlink" title="1.执行SQL语句：select count(*) from articles 时，MySIAM和InnoDB哪个快"></a>1.执行SQL语句：select count(*) from articles 时，MySIAM和InnoDB哪个快</h3><p>MySIAM快，因为MySIAM本身就记录了数量，而InnoDB要扫描数据</p>
+<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><h3 id="1-执行SQL语句：select-count-from-articles-时，MyISAM和InnoDB哪个快"><a href="#1-执行SQL语句：select-count-from-articles-时，MyISAM和InnoDB哪个快" class="headerlink" title="1.执行SQL语句：select count(*) from articles 时，MyISAM和InnoDB哪个快"></a>1.执行SQL语句：select count(*) from articles 时，MyISAM和InnoDB哪个快</h3><p>MyISAM快，因为MyISAM本身就记录了数量，而InnoDB要扫描数据</p>
 <h3 id="3-隐式转换"><a href="#3-隐式转换" class="headerlink" title="3.隐式转换"></a>3.隐式转换</h3><ul>
 <li>当查询字段是INT类型，如果查询条件为CHAR，将查询条件转换为INT，如果是字符串前导都是数字将会进行截取，如果不是转换为0。</li>
 <li>当查询字段是CHAR/VARCHAR类型，如果查询条件为INT，将查询字段为换为INT再进行比较，可能会造成全表扫描</li>
