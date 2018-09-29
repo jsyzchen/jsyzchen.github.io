@@ -18,15 +18,15 @@
 <meta property="og:description" content="Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：http://www.laruence.com/2012/09/15/2779.html下面切入正题：
 一、准备工作
 1.安装msgpack扩展下载：http://pecl.php.net/package/msgpack，然后上传到/usr/local目录下，安装完可以删了。123456cd /u">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/07/20150718114528.png">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/07/client.png">
-<meta property="og:updated_time" content="2017-07-13T08:03:58.000Z">
+<meta property="og:image" content="http://jayzchen.com/uploads/2015/07/20150718114528.png">
+<meta property="og:image" content="http://jayzchen.com/uploads/2015/07/client.png">
+<meta property="og:updated_time" content="2018-09-29T03:16:06.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yar初使用">
 <meta name="twitter:description" content="Yar是鸟哥开发的一个并行的RPC框架，用来做API再合适不过了，对于Yar的介绍可以参考鸟哥的博客：http://www.laruence.com/2012/09/15/2779.html下面切入正题：
 一、准备工作
 1.安装msgpack扩展下载：http://pecl.php.net/package/msgpack，然后上传到/usr/local目录下，安装完可以删了。123456cd /u">
-<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2015/07/20150718114528.png">
+<meta name="twitter:image" content="http://jayzchen.com/uploads/2015/07/20150718114528.png">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -127,7 +127,7 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="https://www.weibo.com/92chen" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/jsyzchen" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
@@ -168,7 +168,7 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/jsyzchen" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://www.weibo.com/92chen" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="https://www.weibo.com/92chen" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/jsyzchen" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
@@ -229,9 +229,9 @@ var _hmt = _hmt || [];
 <p>3.重启php或apache</p>
 <p><strong>二、实例</strong></p>
 <p>1.server端代码,server.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">API</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">api</span><span class="params">($parameter, $option = <span class="string">"foo"</span>)</span> </span>&#123;</span><br><span class="line">        $arr = <span class="keyword">array</span>(<span class="string">'code'</span>=&gt;<span class="number">200</span>,<span class="string">'msg'</span>=&gt;<span class="string">'成功'</span>,<span class="string">'data'</span>=&gt;<span class="string">'返回数据'</span>);</span><br><span class="line">    	<span class="keyword">return</span> json_encode($arr);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">client_can_not_see</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line">$service = <span class="keyword">new</span> Yar_Server(<span class="keyword">new</span> API());</span><br><span class="line">$service-&gt;handle();</span><br></pre></td></tr></table></figure></p>
-<p>2.get请求server端时，会显示接口文档<br><img src="http://img.jsyzchen.com/uploads/2015/07/20150718114528.png" alt="yar服务端get请求"></p>
+<p>2.get请求server端时，会显示接口文档<br><img src="/uploads/2015/07/20150718114528.png" alt="yar服务端get请求"></p>
 <p>3.客户端代码，client.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(E_ALL);</span><br><span class="line"><span class="comment">//简单的串行调用</span></span><br><span class="line">$client = <span class="keyword">new</span> Yar_Client(<span class="string">"http://yar.jsyzchen.com/server.php"</span>);</span><br><span class="line">$result = $client-&gt;api(<span class="string">"parameter"</span>);</span><br><span class="line"><span class="comment">//并行化调用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span><span class="params">($retval, $callinfo)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ($callinfo == <span class="keyword">NULL</span>) &#123;</span><br><span class="line">       <span class="comment">//做本地的逻辑</span></span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">TRUE</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"method: "</span> , $callinfo[<span class="string">'method'</span>] , <span class="string">" result: "</span>, $retval , <span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Yar_Concurrent_Client::call(<span class="string">"http://yar.jsyzchen.com/server.php"</span>, <span class="string">"api"</span>, <span class="keyword">array</span>(<span class="string">"parameters"</span>), <span class="string">"callback"</span>);</span><br><span class="line">Yar_Concurrent_Client::call(<span class="string">"http://yar.jsyzchen.com/server.php"</span>, <span class="string">"api"</span>, <span class="keyword">array</span>(<span class="string">"parameters"</span>), <span class="string">"callback"</span>);</span><br><span class="line">Yar_Concurrent_Client::call(<span class="string">"http://yar.jsyzchen.com/server.php"</span>, <span class="string">"api"</span>, <span class="keyword">array</span>(<span class="string">"parameters"</span>), <span class="string">"callback"</span>);</span><br><span class="line">Yar_Concurrent_Client::call(<span class="string">"http://yar.jsyzchen.com/server.php"</span>, <span class="string">"api"</span>, <span class="keyword">array</span>(<span class="string">"parameters"</span>), <span class="string">"callback"</span>);</span><br><span class="line"><span class="comment">/* 发送所有注册的调用, 等待返回, 返回后Yar会调用callback回掉函数 */</span></span><br><span class="line">Yar_Concurrent_Client::loop(); <span class="comment">//send</span></span><br></pre></td></tr></table></figure></p>
-<p>4.客户端显示<br><img src="http://img.jsyzchen.com/uploads/2015/07/client.png" alt="client端显示"></p>
+<p>4.客户端显示<br><img src="/uploads/2015/07/client.png" alt="client端显示"></p>
 <p>三、更多Yar文档请参考<a href="http://php.net/manual/zh/book.yar.php" target="_blank" rel="external">http://php.net/manual/zh/book.yar.php</a></p>
 
       
