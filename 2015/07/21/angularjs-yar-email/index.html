@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="雨泪漂古 | 过往云烟">
 <meta property="og:description" content="注意:本文默认读者有一定的Angularjs和Yar的基础知识,Yar的基础案例之前的文章有分享过，AngularJs我以后也会写一篇文章简单介绍和应用一下。
 一、AngularJs项目目录结构如下图">
-<meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/07/angularjsxmjgml.png">
+<meta property="og:image" content="http://jayzchen.com/uploads/2015/07/angularjsxmjgml.png">
 <meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/07/angularemailindex.png">
 <meta property="og:image" content="http://img.jsyzchen.com/uploads/2015/07/angularemaildetail.png">
-<meta property="og:updated_time" content="2017-07-13T08:03:22.000Z">
+<meta property="og:updated_time" content="2018-09-29T03:07:34.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJs结合Yar构建一款email小应用">
 <meta name="twitter:description" content="注意:本文默认读者有一定的Angularjs和Yar的基础知识,Yar的基础案例之前的文章有分享过，AngularJs我以后也会写一篇文章简单介绍和应用一下。
 一、AngularJs项目目录结构如下图">
-<meta name="twitter:image" content="http://img.jsyzchen.com/uploads/2015/07/angularjsxmjgml.png">
+<meta name="twitter:image" content="http://jayzchen.com/uploads/2015/07/angularjsxmjgml.png">
   
     <link rel="alternative" href="/atom.xml" title="雨泪漂古 | 过往云烟" type="application/atom+xml">
   
@@ -218,7 +218,7 @@ var _hmt = _hmt || [];
       
         <p><strong>注意:</strong>本文默认读者有一定的Angularjs和Yar的基础知识,Yar的基础案例之前的文章有分享过，AngularJs我以后也会写一篇文章简单介绍和应用一下。</p>
 <p><strong>一、AngularJs项目目录结构如下图</strong></p>
-<p><img src="http://img.jsyzchen.com/uploads/2015/07/angularjsxmjgml.png" alt="angularjs项目目录结构"></p>
+<p><img src="/uploads/2015/07/angularjsxmjgml.png" alt="angularjs项目目录结构"></p>
 <a id="more"></a>
 <p><strong>二、angularjs部分</strong></p>
 <p>1.index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">ng-app</span>=<span class="string">'AMail'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//lib.sinaapp.com/js/bootstrap/3.0.0/css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//lib.sinaapp.com/js/angular.js/angular-1.2.19/angular-route.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"scripts/controllers/controllers.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>AMail<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>A-Mail<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
